@@ -55,10 +55,11 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            <button className="btn-primary ml-4">
+            
+          </div>
+          <button className="btn-primary ml-4">
               Book Now
             </button>
-          </div>
 
           {/* Mobile menu button */}
           <button

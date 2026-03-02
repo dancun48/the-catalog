@@ -54,7 +54,7 @@ const Footer = () => {
           <div className="col-span-2 lg:col-span-1">
             <div className="mb-4">
               <span className="text-2xl font-display font-semibold text-primary">
-                <img src="/thecatalog.png" alt="The Catalog Logo" className="h-24 w-24" />
+                <img src="/thecatalog.png" alt="The Catalog Logo" className="size-24" />
               </span>
             </div>
             <p className="text-sm text-gray-600 mb-4">
