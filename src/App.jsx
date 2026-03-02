@@ -4,22 +4,27 @@ import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
 import HomePage from './pages/HomePage';
 import WellnessHivePage from './pages/WellnessHivePage';
+import OptimizaPage from './pages/OptimizaPage';
+import {HelmetProvider} from 'react-helmet-async';
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-white flex flex-col">
+    <HelmetProvider>
+      <Router>
+        <div className="min-h-screen bg-white flex flex-col">
         <Navbar />
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/wellness-hive" element={<WellnessHivePage />} />
+            <Route path="/optimiza" element={<OptimizaPage />} />
             {/* Add other routes as needed */}
           </Routes>
         </div>
         <Footer />
       </div>
     </Router>
+    </HelmetProvider>
   );
 }
 
