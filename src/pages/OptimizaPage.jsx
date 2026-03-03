@@ -244,7 +244,7 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Our Services</h2>
+            <h2 className="section-title text-4xl">Our Services</h2>
             <p className="section-subtitle mt-4">
               Comprehensive preventive health solutions tailored to your needs
             </p>
@@ -292,7 +292,7 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">How It Works</h2>
+            <h2 className="section-title text-4xl">How It Works</h2>
             <p className="section-subtitle mt-4">
               Your journey to optimal health in five simple steps
             </p>
@@ -364,7 +364,7 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Signature Programs</h2>
+            <h2 className="section-title text-4xl">Signature Programs</h2>
             <p className="section-subtitle mt-4">
               Specialized health optimization pathways designed for specific needs
             </p>
@@ -402,7 +402,7 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Why Health Optimiza</h2>
+            <h2 className="section-title text-4xl">Why Health Optimiza</h2>
             <p className="section-subtitle mt-4">
               A fundamentally different approach to your health
             </p>
@@ -448,7 +448,7 @@ const OptimizaPage = () => {
               <div className="w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                 <Award className="h-12 w-12 text-primary" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-3xl font-display font-semibold tracking-tight text-gray-900 mb-4">
                 Led by Dr. Erick George Otieno
               </h2>
               <p className="text-lg text-primary mb-4">Preventive Health Physician</p>
@@ -519,7 +519,7 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">What Our Clients Say</h2>
+            <h2 className="section-title text-4xl">What Our Clients Say</h2>
             <p className="section-subtitle mt-4">
               Real stories from real people
             </p>
@@ -560,7 +560,7 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Membership & Continuity Care</h2>
+            <h2 className="section-title text-4xl">Membership & Continuity Care</h2>
             <p className="section-subtitle mt-4">
               Choose the plan that fits your health journey
             </p>
@@ -612,7 +612,7 @@ const OptimizaPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-semibold text-white mb-6">
+            <h2 className="text-4xl md:text-4xl font-display font-semibold text-white mb-6">
               Your health should not wait for illness.
             </h2>
             <p className="text-xl text-white/90 mb-10">
