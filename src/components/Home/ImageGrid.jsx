@@ -1,14 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import workforce from '../../assets/images/workforce.jpg';
 
 const ImageGrid = () => {
   const images = [
-    { id: 1, aspect: 'aspect-[4/3]' },
-    { id: 2, aspect: 'aspect-[4/3]' },
-    { id: 3, aspect: 'aspect-[4/3]' },
-    { id: 4, aspect: 'aspect-[4/3]' },
-    { id: 5, aspect: 'aspect-[4/3]' },
-    { id: 6, aspect: 'aspect-[4/3]' },
+    { id: 1, aspect: 'aspect-[4/3]', src: workforce},
+    { id: 2, aspect: 'aspect-[4/3]', src: workforce },
+    { id: 3, aspect: 'aspect-[4/3]', src: workforce },
+    { id: 4, aspect: 'aspect-[4/3]', src: workforce },
+    { id: 5, aspect: 'aspect-[4/3]' , src: workforce},
+    { id: 6, aspect: 'aspect-[4/3]' , src: workforce},
   ];
 
   return (
@@ -20,7 +21,7 @@ const ImageGrid = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="section-title">Our Impact in Action</h2>
+          <h2 className="section-title text-4xl">Our Impact in Action</h2>
           <p className="section-subtitle mt-4">
             Real results from organizations that have transformed their workforce
           </p>
@@ -36,9 +37,9 @@ const ImageGrid = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group cursor-pointer"
             >
-              <div className="bg-gray-100 rounded-2xl overflow-hidden card-hover">
-                <div className={`${image.aspect} flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200`}>
-                  <span className="text-gray-400 text-sm">Image {image.id}</span>
+              <div className="rounded-2xl overflow-hidden card-hover">
+                <div className={`${image.aspect} flex items-center justify-center`}>
+                  <span className="text-gray-400 text-sm"><img src={image.src} alt="Workforce" className="w-full h-full object-cover rounded-2xl" /></span>
                 </div>
                 <div className="p-4">
                   <div className="w-12 h-1 bg-secondary rounded-full group-hover:w-16 transition-all" />

@@ -35,7 +35,7 @@ const PodcastSection = () => {
                 </div>
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-display font-semibold mb-2">
+              <h2 className="text-4xl md:text-4xl font-display font-semibold mb-2">
                 The Catalog
               </h2>
               <p className="text-2xl text-white/90 mb-2">Podcast</p>

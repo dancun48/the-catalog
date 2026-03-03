@@ -1,10 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import workforce from '../../assets/images/workforce.jpg';
 
 const Hero = () => {
+
+  const images = [
+    { id: 1, aspect: 'aspect-[4/3]', src: workforce},
+    { id: 2, aspect: 'aspect-[4/3]', src: workforce },
+    { id: 3, aspect: 'aspect-[4/3]', src: workforce },
+    { id: 4, aspect: 'aspect-[4/3]', src: workforce },
+  ];
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative max-h-[90vh] flex items-center pt-20 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
       
@@ -21,7 +29,7 @@ const Hero = () => {
               Powered by Wellness Hive
             </span>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
               Build emotionally intelligent,
               <span className="text-primary"> high-performance</span> workforce.
             </h1>
@@ -43,8 +51,8 @@ const Hero = () => {
             {/* Trust indicators */}
             <div className="mt-12 flex items-center space-x-8">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-gray-200 border-2 border-white" />
+                {images.map((i, index) => (
+                  <div key={index} className="w-10 h-10 rounded-full bg-gray-200 border-2 border-white" ><img src={i.src} alt="Trusted company" className="w-full h-full object-cover rounded-full" /></div>
                 ))}
               </div>
               <div>
@@ -63,8 +71,8 @@ const Hero = () => {
           >
             <div className="relative z-10">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                  <span className="text-gray-500">[Hero Image]</span>
+                <div className="flex items-center justify-center">
+                  <span className="text-gray-500"><img src={workforce} alt="Workforce" className="w-full h-full object-cover rounded-2xl" /></span>
                 </div>
               </div>
             </div>

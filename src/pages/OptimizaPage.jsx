@@ -151,7 +151,7 @@ const OptimizaPage = () => {
                 <span className="w-8 h-[2px] bg-secondary mr-2"></span>
                 Health Optimiza
               </span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-5xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
                 Detect Risk Early.
                 <span className="text-primary"> Optimize Your Health</span> Fully.
               </h1>

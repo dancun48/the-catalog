@@ -34,7 +34,7 @@ const WellnessPrograms = () => {
           className="text-center mb-16"
         >
           <span className="text-sm font-medium text-primary mb-2 block">Wellness Hive</span>
-          <h2 className="section-title">Two Programs, One Goal</h2>
+          <h2 className="section-title text-4xl">Two Programs, One Goal</h2>
           <p className="section-subtitle mt-4">
             Choose the path that best fits your organization's needs
           </p>

@@ -47,18 +47,15 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Main Footer */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-6 gap-8 mb-4">
           {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-1">
-            <div className="mb-4">
-              <span className="text-2xl font-display font-semibold text-primary">
-                <img src="/thecatalog.png" alt="The Catalog Logo" className="size-24" />
-              </span>
-            </div>
+          <img src="/thecatalog.png" alt="The Catalog Logo" className="size-32" />
+
+          <div className="flex flex-col items-start">
             <p className="text-sm text-gray-600 mb-4">
-              Building emotionally intelligent, high-performance workplaces through data-driven wellness systems.
+              <strong>Building </strong> emotionally intelligent, high-performance workplaces through data-driven wellness systems.
             </p>
             <button className="text-primary text-sm font-medium hover:text-primary/80 transition-colors">
               Book Now →
@@ -86,7 +83,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-200">
+        <div className="pt-4 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-500">
               © 2026 The Catalog. All rights reserved.

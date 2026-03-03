@@ -27,7 +27,7 @@ const PositioningStrip = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-semibold tracking-tight text-gray-900 mb-3">
+          <h2 className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-gray-900 mb-3">
             We don't run wellness activities.
           </h2>
           <p className="text-2xl text-primary font-medium">
