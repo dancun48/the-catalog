@@ -149,13 +149,13 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-              <button 
+              
+            </div><button 
                 className="btn-primary ml-2 lg:ml-4 text-sm lg:text-base whitespace-nowrap"
                 onClick={() => setIsAboutOpen(false)}
               >
                 Book Now
               </button>
-            </div>
 
             {/* Mobile menu button */}
             <button
