@@ -67,6 +67,7 @@ const Navbar = () => {
     { name: 'Optimiza', href: '/optimiza' },
     { name: 'Podcast', href: '/podcast' },
     { name: 'Insights', href: '/insights' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const aboutDropdownItems = [

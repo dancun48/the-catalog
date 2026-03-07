@@ -22,6 +22,7 @@ import {
   RefreshCw
 } from 'lucide-react';
 import wellnesshive from '../assets/images/wellnesshive.jpg';
+import { Helmet } from 'react-helmet-async';
 
 const WellnessHivePage = () => {
   // Performance drivers for WHPM
@@ -88,6 +89,11 @@ const WellnessHivePage = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>The Catalog - Wellness Hive</title>
+        <meta name="description" content="Workplace wellbeing and performance optimization systems powered by the Wellness Hive Performance Model™." />
+      </Helmet>
     <main className="pt-16 md:pt-20">
       {/* Hero Section - unchanged */}
       <section className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
@@ -478,6 +484,7 @@ const WellnessHivePage = () => {
         </div>
       </section>
     </main>
+    </>
   );
 };
 
