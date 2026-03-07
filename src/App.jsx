@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import WellnessHivePage from './pages/WellnessHivePage';
 import OptimizaPage from './pages/OptimizaPage';
 import {HelmetProvider} from 'react-helmet-async';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/wellness-hive" element={<WellnessHivePage />} />
             <Route path="/optimiza" element={<OptimizaPage />} />
             {/* Add other routes as needed */}

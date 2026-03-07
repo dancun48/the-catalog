@@ -21,7 +21,19 @@ import {
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
+import partner1 from '../assets/images/partner1.jpg';
+import doctorerick from '../assets/images/doc1.jpg';
+
 const OptimizaPage = () => {
+
+  // partners data
+  const partners = [
+    { id: 1, name: "Partner 1", image: partner1 },
+    { id: 2, name: "Partner 2", image: partner1 },
+    { id: 3, name: "Partner 3", image: partner1 },
+    { id: 4, name: "Partner 4", image: partner1 }
+  ];
+
   // Services data
   const services = [
     {
@@ -346,9 +358,9 @@ const OptimizaPage = () => {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-16 w-32 bg-gray-100 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400 text-sm">Partner {i}</span>
+            {partners.map((partner) => (
+              <div key={partner.id} className="h-16 w-32 rounded-2xl flex items-center justify-center">
+                <img src={partner.image} alt={partner.name} className="w-full h-full object-contain" />
               </div>
             ))}
           </div>
@@ -475,7 +487,7 @@ const OptimizaPage = () => {
               className="bg-white rounded-2xl p-8 shadow-xl"
             >
               <div className="aspect-square bg-gray-100 rounded-xl flex items-center justify-center">
-                <span className="text-gray-400">[Dr. Erick photo]</span>
+                <img src={doctorerick} alt="Dr. Erick George Otieno" className="w-full h-full object-cover rounded-xl" />
               </div>
             </motion.div>
           </div>
