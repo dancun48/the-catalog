@@ -150,7 +150,8 @@ const Navbar = () => {
                 </div>
               ))}
               
-            </div><button 
+            </div>
+            <button 
                 className="btn-primary ml-2 lg:ml-4 text-sm lg:text-base whitespace-nowrap"
                 onClick={() => setIsAboutOpen(false)}
               >

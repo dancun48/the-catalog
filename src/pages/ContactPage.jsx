@@ -549,7 +549,7 @@ const ContactPage = () => {
                       <p className="text-xs text-gray-600">{faq.answer}</p>
                     </div>
                   ))}
-                  <a href="/faq" className="text-primary text-sm font-medium inline-flex items-center gap-1 group">
+                  <a href="/faqs" className="text-primary text-sm font-medium inline-flex items-center gap-1 group">
                     View all FAQs
                     <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
                   </a>

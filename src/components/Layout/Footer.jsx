@@ -30,9 +30,10 @@ const Footer = () => {
     {
       title: 'Support',
       links: [
-        { name: 'Contact Us', href: '#' },
-        { name: 'FAQs', href: '#' },
-        { name: 'Privacy Policy', href: '#' },
+        { name: 'Contact Us', href: '/contact' },
+        { name: 'FAQs', href: '/faqs' },
+        { name: 'Privacy Policy', href: '/privacy' },
+        { name: 'Cookies Policy', href: '/cookies' },
       ],
     },
   ];
