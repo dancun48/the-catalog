@@ -23,6 +23,7 @@ import { Helmet } from 'react-helmet-async';
 
 import partner1 from '../assets/images/partner1.jpg';
 import doctorerick from '../assets/images/doc1.jpg';
+import optimizahero from '../assets/images/optimiza-hero.jpg';
 
 const OptimizaPage = () => {
 
@@ -205,7 +206,7 @@ const OptimizaPage = () => {
             >
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                  <span className="text-gray-400">[Doctor consultation imagery]</span>
+                  <img src={optimizahero} alt="Optimiza Hero" className="w-full h-full object-cover" />
                 </div>
               </div>
             </motion.div>
