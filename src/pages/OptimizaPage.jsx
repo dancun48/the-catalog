@@ -162,7 +162,7 @@ const OptimizaPage = () => {
             >
               <span className="inline-flex items-center text-sm font-medium text-primary mb-4">
                 <span className="w-8 h-[2px] bg-secondary mr-2"></span>
-                Health Optimiza
+                Health Optimiza™
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-5xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
                 Detect Risk Early.

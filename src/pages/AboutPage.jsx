@@ -86,34 +86,6 @@ const AboutPage = () => {
     }
   ];
 
-  // Leadership team
-  const leadershipTeam = [
-    {
-      name: "Dr. Erick George Otieno",
-      role: "Chief Medical Officer",
-      expertise: "Preventive Medicine",
-      photo: doc1
-    },
-    {
-      name: "Sarah Mwangi",
-      role: "Chief Wellbeing Officer",
-      expertise: "Organizational Psychology",
-      photo: doc1
-    },
-    {
-      name: "James Kimani",
-      role: "Chief Performance Officer",
-      expertise: "Performance Analytics",
-      photo: doc1
-    },
-    {
-      name: "Michael Ochieng",
-      role: "Chief Partnerships Officer",
-      expertise: "Corporate Strategy",
-      photo: doc1
-    }
-  ];
-
   // Core values
   const coreValues = [
     {
@@ -305,45 +277,6 @@ const AboutPage = () => {
                 <value.icon className="h-8 w-8 text-primary mb-4" />
                 <h3 className="text-lg font-display font-semibold text-gray-900 mb-2">{value.title}</h3>
                 <p className="text-sm text-gray-600">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership Section */}
-      <section id="leadership" className="py-24 bg-gray-50 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-display font-semibold tracking-tight text-gray-900 mb-4">
-              Our Leadership
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Experienced professionals committed to transforming workplace health
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {leadershipTeam.map((leader, index) => (
-              <motion.div
-                key={leader.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 text-center border border-gray-100 card-hover"
-              >
-                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <img src={leader.photo} alt={leader.name} className="w-full h-full object-cover rounded-full" />
-                </div>
-                <h3 className="font-display font-semibold text-gray-900">{leader.name}</h3>
-                <p className="text-sm text-primary mt-1">{leader.role}</p>
-                <p className="text-xs text-gray-500 mt-2">{leader.expertise}</p>
               </motion.div>
             ))}
           </div>

@@ -64,7 +64,7 @@ const Navbar = () => {
   const navItems = [
     { name: 'About', dropdown: true, path: '/about' },
     { name: 'Wellness Hive', href: '/wellness-hive' },
-    { name: 'Optimiza', href: '/optimiza' },
+    { name: 'Health Optimiza', href: '/health-optimiza' },
     { name: 'Podcast', href: '/podcast' },
     { name: 'Insights', href: '/insights' },
     { name: 'Contact', href: '/contact' },
@@ -73,9 +73,8 @@ const Navbar = () => {
   const aboutDropdownItems = [
     { name: 'Vision & Mission', href: '/about#vision-mission' },
     { name: 'Core Values', href: '/about#core-values' },
-    { name: 'Our Team', href: '/about#our-team' },
     { name: 'Our Story', href: '/about#our-story' },
-    { name: 'Leadership', href: '/about#leadership' },
+    { name: 'Our Team', href: '/about#our-team' },
   ];
 
   return (

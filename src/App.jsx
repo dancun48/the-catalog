@@ -12,6 +12,7 @@ import ContactPage from './pages/ContactPage';
 import FAQsPage from './pages/FAQsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CookiesPolicyPage from './pages/CookiesPolicyPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/wellness-hive" element={<WellnessHivePage />} />
-            <Route path="/optimiza" element={<OptimizaPage />} />
+            <Route path="/health-optimiza" element={<OptimizaPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/faqs" element={<FAQsPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />

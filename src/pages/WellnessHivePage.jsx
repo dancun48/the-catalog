@@ -106,7 +106,7 @@ const WellnessHivePage = () => {
             >
               <span className="inline-flex items-center text-sm font-medium text-primary mb-4">
                 <span className="w-8 h-[2px] bg-secondary mr-2"></span>
-                Powered by Wellness Hive Performance Model™
+                Powered by Wellness Hive™ Performance Model
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-5xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
                 Workplace Wellbeing & Performance Optimization Systems
@@ -162,7 +162,7 @@ const WellnessHivePage = () => {
               viewport={{ once: true }}
               className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4"
             >
-              Wellness Hive Performance Model™
+              Wellness Hive™ Performance Model
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -317,7 +317,7 @@ const WellnessHivePage = () => {
               Executive | Leadership Track
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Wellness Hive Executive Workshops™
+              Wellness Hive™ Executive Workshops
             </p>
           </motion.div>
 
@@ -374,7 +374,7 @@ const WellnessHivePage = () => {
             <p className="text-gray-700 mb-6">
               Modern organizations face increasing pressure to maintain performance while protecting employee wellbeing. Many of the early warning signs appear subtly before they begin to affect productivity, collaboration, and workplace culture.
             </p>
-            <p className="font-medium text-gray-900 mb-4">Your organization may benefit from a Wellness Hive Performance Partnership™ if you are noticing:</p>
+            <p className="font-medium text-gray-900 mb-4">Your organization may benefit from a Wellness Hive™ Performance Partnership™ if you are noticing:</p>
             
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               {warningSigns.map((sign, index) => (
@@ -394,7 +394,7 @@ const WellnessHivePage = () => {
 
             <div className="flex gap-4">
               <button className="btn-primary px-6 py-3">
-                Explore the Wellness Hive Performance Partnership™
+                Explore the Wellness Hive™ Performance Partnership™
               </button>
               <button className="btn-outline px-6 py-3">
                 Book a Corporate Consultation
@@ -410,7 +410,7 @@ const WellnessHivePage = () => {
             className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8"
           >
             <h2 className="text-3xl font-display font-semibold text-gray-900 mb-4">
-              Wellness Hive Performance Partnership™
+              Wellness Hive™ Performance Partnership
             </h2>
             <p className="text-lg text-gray-700 mb-4">
               A structured 3–12 month workforce wellbeing and performance optimization engagement.
