@@ -90,7 +90,7 @@ const Navbar = () => {
               <img 
                 src="/thecatalog.png" 
                 alt="The Catalog Logo" 
-                className="h-12 w-auto sm:h-16 md:h-20 lg:h-24" 
+                className="h-12 w-auto sm:h-16 md:h-20 lg:h-20 object-contain" 
               />
             </a>
 

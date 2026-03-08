@@ -12,7 +12,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative max-h-[90vh] md:min-h-[90vh] flex items-center pt-20 sm:pt-24 md:pt-28 overflow-hidden">
+    <section className="relative min-h-screen md:min-h-[90vh] flex items-center pt-20 sm:pt-24 md:pt-28 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
       
@@ -30,7 +30,7 @@ const Hero = () => {
               Powered by Wellness Hive
             </span>
             
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-semibold tracking-tight text-gray-900 leading-tight md:leading-[1.1] mb-3 sm:mb-4 md:mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-display font-semibold tracking-tight text-gray-900 leading-tight md:leading-[1.1] mb-3 sm:mb-4 md:mb-6">
               Build emotionally intelligent,
               <span className="text-primary block sm:inline"> high-performance</span> workforce.
             </h1>
