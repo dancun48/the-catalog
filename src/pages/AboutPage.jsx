@@ -17,6 +17,8 @@ import {
   Mail,
   Globe
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
+
 import doc1 from '../assets/images/doc1.jpg';
 
 const AboutPage = () => {
@@ -133,6 +135,11 @@ const AboutPage = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>The Catalog - About</title>
+        <meta name="description" content="Learn about The Catalog's mission, vision, and values in transforming workplace wellbeing across East Africa." />
+      </Helmet>
     <main className="pt-16 md:pt-20">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-gray-50 to-white py-24">
@@ -437,6 +444,7 @@ const AboutPage = () => {
         </div>
       </section>
     </main>
+    </>
   );
 };
 
