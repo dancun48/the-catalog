@@ -16,7 +16,7 @@ const WhatsAppFloat = () => {
 
   const handleSendMessage = () => {
     if (message.trim()) {
-      const whatsappUrl = `https://wa.me/255123456789?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/255146820288?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       setMessage('');
       setIsOpen(false);
@@ -42,9 +42,9 @@ const WhatsAppFloat = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="fixed bottom-24 right-6 z-50 w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center group"
+            className="fixed bottom-5 right-6 z-50 w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center group"
             aria-label="WhatsApp chat"
-            style={{ bottom: 'calc(6rem + 60px)' }} // Position above back-to-top button
+            style={{ bottom: 'calc(2rem + 10px)' }} // Position above back-to-top button
           >
             {isOpen ? (
               <X className="h-6 w-6" />
