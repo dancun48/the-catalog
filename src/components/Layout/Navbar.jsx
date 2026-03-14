@@ -83,13 +83,13 @@ const Navbar = () => {
         scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-200/50' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
+          <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <a href="/" className="flex items-center relative z-[101]">
               <img 
-                src="/thecatalog.png" 
+                src="/thecatalog.png"
                 alt="The Catalog Logo" 
-                className="h-12 w-auto sm:h-16 md:h-20 lg:h-20 object-contain" 
+                className="h-12 w-auto sm:h-16 md:h-16 lg:h-18 object-contain" 
               />
             </a>
 
@@ -105,7 +105,7 @@ const Navbar = () => {
                     >
                       <a
                         href={item.path}
-                        className="nav-link inline-flex items-center text-sm lg:text-base"
+                        className="nav-link inline-flex items-center text-sm"
                       >
                         {item.name}
                         <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isAboutOpen ? 'rotate-180' : ''}`} />

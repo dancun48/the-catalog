@@ -150,10 +150,10 @@ const OptimizaPage = () => {
         <title>The Catalog - Health Optimiza</title>
         <meta name="description" content="Detect risk early. Optimize your health fully with our doctor-led preventive care and lifestyle medicine approach." />
       </Helmet>
-    <main className="pt-16 md:pt-20">
+    <main className="py-2">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -164,7 +164,7 @@ const OptimizaPage = () => {
                 <span className="w-8 h-[2px] bg-secondary mr-2"></span>
                 Health Optimiza™
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-5xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
+              <h1 className="text-4xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
                 Detect Risk Early.
                 <span className="text-primary"> Optimize Your Health</span> Fully.
               </h1>
@@ -205,7 +205,7 @@ const OptimizaPage = () => {
               className="relative"
             >
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+                <div className="aspect-[4/3] flex items-center justify-center">
                   <img src={optimizahero} alt="Optimiza Hero" className="w-full h-full object-cover" />
                 </div>
               </div>

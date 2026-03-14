@@ -94,10 +94,10 @@ const WellnessHivePage = () => {
         <title>The Catalog - Wellness Hive</title>
         <meta name="description" content="Workplace wellbeing and performance optimization systems powered by the Wellness Hive Performance Model™." />
       </Helmet>
-    <main className="pt-16 md:pt-20">
+    <main className="py-2">
       {/* Hero Section - unchanged */}
       <section className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -108,7 +108,7 @@ const WellnessHivePage = () => {
                 <span className="w-8 h-[2px] bg-secondary mr-2"></span>
                 Powered by Wellness Hive™ Performance Model
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-5xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
+              <h1 className="text-4xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
                 Workplace Wellbeing & Performance Optimization Systems
               </h1>
               <p className="text-xl text-gray-600 mb-4 max-w-lg">
@@ -118,11 +118,11 @@ const WellnessHivePage = () => {
                 Sustainable organizational performance begins with human wellbeing.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="btn-primary px-8 py-4 text-base group">
+                <button className="btn-primary px-8 py-4 text-base group text-sm">
                   Book a Corporate Consultation
                   <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="btn-outline px-8 py-4 text-base">
+                <button className="btn-outline px-8 py-4 text-base text-sm">
                   Request Program Overview
                 </button>
               </div>

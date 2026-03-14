@@ -140,26 +140,26 @@ const AboutPage = () => {
         <title>The Catalog - About</title>
         <meta name="description" content="Learn about The Catalog's mission, vision, and values in transforming workplace wellbeing across East Africa." />
       </Helmet>
-    <main className="pt-16 md:pt-20">
+    <main className="py-2">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-gray-50 to-white py-24">
+      <section className="relative bg-gradient-to-b from-gray-50 to-white pt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-display font-semibold tracking-tight text-gray-900 mb-6">
+            <h1 className="text-5xl font-display font-semibold tracking-tight text-gray-900 mb-6">
               About The Catalog
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg text-gray-600 mb-8">
               We are a health intelligence platform committed to transforming how organizations approach workforce wellbeing and human performance.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="btn-primary px-6 py-3">
+              <button className="btn-primary px-6 py-3 text-sm">
                 Meet Our Team
               </button>
-              <button className="btn-outline px-6 py-3">
+              <button className="btn-outline px-6 py-3 text-sm">
                 View Our Impact
               </button>
             </div>
@@ -168,7 +168,7 @@ const AboutPage = () => {
       </section>
 
       {/* Vision & Mission Section */}
-      <section id="vision-mission" className="py-24 bg-white scroll-mt-20">
+      <section id="vision-mission" className="py-10 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
@@ -177,8 +177,8 @@ const AboutPage = () => {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8"
             >
-              <Eye className="h-12 w-12 text-primary mb-4" />
-              <h2 className="text-3xl font-display font-semibold text-gray-900 mb-4">Our Vision</h2>
+              <Eye className="h-10 w-10 text-primary mb-2" />
+              <h2 className="text-2xl font-display font-semibold text-gray-900 mb-4">Our Vision</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 To create a future where every organization in East Africa builds emotionally intelligent, high-performance workforces through data-driven wellness systems.
               </p>
@@ -195,8 +195,8 @@ const AboutPage = () => {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-2xl p-8"
             >
-              <Target className="h-12 w-12 text-secondary mb-4" />
-              <h2 className="text-3xl font-display font-semibold text-gray-900 mb-4">Our Mission</h2>
+              <Target className="h-10 w-10 text-secondary mb-2" />
+              <h2 className="text-2xl font-display font-semibold text-gray-900 mb-4">Our Mission</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 To translate science and wellbeing principles into measurable organizational performance metrics, helping businesses build healthier, more resilient, and higher-performing teams.
               </p>
@@ -219,10 +219,10 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-semibold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
               Our Story
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               From a simple insight to a movement transforming workplace health
             </p>
           </motion.div>
@@ -244,7 +244,7 @@ const AboutPage = () => {
                   <div className="absolute left-6 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 mt-1.5"></div>
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                     <span className="text-sm font-semibold text-primary">{milestone.year}</span>
-                    <h3 className="text-xl font-display font-semibold text-gray-900 mt-1 mb-2">{milestone.title}</h3>
+                    <h3 className="text-md font-display font-semibold text-gray-900 mt-1 mb-2">{milestone.title}</h3>
                     <p className="text-gray-600">{milestone.description}</p>
                   </div>
                 </motion.div>
@@ -255,18 +255,18 @@ const AboutPage = () => {
       </section>
 
       {/* Core Values Section */}
-      <section id="core-values" className="py-24 bg-white scroll-mt-20">
+      <section id="core-values" className="py-10 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-semibold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
               Our Core Values
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               The principles that guide everything we do
             </p>
           </motion.div>
@@ -291,7 +291,7 @@ const AboutPage = () => {
       </section>
 
       {/* Our Team Section */}
-      <section id="our-team" className="py-24 bg-white scroll-mt-20">
+      <section id="our-team" className="py-10 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -299,10 +299,10 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-semibold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
               Our Team
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Passionate experts dedicated to your organization's wellbeing
             </p>
           </motion.div>
