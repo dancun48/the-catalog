@@ -142,8 +142,12 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="order-2 lg:order-1"
           >
+            <div className='flex flex-row items-center text-sm text-secondary font-medium mb-4'>
+              <span className="w-8 h-[2px] bg-secondary mr-2"/>
+              <span>Powered by Wellness Hive™ | Health Optimiza™</span>
+            </div>
             <h1 className="text-3xl md:text-4xl lg:text-4xl font-display font-bold tracking-tight text-gray-900 leading-tight mb-6">
-              Build Healthier, Emotionally Intelligent & High-Performing Workforce.
+              Build <span className="text-primary">Healthier, Emotionally Intelligent & High-Performing</span> Workforce.
             </h1>
             
             <p className="text-lg text-gray-600 mb-8 max-w-xl">
@@ -170,7 +174,7 @@ const Hero = () => {
             {/* Tags */}
             <div className="flex flex-wrap gap-3">
               <span className="text-primary rounded-full text-[0.6rem] font-medium">
-                Doctor-Led Preventive Health | Science-Based Wellness Strategies | <br />Workplace Performance Optimization
+                Doctor-Led Preventive Health | Science-Based Wellness Strategies | Workplace Performance Optimization
               </span>
             </div>
 
