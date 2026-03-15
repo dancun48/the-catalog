@@ -144,7 +144,7 @@ const Hero = () => {
           >
             <div className='flex flex-row items-center text-[0.7rem] text-secondary font-medium mb-6'>
               <span className="w-8 h-[2px] bg-secondary mr-2"/>
-              <span><span className='text-gray-900'>Powered by</span> Wellness Hive™ | <span className='text-primary'>Health Optimiza™</span></span>
+              <span><span className='text-gray-900'>Powered by</span> Wellness Hive™ <span className='text-gray-900'>|</span> <span className='text-primary'>Health Optimiza™</span></span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-4xl font-display font-bold tracking-tight text-gray-900 leading-tight mb-6">
               Build <span className="text-primary">Healthier, Emotionally Intelligent & High-Performing</span> Workforce.
