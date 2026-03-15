@@ -13,10 +13,12 @@ import FAQsPage from './pages/FAQsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CookiesPolicyPage from './pages/CookiesPolicyPage';
 import AboutPage from './pages/AboutPage';
+import ScrollToHash from './components/ScrollToHash';
 
 function App() {
   return (
     <Router>
+      <ScrollToHash />
       <div className="min-h-screen bg-white flex flex-col">
         <Navbar />
         <div className="flex-grow">

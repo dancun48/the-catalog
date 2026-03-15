@@ -80,19 +80,22 @@ const ContactPage = () => {
       id: 'corporate', 
       label: 'Corporate Booking', 
       icon: Briefcase,
-      description: 'Workforce performance optimization for organizations'
+      description: 'Workforce performance optimization for organizations',
+      link: '#corporate-booking'
     },
     { 
       id: 'online', 
       label: 'Online Consultation', 
       icon: Video,
-      description: 'Remote consultations via Google Meet or WhatsApp'
+      description: 'Remote consultations via Google Meet or WhatsApp',
+      link: '#online-booking'
     },
     { 
       id: 'clinic', 
       label: 'Clinic Consultation', 
       icon: Stethoscope,
-      description: 'In-person consultation with Dr. Erick G Otieno'
+      description: 'In-person consultation with Dr. Erick G Otieno',
+      link: '#clinic-booking'
     },
   ];
 
@@ -252,7 +255,7 @@ const ContactPage = () => {
       </section>
 
       {/* Booking Type Selection */}
-      <section className="py-8 bg-white border-y border-gray-100">
+      <section id="book-now" className="py-8 bg-white border-y border-gray-100 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-display font-semibold text-gray-900">

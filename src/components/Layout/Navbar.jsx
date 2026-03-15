@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
   const [hoverTimeout, setHoverTimeout] = useState(null);
 
   useEffect(() => {
@@ -152,7 +154,7 @@ const Navbar = () => {
             </div>
             <button 
                 className="btn-primary ml-2 lg:ml-4 text-sm lg:text-sm whitespace-nowrap"
-                onClick={() => setIsAboutOpen(false)}
+                onClick={() => { setIsAboutOpen(false); navigate('/contact#book-now'); scrollTo(0, 0); }}
               >
                 Book Now
               </button>

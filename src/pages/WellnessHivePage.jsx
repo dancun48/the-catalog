@@ -24,7 +24,10 @@ import {
 import wellnesshive from '../assets/images/wellnesshive.jpg';
 import { Helmet } from 'react-helmet-async';
 
+import { useNavigate } from 'react-router-dom';
+
 const WellnessHivePage = () => {
+  const navigate = useNavigate();
   // Performance drivers for WHPM
   const performanceDrivers = [
     { icon: Brain, name: "Mental Wellbeing", color: "primary" },
@@ -118,11 +121,11 @@ const WellnessHivePage = () => {
                 Sustainable organizational performance begins with human wellbeing.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="btn-primary px-8 py-4 text-base group text-sm">
+                <button onClick={() => {navigate('/contact#book-now'); scrollTo(0,0)}} className="btn-primary px-8 py-4 text-base group text-sm">
                   Book a Corporate Consultation
                   <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="btn-outline px-8 py-4 text-base text-sm">
+                <button onClick={() => {navigate('/contact'); scrollTo(0,0)}} className="btn-outline px-8 py-4 text-base text-sm">
                   Request Program Overview
                 </button>
               </div>
