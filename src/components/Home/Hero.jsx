@@ -142,7 +142,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="order-2 lg:order-1"
           >
-            <div className='flex flex-row items-center text-sm text-secondary font-medium mb-4'>
+            <div className='flex flex-row items-center text-[0.7rem] text-secondary font-medium mb-6'>
               <span className="w-8 h-[2px] bg-secondary mr-2"/>
               <span><span className='text-gray-900'>Powered by</span> Wellness Hive™ | <span className='text-primary'>Health Optimiza™</span></span>
             </div>
