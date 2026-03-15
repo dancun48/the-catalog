@@ -99,7 +99,7 @@ const ContactPage = () => {
   const corporateOptions = [
     {
       id: 'executive-briefing | custom quotation',
-      title: 'Executive Briefing',
+      title: 'Executive Briefing | Custom Quotation',
       description: 'Understanding before commitment is the key. Discussion to tailor Wellness Hive based on your organizational needs and customization for impact.',
       platform: 'Google Meet (Add to calendar) | Direct Call',
       cta: 'Schedule a Meeting',
