@@ -42,7 +42,7 @@ const WhatsAppFloat = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="fixed bottom-5 right-6 z-50 w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center group"
+            className="fixed bottom-15 right-6 z-50 w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center group"
             aria-label="WhatsApp chat"
             style={{ bottom: 'calc(2rem + 10px)' }} // Position above back-to-top button
           >
@@ -61,7 +61,7 @@ const WhatsAppFloat = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 20, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="fixed bottom-44 right-6 z-50 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden"
+                className="fixed bottom-20 right-6 z-50 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden"
                 style={{ bottom: 'calc(6rem + 80px)' }}
               >
                 {/* Header */}

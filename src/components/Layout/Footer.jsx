@@ -47,18 +47,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
+    <footer className="bg-primary border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Main Footer */}
         <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-6 gap-8 mb-4">
           {/* Brand Column */}
-          <img src="/thecatalog.png" alt="The Catalog Logo" className="size-32" />
+          <img src="/logofooter.png" alt="The Catalog Logo" className="size-28 bg-white rounded-xl" />
 
           <div className="flex flex-col items-start">
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-black/70 mb-4">
               <strong>Building </strong> emotionally intelligent, high-performance workplaces through data-driven wellness systems.
             </p>
-            <button className="text-primary text-sm font-medium hover:text-primary/80 transition-colors">
+            <button className="text-white bg-secondary py-2 px-4 rounded-xl text-sm font-medium hover:text-primary/80 transition-colors">
               Book Now →
             </button>
           </div>
@@ -66,13 +66,13 @@ const Footer = () => {
           {/* Footer Sections */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="font-display font-semibold text-gray-900 mb-4">{section.title}</h3>
+              <h3 className="font-display font-semibold text-gray-900 mb-4 text-white">{section.title}</h3>
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <a 
                       href={link.href} 
-                      className="text-sm text-gray-600 hover:text-primary transition-colors"
+                      className="text-xs text-gray-600 hover:text-white/60 transition-colors"
                     >
                       {link.name}
                     </a>
@@ -86,17 +86,17 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-4 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-500">
+            <p className="text-xs text-white/60">
               © 2026 The Catalog. All rights reserved.
             </p>
             
             {/* Social Links */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 text-xs">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
-                  className="text-gray-400 hover:text-primary transition-colors"
+                  className="text-gray-400 hover:text-white/60 transition-colors"
                   aria-label={label}
                 >
                   <Icon className="h-5 w-5" />

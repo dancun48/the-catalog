@@ -12,7 +12,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative max-h-screen md:min-h-[80vh] flex items-center py-2 overflow-hidden">
+    <section className="relative min-h-screen md:min-h-[80vh] sm:min-h-auto flex items-center py-2 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
       
@@ -27,7 +27,7 @@ const Hero = () => {
           >
             <span className="inline-flex items-center text-xs sm:text-sm font-medium text-primary mb-3 sm:mb-4 mx-auto lg:mx-0">
               <span className="w-6 sm:w-8 h-[2px] bg-secondary mr-2 hidden sm:inline-block"></span>
-              Powered by Wellness Hive
+              Powered by Wellness Hive<sup className="text-2xs sm:text-2xs text-secondary/80 ml-0">TM</sup>
             </span>
             
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-display font-semibold tracking-tight text-gray-900 leading-tight md:leading-[1.1] mb-3 sm:mb-4 md:mb-6">
