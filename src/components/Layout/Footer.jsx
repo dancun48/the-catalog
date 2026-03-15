@@ -85,7 +85,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-4 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-around items-center space-y-4 md:space-y-0">
             <p className="text-xs text-white/60">
               © 2026 The Catalog. All rights reserved.
             </p>
