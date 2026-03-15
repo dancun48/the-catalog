@@ -169,14 +169,8 @@ const Hero = () => {
             
             {/* Tags */}
             <div className="flex flex-wrap gap-3">
-              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                Doctor-Led Preventive Health
-              </span>
-              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                Science-Based Wellness Strategies
-              </span>
-              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                Workplace Performance Optimization
+              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-[0.6rem] font-medium">
+                Doctor-Led Preventive Health | Science-Based Wellness Strategies | Workplace Performance Optimization
               </span>
             </div>
 
@@ -197,8 +191,8 @@ const Hero = () => {
                 ))}
               </div>
               <div className="text-center sm:text-left">
-                <p className="text-sm font-medium text-gray-900">Trusted by 100+ companies</p>
-                <p className="text-xs text-gray-500">Across East Africa</p>
+                <p className="text-xs font-medium text-gray-900">Trusted by 100+ companies</p>
+                <p className="text-[0.5rem] text-gray-500">Across East Africa</p>
               </div>
             </div>
           </motion.div>
