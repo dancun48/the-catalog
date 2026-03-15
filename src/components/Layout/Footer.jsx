@@ -55,7 +55,7 @@ const Footer = () => {
           <img src="/logofooter.png" alt="The Catalog Logo" className="size-28 bg-white rounded-xl" />
 
           <div className="flex flex-col items-start">
-            <p className="text-sm text-black/70 mb-4">
+            <p className="text-sm text-white mb-4">
               <strong>Building </strong> emotionally intelligent, high-performance workplaces through data-driven wellness systems.
             </p>
             <button className="text-white bg-secondary py-2 px-4 rounded-xl text-sm font-medium hover:text-primary/80 transition-colors">
@@ -66,13 +66,13 @@ const Footer = () => {
           {/* Footer Sections */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="font-display font-semibold text-gray-900 mb-4 text-white">{section.title}</h3>
+              <h3 className="font-display font-semibold text-gray-900 mb-4 text-secondary">{section.title}</h3>
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <a 
                       href={link.href} 
-                      className="text-xs text-gray-600 hover:text-white/60 transition-colors"
+                      className="text-xs text-white hover:text-white/60 transition-colors"
                     >
                       {link.name}
                     </a>
