@@ -96,7 +96,7 @@ const Footer = () => {
                 <a
                   key={label}
                   href={href}
-                  className="text-gray-400 hover:text-white/60 transition-colors"
+                  className="text-white/60 hover:text-white transition-colors"
                   aria-label={label}
                 >
                   <Icon className="h-5 w-5" />
