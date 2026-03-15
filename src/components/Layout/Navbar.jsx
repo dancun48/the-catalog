@@ -151,7 +151,7 @@ const Navbar = () => {
               
             </div>
             <button 
-                className="btn-primary ml-2 lg:ml-4 text-sm lg:text-base whitespace-nowrap"
+                className="btn-primary ml-2 lg:ml-4 text-sm lg:text-sm whitespace-nowrap"
                 onClick={() => setIsAboutOpen(false)}
               >
                 Book Now
@@ -216,9 +216,9 @@ const Navbar = () => {
                 ))}
                 
                 {/* Mobile Book Now button */}
-                <div className="pt-4">
+                <div className="pt-2">
                   <button 
-                    className="w-full btn-primary py-4 text-base"
+                    className="w-full btn-primary py-4 text-sm"
                     onClick={handleMobileMenuItemClick}
                   >
                     Book Now
