@@ -98,7 +98,7 @@ const ContactPage = () => {
 
   const corporateOptions = [
     {
-      id: 'executive-briefing',
+      id: 'executive-briefing | custom quotation',
       title: 'Executive Briefing',
       description: 'Understanding before commitment is the key. Discussion to tailor Wellness Hive based on your organizational needs and customization for impact.',
       platform: 'Google Meet (Add to calendar) | Direct Call',
@@ -109,7 +109,7 @@ const ContactPage = () => {
       id: 'executive-workshop',
       title: 'Wellness Hive™ Executive Workshop',
       description: 'The start of your organization performance optimization',
-      price: 'TSH 2,500,000/=',
+      price: 'Starting from TSH 2,500,000/=',
       cta: 'Request Quotation'
     },
     {
