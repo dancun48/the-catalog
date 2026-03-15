@@ -5,7 +5,7 @@ import { ArrowRight, Users, Briefcase, Globe } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const CoreServices = () => {
-  
+
   const navigate = useNavigate();
 
   return (
@@ -18,14 +18,11 @@ const CoreServices = () => {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <span className="text-sm font-bold text-primary uppercase tracking-wider mb-2 block">
+          <span className="text-4xl font-bold text-primary tracking-tight mb-2 block">
             How We Support Health & Performance
           </span>
-          <h2 className="text-4xl font-display font-semibold text-gray-900 mb-3">
-            3 Core Service Areas
-          </h2>
           <p className="text-lg text-secondary">
-            Designed for impact at all levels of the community pyramid
+            3 Core Service Areas Designed for impact at all levels of the community pyramid
           </p>
         </motion.div>
 
@@ -69,7 +66,7 @@ const CoreServices = () => {
               </li>
             </ul>
             
-            <button onClick={()=> navigate('/health-optimiza')} className="inline-flex items-center text-secondary font-medium group hover:text-primary/80 transition-colors">
+            <button onClick={()=> {navigate('/health-optimiza'); scrollTo(0, 0)}} className="inline-flex items-center text-secondary font-medium group hover:text-primary/80 transition-colors">
               Explore | Health Optimiza™
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -109,7 +106,7 @@ const CoreServices = () => {
               </li>
             </ul>
             
-            <button className="inline-flex items-center text-secondary font-medium group hover:text-primary/80 transition-colors">
+            <button onClick={()=>{navigate('/wellness-hive'); scrollTo(0,0)}} className="inline-flex items-center text-secondary font-medium group hover:text-primary/80 transition-colors">
               Explore | Wellness Hive™
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>

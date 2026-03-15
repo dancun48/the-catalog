@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Users, Shield, Heart, Brain, AlertTriangle, Activity } from 'lucide-react';
 
+import pillars from "../../assets/images/3pillars.jpeg";
+
 const PositioningStrip = () => {
   const corporateFocus = [
     { icon: AlertTriangle, name: 'Burnout Risk Management' },
@@ -83,62 +85,7 @@ const PositioningStrip = () => {
           viewport={{ once: true }}
           className="mb-2"
         >
-          <p className="text-xl text-gray-800 font-medium">
-            <span className="text-primary font-semibold">The Catalog Healthcare Approach</span>
-          </p>
-        {/* Three Pillars */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className='bg-gray-100 rounded-xl p-4'
-        >
-          <h3 className="text-2xl md:text-3xl font-display font-semibold my-6 text-secondary">
-            THE 3 PILLARS
-          </h3>
-          
-          <div className="flex flex-col items-start gap-12 justify-center">
-            {/* Human Performance */}
-            <div className="flex flex-row gap-3 items-center bg-primary/20 p-6 rounded-2xl">
-              <div className="flex justify-center mb-4">
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
-                  <TrendingUp className="h-7 w-7 text-primary" />
-                </div>
-              </div>
-              <h4 className="text-lg font-semibold text-primary mb-3 shadow-lg text-center">HUMAN PERFORMANCE</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Strategies to improve energy, mental clarity, emotional intelligence and daily performance.
-              </p>
-            </div>
-
-            {/* Workplace Wellness */}
-            <div className="flex flex-row gap-3 items-center bg-secondary/20 p-6 rounded-2xl">
-              <div className="flex justify-center mb-4">
-                <div className="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center">
-                  <Users className="h-7 w-7 text-secondary" />
-                </div>
-              </div>
-              <h4 className="text-lg font-semibold text-secondary mb-3 shadow-lg text-center">WORKPLACE WELLNESS</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Structured systems designed to strengthen resilience, productivity, and workforce health.
-              </p>
-            </div>
-
-            {/* Preventive Health */}
-            <div className="flex flex-row gap-3 items-center bg-primary/20 p-6 rounded-2xl">
-              <div className="flex justify-center mb-4">
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Shield className="h-7 w-7 text-primary" />
-                </div>
-              </div>
-              <h4 className="text-lg font-semibold text-primary mb-3 shadow-lg text-center">PREVENTIVE HEALTH</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Rooted in functional medicine & focused on early detection, health optimization and lifestyle intervention for long-term wellbeing.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
+          <img src={pillars} alt="The Catalog Healthcare Approach" className="w-full rounded-2xl shadow-sm" />
         </motion.div>
         </div>
       </div>
