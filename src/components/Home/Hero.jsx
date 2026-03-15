@@ -170,7 +170,7 @@ const Hero = () => {
             {/* Tags */}
             <div className="flex flex-wrap gap-3">
               <span className="text-primary rounded-full text-[0.6rem] font-medium">
-                Doctor-Led Preventive Health | Science-Based Wellness Strategies | Workplace Performance Optimization
+                Doctor-Led Preventive Health | Science-Based Wellness Strategies | <br />Workplace Performance Optimization
               </span>
             </div>
 
