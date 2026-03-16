@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
-import doc1 from '../assets/images/doc1.jpg';
+import doc1 from '../assets/images/doc1.jpeg';
 
 const AboutPage = () => {
   const location = useLocation();

@@ -12,9 +12,10 @@ const JourneySection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-display font-semibold mb-4">Start Your Health & Performance Journey</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Whether you are seeking personal health optimization or workforce wellbeing programs. We provide practical, science-based strategies designed to improve health, resilience and long-term performance.
+          <h2 className="text-4xl font-display text-primary font-semibold mb-4">Start Your Health & Performance Journey</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <span className="font-normal text-gray-600">Whether you are seeking personal health optimization or workforce wellbeing programs.</span><br/>
+            <span className="font-medium text-secondary"> We provide practical, science-based strategies designed to improve health, resilience and long-term performance.</span>
           </p>
         </motion.div>
 
@@ -32,7 +33,7 @@ const JourneySection = () => {
               Partner with The Catalog to strengthen employee wellbeing, resilience, and workplace performance through structured health and wellness programs.
             </p>
             
-            <h5 className="font-semibold mb-3">Best for:</h5>
+            <h5 className="font-semibold mb-3 text-secondary">Best for:</h5>
             <ul className="space-y-2 mb-8">
               <li className="text-gray-700">• HR leaders</li>
               <li className="text-gray-700">• Leadership teams</li>
@@ -58,7 +59,7 @@ const JourneySection = () => {
               Doctor-led consultations focused on metabolic health, lifestyle medicine and long-term wellbeing.
             </p>
             
-            <h5 className="font-semibold mb-3">Best for:</h5>
+            <h5 className="font-semibold mb-3 text-secondary">Best for:</h5>
             <ul className="space-y-2 mb-8">
               <li className="text-gray-700">• Professionals seeking better health</li>
               <li className="text-gray-700">• Individuals managing chronic disease risk</li>

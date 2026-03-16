@@ -22,7 +22,7 @@ import {
 import { Helmet } from 'react-helmet-async';
 
 import partner1 from '../assets/images/partner1.jpg';
-import doctorerick from '../assets/images/doc1.jpg';
+import doctorerick from '../assets/images/doc1.jpeg';
 import optimizahero from '../assets/images/optimiza-hero.jpg';
 
 const OptimizaPage = () => {

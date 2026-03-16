@@ -98,7 +98,7 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1 lg:space-x-2 relative z-[101]">
               {navItems.map((item) => (
-                <div key={item.name} className="relative">
+                <div key={item.name} className="relative hover:text-secondary">
                   {item.dropdown ? (
                     <div
                       className="relative"
@@ -129,7 +129,7 @@ const Navbar = () => {
                               <a
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
-                                className="block px-4 py-2 lg:py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
+                                className="block px-4 py-2 lg:py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-secondary transition-colors"
                                 onClick={handleDropdownItemClick}
                               >
                                 {dropdownItem.name}
@@ -142,7 +142,7 @@ const Navbar = () => {
                   ) : (
                     <a 
                       href={item.href} 
-                      className="nav-link text-sm lg:text-base"
+                      className="nav-link text-sm"
                       onClick={() => setIsAboutOpen(false)}
                     >
                       {item.name}
@@ -162,7 +162,7 @@ const Navbar = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-gray-600 hover:text-primary transition-colors relative z-[101]"
+              className="md:hidden p-2 text-gray-600 hover:text-secondary transition-colors relative z-[101]"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -197,7 +197,7 @@ const Navbar = () => {
                             <a
                               key={dropdownItem.name}
                               href={dropdownItem.href}
-                              className="block py-2 text-gray-600 hover:text-primary transition-colors"
+                              className="block py-2 text-gray-600 hover:text-secondary transition-colors"
                               onClick={handleMobileMenuItemClick}
                             >
                               {dropdownItem.name}
@@ -208,7 +208,7 @@ const Navbar = () => {
                     ) : (
                       <a
                         href={item.href}
-                        className="block py-2 text-gray-800 hover:text-primary transition-colors font-medium"
+                        className="block py-2 text-gray-800 hover:text-secondary transition-colors font-medium"
                         onClick={handleMobileMenuItemClick}
                       >
                         {item.name}

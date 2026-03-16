@@ -9,7 +9,7 @@ const CoreServices = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -21,7 +21,7 @@ const CoreServices = () => {
           <span className="text-4xl font-bold text-primary tracking-tight mb-2 block">
             How We Support Health & Performance
           </span>
-          <p className="text-lg text-secondary">
+          <p className="text-lg text-secondary font-medium">
             3 Core Service Areas Designed for impact at all levels of the community pyramid
           </p>
         </motion.div>
@@ -66,7 +66,7 @@ const CoreServices = () => {
               </li>
             </ul>
             
-            <button onClick={()=> {navigate('/health-optimiza'); scrollTo(0, 0)}} className="inline-flex items-center text-secondary font-medium group hover:text-primary/80 transition-colors">
+            <button onClick={()=> {navigate('/health-optimiza'); scrollTo(0, 0)}} className="inline-flex items-center bg-secondary rounded-xl px-4 py-2 text-white font-medium text-sm group hover:bg-secondary/80 transition-colors">
               Explore | Health Optimiza™
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -106,7 +106,7 @@ const CoreServices = () => {
               </li>
             </ul>
             
-            <button onClick={()=>{navigate('/wellness-hive'); scrollTo(0,0)}} className="inline-flex items-center text-secondary font-medium group hover:text-primary/80 transition-colors">
+            <button onClick={()=>{navigate('/wellness-hive'); scrollTo(0,0)}} className="inline-flex items-center bg-secondary rounded-xl px-4 py-2 text-white font-medium text-sm group hover:bg-secondary/80 transition-colors">
               Explore | Wellness Hive™
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -150,13 +150,13 @@ const CoreServices = () => {
               </li>
             </ul>
             
-            <div className="space-y-3">
-              <button className="inline-flex items-center text-secondary font-medium group hover:text-primary/80 transition-colors w-full">
+            <div className="flex gap-2">
+              <button className="inline-flex items-center bg-secondary rounded-xl px-4 py-2 text-white font-medium text-xs group hover:bg-secondary/80 transition-colors w-full">
                 Watch | Episodes
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="inline-flex items-center text-secondary font-medium group hover:text-primary/80 transition-colors w-full">
-                Subscribe | YouTube
+              <button className="inline-flex items-center justify-center bg-secondary rounded-xl px-4 py-2 text-white font-medium text-xs group hover:bg-secondary/80 transition-colors w-full">
+                Subscribe
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
