@@ -37,56 +37,49 @@ const AboutPage = () => {
   }, [location]);
 
   // Team members data
-  const teamMembers = [
-    {
-      name: "Dr. Erick George Otieno",
-      role: "Founder & Chief Medical Officer",
-      bio: "Preventive health physician focused on metabolic health, lifestyle medicine, and executive wellness with over 15 years of experience.",
-      photo: doc1,
-      linkedin: "#",
-      email: "#"
-    },
-    {
-      name: "Sarah Mwangi",
-      role: "Director of Organizational Wellbeing",
-      bio: "Organizational psychologist specializing in workplace mental health, emotional intelligence, and team dynamics.",
-      photo: doc1,
-      linkedin: "#",
-      email: "#"
-    },
-    {
-      name: "James Kimani",
-      role: "Head of Performance Optimization",
-      bio: "Expert in workforce performance metrics, data analytics, and behavioral science applications in corporate settings.",
-      photo: doc1,
-      linkedin: "#",
-      email: "#"
-    },
-    {
-      name: "Dr. Amina Hassan",
-      role: "Lead Preventive Health Specialist",
-      bio: "Lifestyle medicine practitioner with expertise in metabolic health, nutrition science, and chronic disease prevention.",
-      photo: doc1,
-      linkedin: "#",
-      email: "#"
-    },
-    {
-      name: "Michael Ochieng",
-      role: "Director of Corporate Partnerships",
-      bio: "Strategic partnership development with leading organizations across East Africa.",
-      photo: doc1,
-      linkedin: "#",
-      email: "#"
-    },
-    {
-      name: "Dr. Grace Nduku",
-      role: "Senior Wellness Advisor",
-      bio: "Public health specialist focused on workforce health education and preventive screening programs.",
-      photo: doc1,
-      linkedin: "#",
-      email: "#"
-    }
-  ];
+const teamMembers = [
+  {
+    name: "Dr. Erick George Otieno",
+    role: "Founder & Chief Medical Officer",
+    bio: "General Physician with over 6+ years of clinical expertise, dedicated to leading The Catalog with a focus on workplace wellness, healthier nutrition and lifestyle medicine. He is passionate about inspiring healthier communities through practical, innovative health solutions.",
+    photo: doc1,
+    linkedin: "https://linkedin.com/in/erick-otieno",
+    email: "erick.otieno@thecatalog.health"
+  },
+  {
+    name: "Dr. Hussein Mebu",
+    role: "Director of Clinical Programs",
+    bio: "General Physician adding 8 years of clinical and administrative experience to the team, he strongly focuses on mental health advocacy and wellness. Dedicated to promoting well-being, resilience, and healthier lifestyles through leadership and everyday inspiration.",
+    photo: doc1,
+    linkedin: "https://linkedin.com/in/hussein-mebu",
+    email: "hussein.mebu@thecatalog.health"
+  },
+  {
+    name: "Dr. Aseri Msagati",
+    role: "Director of Corporate Wellness Programs",
+    bio: "General Physician with over 7 years of clinical experience with focus in mental health and counseling. Committed to supporting workplace wellness and guiding individuals and teams toward balance and emotional well-being.",
+    photo: doc1,
+    linkedin: "https://linkedin.com/in/aseri-msagati",
+    email: "aseri.msagati@thecatalog.health"
+  },
+  {
+    name: "Dancun Otieno",
+    role: "Founder & CEO — Ozyntria Tech",
+    bio: "With more than 6+ years of IT experience, he brings technical expertise and creativity to The Catalog. Passionate about leveraging technology to make wellness solutions more accessible and impactful.",
+    photo: doc1,
+    linkedin: "https://linkedin.com/in/dancun-otieno",
+    email: "ozyntriatec@gmail.com"
+  },
+  {
+    name: "Irene Sangandele",
+    role: "Public Relations Specialist",
+    bio: "With 5+ years of experience in communications and public relations, she is passionate about using her expertise to create a positive impact, strengthen community engagement, and help The Catalog connect with people in ways that inspire healthier lives.",
+    photo: doc1,
+    linkedin: "https://linkedin.com/in/irene-sangandele",
+    email: "irene@thecatalog.health"
+  }
+];
+
 
   // Core values
   const coreValues = [
@@ -133,6 +126,31 @@ const AboutPage = () => {
     { year: "2024", title: "Wellness Hive Performance Model™", description: "Launched proprietary framework" },
     { year: "2025", title: "Regional Expansion", description: "Serving organizations across East Africa" }
   ];
+
+  // Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15
+    }
+  }
+};
 
   return (
     <>
@@ -291,54 +309,121 @@ const AboutPage = () => {
       </section>
 
       {/* Our Team Section */}
-      <section id="our-team" className="py-10 bg-white scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
-              Our Team
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Passionate experts dedicated to your organization's wellbeing
-            </p>
-          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-gray-100 card-hover"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center">
-                    <img src={member.photo} alt={member.name} className="w-full h-full object-cover rounded-full" />
+      <section id="our-team" className="py-10 bg-gradient-to-b from-white to-gray-50/50 scroll-mt-20 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-40 left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 right-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-display font-semibold tracking-tight text-primary">
+            The Catalog Team
+          </h2>
+          <p className="text-lg text-secondary max-w-2xl font-medium mx-auto leading-relaxed">
+            Passionate experts dedicated to your organization's wellbeing
+          </p>
+        </motion.div>
+
+        {/* Team Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={member.name}
+              variants={itemVariants}
+              whileHover={{ y: -8 }}
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500"
+            >
+              {/* Card inner container with gradient border effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              {/* Content */}
+              <div className="relative p-8">
+                {/* Photo and Social Links */}
+                <div className="flex items-start justify-between mb-6">
+                  <div className="relative">
+                    <div className="w-20 h-20 rounded-2xl overflow-hidden ring-4 ring-white shadow-lg">
+                      <img 
+                        src={member.photo} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
+                    {/* Decorative dot */}
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white" />
                   </div>
+                  
                   <div className="flex space-x-2">
-                    <a href={member.linkedin} className="text-gray-400 hover:text-primary transition-colors">
-                      <Linkedin className="h-4 w-4" />
-                    </a>
-                    <a href={`mailto:${member.email}`} className="text-gray-400 hover:text-primary transition-colors">
-                      <Mail className="h-4 w-4" />
-                    </a>
+                    <motion.a 
+                      href={member.linkedin} 
+                      className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300 group/social"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Linkedin className="h-4 w-4 transition-transform duration-300 group-hover/social:scale-110" />
+                    </motion.a>
+                    <motion.a 
+                      href={`mailto:${member.email}`} 
+                      className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center text-gray-600 hover:bg-secondary hover:text-white transition-all duration-300 group/social"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Mail className="h-4 w-4 transition-transform duration-300 group-hover/social:scale-110" />
+                    </motion.a>
                   </div>
                 </div>
-                <h3 className="text-lg font-display font-semibold text-gray-900">{member.name}</h3>
-                <p className="text-sm text-primary mb-2">{member.role}</p>
-                <p className="text-sm text-gray-600">{member.bio}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
+                {/* Member Info */}
+                <div className="space-y-3">
+                  <div>
+                    <h3 className="text-xl font-display font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors duration-300">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm font-medium text-secondary bg-secondary/5 inline-block px-3 py-1 rounded-full">
+                      {member.role}
+                    </p>
+                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {member.bio}
+                  </p>
+                </div>
+
+                {/* Decorative corner line */}
+                <div className="absolute bottom-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary/30 rounded-br-xl" />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Bottom accent line */}
+        <motion.div 
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mt-16"
+        />
+      </div>
+    </section>
       {/* Why Partner With Us */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

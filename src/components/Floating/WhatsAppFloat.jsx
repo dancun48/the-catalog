@@ -25,7 +25,6 @@ const WhatsAppFloat = () => {
 
   const quickReplies = [
     'I need help with booking',
-    'Tell me about Wellness Hive',
     'Corporate wellness programs',
     'Health check-up packages',
   ];
@@ -62,7 +61,7 @@ const WhatsAppFloat = () => {
                 exit={{ opacity: 0, y: 20, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 className="fixed bottom-20 right-6 z-50 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden"
-                style={{ bottom: 'calc(6rem + 80px)' }}
+                style={{ bottom: 'calc(6rem + 10px)' }}
               >
                 {/* Header */}
                 <div className="bg-green-500 p-4 text-white">
@@ -85,7 +84,7 @@ const WhatsAppFloat = () => {
                         👋 Hi! How can we help you today?
                       </p>
                     </div>
-                    <p className="text-xs text-gray-500">Online • Usually replies instantly</p>
+                    <p className="text-[0.625rem] text-gray-500">Online • Usually replies instantly</p>
                   </div>
 
                   {/* Quick Replies */}
@@ -131,7 +130,7 @@ const WhatsAppFloat = () => {
                   </div>
 
                   {/* Footer */}
-                  <p className="text-xs text-gray-400 mt-3 text-center">
+                  <p className="text-[0.625rem] text-gray-400 mt-3 text-center">
                     By chatting you agree to our{' '}
                     <a href="/privacy" className="text-green-500 hover:underline">
                       Privacy Policy

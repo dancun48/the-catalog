@@ -40,7 +40,7 @@ const JourneySection = () => {
               <li className="text-gray-700">• Organizations investing in workforce wellbeing</li>
             </ul>
             
-            <button className="btn-primary px-6 py-3 text-base group inline-flex items-center">
+            <button className="btn-primary px-6 py-3 text-sm group inline-flex items-center">
               Book a Health Consultation
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -58,6 +58,7 @@ const JourneySection = () => {
             <p className="text-gray-600 mb-6">
               Doctor-led consultations focused on metabolic health, lifestyle medicine and long-term wellbeing.
             </p>
+            <div className="h-4"></div>
             
             <h5 className="font-semibold mb-3 text-secondary">Best for:</h5>
             <ul className="space-y-2 mb-8">
@@ -66,7 +67,7 @@ const JourneySection = () => {
               <li className="text-gray-700">• Those optimizing energy and performance wellbeing</li>
             </ul>
             
-            <button className="btn-primary px-6 py-3 text-base group inline-flex items-center">
+            <button className="btn-primary px-6 py-3 text-sm group inline-flex items-center">
               Book a Health Consultation
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
