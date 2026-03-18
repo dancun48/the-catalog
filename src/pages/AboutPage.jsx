@@ -77,6 +77,14 @@ const teamMembers = [
     photo: doc1,
     linkedin: "https://linkedin.com/in/irene-sangandele",
     email: "irene@thecatalog.health"
+  },
+  {
+    name: "Francis Lusinde",
+    role: "IT Specialist",
+    bio: "With more than 15 years of IT experience, he brings technical expertise and creativity to The Catalog. Passionate about leveraging technology to make wellness solutions more accessible and impactful.",
+    photo: doc1,
+    linkedin: "https://linkedin.com/in/francis-lusinde",
+    email: "francis.lusinde@thecatalog.health"
   }
 ];
 

@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
-  const [hoverTimeout, setHoverTimeout] = useState(null);
+  const [hoverTimeout, setHoverTimeout] = useState({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on window resize (if going from mobile to desktop)
+  // Close mobile menu on window resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -41,120 +41,145 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  const handleMouseEnter = () => {
-    if (hoverTimeout) clearTimeout(hoverTimeout);
-    setIsAboutOpen(true);
+  const handleMouseEnter = (dropdownName) => {
+    if (hoverTimeout[dropdownName]) clearTimeout(hoverTimeout[dropdownName]);
+    setOpenDropdown(dropdownName);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (dropdownName) => {
     const timeout = setTimeout(() => {
-      setIsAboutOpen(false);
-    }, 200); // Small delay to allow moving to dropdown
-    setHoverTimeout(timeout);
+      setOpenDropdown(null);
+    }, 200);
+    setHoverTimeout(prev => ({ ...prev, [dropdownName]: timeout }));
   };
 
-  // Handle dropdown item click
-  const handleDropdownItemClick = () => {
-    setIsAboutOpen(false);
+  const handleDropdownItemClick = (path) => {
+    setOpenDropdown(null);
+    navigate(path);
   };
 
-  // Handle mobile menu item click
   const handleMobileMenuItemClick = () => {
     setIsOpen(false);
   };
 
   const navItems = [
-    { name: 'About', dropdown: true, path: '/about' },
-    { name: 'Wellness Hive', href: '/wellness-hive' },
-    { name: 'Health Optimiza', href: '/health-optimiza' },
-    { name: 'Podcast', href: '/podcast' },
-    { name: 'Insights', href: '/insights' },
-    { name: 'Contact', href: '/contact' },
-  ];
-
-  const aboutDropdownItems = [
-    { name: 'Vision & Mission', href: '/about#vision-mission' },
-    { name: 'Core Values', href: '/about#core-values' },
-    { name: 'Our Story', href: '/about#our-story' },
-    { name: 'Our Team', href: '/about#our-team' },
+    { 
+      name: 'About', 
+      dropdown: true,
+      items: [
+        { name: 'Vision & Mission', path: '/about#vision-mission' },
+        { name: 'Core Values', path: '/about#core-values' },
+        { name: 'Our Story', path: '/about#our-story' },
+        { name: 'Our Team', path: '/about#our-team' },
+      ]
+    },
+    { name: 'Wellness Hive', path: '/wellness-hive' },
+    { name: 'Health Optimiza', path: '/health-optimiza' },
+    { name: 'Podcast', path: '/podcast' },
+    { 
+      name: 'Insights', 
+      dropdown: true,
+      items: [
+        { name: 'News', path: '/insights?category=news' },
+        { name: 'Events', path: '/insights?category=events' },
+        { name: 'Articles', path: '/insights?category=articles' },
+        { name: 'Resources', path: '/insights?category=resources' },
+      ]
+    },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
     <>
       <nav className={`fixed w-full z-[100] transition-all duration-300 ${
-        scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-200/50' : 'bg-transparent'
+        scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200/50' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-16 md:h-20">
             {/* Logo */}
-            <a href="/" className="flex items-center relative z-[101]">
+            <a 
+              href="/" 
+              className="flex items-center relative z-[101] cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/');
+                scrollTo(0, 0);
+              }}
+            >
               <img 
                 src="/thecatalog.png"
                 alt="The Catalog Logo" 
-                className="h-12 w-auto sm:h-16 md:h-16 lg:h-18 object-contain" 
+                className="h-12 w-auto md:h-16 object-contain" 
               />
             </a>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1 lg:space-x-2 relative z-[101]">
               {navItems.map((item) => (
-                <div key={item.name} className="relative hover:text-secondary">
+                <div key={item.name} className="relative">
                   {item.dropdown ? (
                     <div
                       className="relative"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
+                      onMouseEnter={() => handleMouseEnter(item.name)}
+                      onMouseLeave={() => handleMouseLeave(item.name)}
                     >
-                      <a
-                        href={item.path}
-                        className="nav-link inline-flex items-center text-sm"
+                      <button
+                        className="nav-link inline-flex items-center text-sm px-3 py-2 hover:text-secondary transition-colors"
                       >
                         {item.name}
-                        <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isAboutOpen ? 'rotate-180' : ''}`} />
-                      </a>
+                        <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
+                      </button>
 
                       {/* Dropdown Menu */}
                       <AnimatePresence>
-                        {isAboutOpen && (
+                        {openDropdown === item.name && (
                           <motion.div
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute left-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-[102]"
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
+                            className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-[102]"
+                            onMouseEnter={() => handleMouseEnter(item.name)}
+                            onMouseLeave={() => handleMouseLeave(item.name)}
                           >
-                            {aboutDropdownItems.map((dropdownItem) => (
-                              <a
+                            {item.items.map((dropdownItem) => (
+                              <button
                                 key={dropdownItem.name}
-                                href={dropdownItem.href}
-                                className="block px-4 py-2 lg:py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-secondary transition-colors"
-                                onClick={handleDropdownItemClick}
+                                onClick={() => {
+                                  handleDropdownItemClick(dropdownItem.path);
+                                  scrollTo(0, 0);
+                                }}
+                                className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-secondary transition-colors"
                               >
                                 {dropdownItem.name}
-                              </a>
+                              </button>
                             ))}
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <a 
-                      href={item.href} 
-                      className="nav-link text-sm"
-                      onClick={() => setIsAboutOpen(false)}
+                    <button
+                      onClick={() => {
+                        navigate(item.path);
+                        scrollTo(0, 0);
+                      }}
+                      className="nav-link text-sm px-3 py-2 hover:text-secondary transition-colors"
                     >
                       {item.name}
-                    </a>
+                    </button>
                   )}
                 </div>
               ))}
               
+              
             </div>
             <button 
-                className="btn-primary ml-2 lg:ml-4 text-sm lg:text-sm whitespace-nowrap"
-                onClick={() => { setIsAboutOpen(false); navigate('/contact#book-now'); scrollTo(0, 0); }}
+                className="btn-primary ml-2 lg:ml-4 text-sm whitespace-nowrap px-6 py-2.5"
+                onClick={() => { 
+                  navigate('/contact#book-now'); 
+                  scrollTo(0, 0); 
+                }}
               >
                 Book Now
               </button>
@@ -171,20 +196,19 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile menu overlay - Separate from nav for proper stacking */}
+      {/* Mobile menu overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
             className="fixed inset-0 bg-white z-[90] md:hidden overflow-hidden"
             style={{ top: 0 }}
           >
-            {/* Content wrapper with proper spacing for navbar */}
-            <div className="h-full overflow-y-auto pt-24"> {/* pt-24 accounts for navbar height */}
-              <div className="px-4 py-6 space-y-4">
+            <div className="h-full overflow-y-auto pt-20">
+              <div className="px-6 py-4 space-y-4">
                 {navItems.map((item) => (
                   <div key={item.name} className="border-b border-gray-100 pb-4">
                     {item.dropdown ? (
@@ -193,35 +217,45 @@ const Navbar = () => {
                           {item.name}
                         </div>
                         <div className="pl-4 space-y-3">
-                          {aboutDropdownItems.map((dropdownItem) => (
-                            <a
+                          {item.items.map((dropdownItem) => (
+                            <button
                               key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              className="block py-2 text-gray-600 hover:text-secondary transition-colors"
-                              onClick={handleMobileMenuItemClick}
+                              onClick={() => {
+                                navigate(dropdownItem.path);
+                                handleMobileMenuItemClick();
+                                scrollTo(0, 0);
+                              }}
+                              className="block w-full text-left py-2 text-gray-600 hover:text-secondary transition-colors"
                             >
                               {dropdownItem.name}
-                            </a>
+                            </button>
                           ))}
                         </div>
                       </div>
                     ) : (
-                      <a
-                        href={item.href}
-                        className="block py-2 text-gray-800 hover:text-secondary transition-colors font-medium"
-                        onClick={handleMobileMenuItemClick}
+                      <button
+                        onClick={() => {
+                          navigate(item.path);
+                          handleMobileMenuItemClick();
+                          scrollTo(0, 0);
+                        }}
+                        className="block w-full text-left py-2 text-gray-800 hover:text-secondary transition-colors font-medium"
                       >
                         {item.name}
-                      </a>
+                      </button>
                     )}
                   </div>
                 ))}
                 
                 {/* Mobile Book Now button */}
-                <div className="pt-2">
+                <div className="pt-4">
                   <button 
-                    className="w-full btn-primary py-4 text-sm"
-                    onClick={handleMobileMenuItemClick}
+                    className="w-full btn-primary py-4 text-base font-medium"
+                    onClick={() => {
+                      navigate('/contact#book-now');
+                      handleMobileMenuItemClick();
+                      scrollTo(0, 0);
+                    }}
                   >
                     Book Now
                   </button>
@@ -229,7 +263,7 @@ const Navbar = () => {
 
                 {/* Additional mobile menu footer */}
                 <div className="pt-8 text-center text-sm text-gray-500">
-                  <p>© 2026 The Catalog</p>
+                  <p>© {new Date().getFullYear()} The Catalog</p>
                   <p className="mt-1">All rights reserved</p>
                 </div>
               </div>

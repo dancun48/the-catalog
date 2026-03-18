@@ -14,6 +14,8 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CookiesPolicyPage from './pages/CookiesPolicyPage';
 import AboutPage from './pages/AboutPage';
 import ScrollToHash from './components/ScrollToHash';
+import InsightsPage from './pages/InsightsPage';
+import PodcastPage from './pages/PodcastPage';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/wellness-hive" element={<WellnessHivePage />} />
             <Route path="/health-optimiza" element={<OptimizaPage />} />
+            <Route path="/podcast" element={<PodcastPage />} />
+            <Route path="/insights" element={<InsightsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/faqs" element={<FAQsPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
