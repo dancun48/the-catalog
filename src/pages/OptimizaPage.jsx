@@ -198,7 +198,7 @@ const OptimizaPage = () => {
                 </div>
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-primary mr-2" />
-                  <span className="text-sm text-gray-600">24/7 Care</span>
+                  <span className="text-sm text-gray-600">Online / In-person</span>
                 </div>
               </div>
             </motion.div>
@@ -248,17 +248,17 @@ const OptimizaPage = () => {
               {/* Stat or Highlight */}
               <div className="mt-8 flex items-center gap-6">
                 <div>
-                  <p className="text-3xl font-bold text-primary">95%</p>
+                  <p className="text-xl font-bold text-primary">95%</p>
                   <p className="text-xs text-gray-500">Client satisfaction</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200"></div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">24/7</p>
+                  <p className="text-xl font-bold text-primary">Premium Care</p>
                   <p className="text-xs text-gray-500">Medical support</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200"></div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">50+</p>
+                  <p className="text-xl font-bold text-primary">50+</p>
                   <p className="text-xs text-gray-500">Clients served</p>
                 </div>
               </div>
@@ -342,7 +342,7 @@ const OptimizaPage = () => {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* How It Works
       <section className="py-10 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -359,7 +359,7 @@ const OptimizaPage = () => {
 
           <div className="relative">
             {/* Connection Line */}
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-14 hidden lg:block" />
+            {/* <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-14 hidden lg:block" />
             
             <div className="grid lg:grid-cols-5 gap-8 relative">
               {steps.map((step, index) => (
@@ -389,9 +389,9 @@ const OptimizaPage = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Diagnostic Partners */}
+      {/* Diagnostic Partners
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -414,9 +414,9 @@ const OptimizaPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Signature Programs */}
+      {/* Signature Programs
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -452,7 +452,7 @@ const OptimizaPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Comparison Table */}
       <section className="py-24 bg-white">
@@ -491,174 +491,6 @@ const OptimizaPage = () => {
                   <CheckCircle2 className="h-5 w-5 text-secondary mr-2" />
                   {item.optimiza}
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Doctor Authority Section */}
-      <section className="py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
-                <Award className="h-12 w-12 text-primary" />
-              </div>
-              <h2 className="text-3xl md:text-3xl font-display font-semibold tracking-tight text-gray-900 mb-4">
-                Led by Dr. Erick George Otieno
-              </h2>
-              <p className="text-lg text-primary mb-4">Preventive Health Physician</p>
-              <p className="text-gray-600 mb-6">
-                Focused on metabolic health, lifestyle medicine, and executive wellness. With over 15 years of experience in preventive medicine, Dr. Erick brings a comprehensive approach to health optimization.
-              </p>
-              <div className="space-y-3 mb-8">
-                {["Preventive Medicine Specialist", "Lifestyle Medicine Practitioner", "Corporate Health Advisor"].map((cred) => (
-                  <div key={cred} className="flex items-center">
-                    <CheckCircle2 className="h-5 w-5 text-secondary mr-3" />
-                    <span className="text-gray-700">{cred}</span>
-                  </div>
-                ))}
-              </div>
-              <button className="btn-primary px-8 py-4 text-base">
-                Book with Dr. Erick
-              </button>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-xl"
-            >
-              <div className="aspect-square bg-gray-100 rounded-xl flex items-center justify-center">
-                <img src={doctorerick} alt="Dr. Erick George Otieno" className="w-full h-full object-cover rounded-xl" />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Corporate Health */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-primary/5 rounded-3xl p-12">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
-                  Corporate & Executive Health
-                </h2>
-                <p className="text-xl text-gray-600 mb-8">
-                  We support organizations to detect workforce health risks early and optimize employee vitality.
-                </p>
-                <button className="btn-primary px-8 py-4 text-base">
-                  Enquire Corporate Services
-                </button>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                {["Risk Detection", "Vitality Programs", "Executive Assessments", "Team Wellness"].map((item) => (
-                  <div key={item} className="bg-white rounded-xl p-4 text-center">
-                    <span className="text-sm font-medium text-gray-900">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="section-title text-4xl">What Our Clients Say</h2>
-            <p className="section-subtitle mt-4">
-              Real stories from real people
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 border border-gray-100 card-hover"
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Membership Plans */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="section-title text-4xl">Membership & Continuity Care</h2>
-            <p className="section-subtitle mt-4">
-              Choose the plan that fits your health journey
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {plans.map((plan, index) => (
-              <motion.div
-                key={plan.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`relative bg-white rounded-2xl p-8 border ${
-                  plan.popular ? 'border-primary shadow-xl' : 'border-gray-100'
-                }`}
-              >
-                {plan.popular && (
-                  <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-medium">
-                    Most Popular
-                  </span>
-                )}
-                <h3 className="text-xl font-display font-semibold text-gray-900 mb-2">{plan.name}</h3>
-                <p className="text-sm text-primary mb-6">{plan.price}</p>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center text-sm text-gray-600">
-                      <CheckCircle2 className="h-4 w-4 text-secondary mr-2 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <button className={`w-full ${
-                  plan.popular ? 'btn-primary' : 'btn-outline'
-                }`}>
-                  {plan.cta}
-                </button>
               </motion.div>
             ))}
           </div>
