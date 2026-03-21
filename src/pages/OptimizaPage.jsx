@@ -253,7 +253,7 @@ const OptimizaPage = () => {
                 </div>
                 <div className="w-px h-10 bg-gray-200"></div>
                 <div>
-                  <p className="text-xl font-bold text-primary">Premium Care</p>
+                  <p className="text-xl font-semibold text-primary">Premium</p>
                   <p className="text-xs text-gray-500">Medical support</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200"></div>
