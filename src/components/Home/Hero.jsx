@@ -206,7 +206,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative order-1 lg:order-2 h-[500px] md:h-[550px] lg:h-[550px] overflow-hidden rounded-2xl"
+            className="relative order-1 lg:order-2 h-[500px] md:h-[550px] lg:h-[550px] overflow-hidden rounded-2xl py-4"
             ref={ref}
           >
             {/* Gradient overlays for smooth edges */}
