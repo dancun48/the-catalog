@@ -31,7 +31,7 @@ const Footer = () => {
         { name: 'Insights', href: '/insights' },
         { name: 'How It Works', href: '/how-it-works' },
         { name: 'FAQs', href: '/faqs' },
-        { name: 'Disclaimer', href: '/how-it-works#disclaimer' },
+        { name: 'Medical Disclaimer', href: '/how-it-works#disclaimer' },
       ],
     },
     {
