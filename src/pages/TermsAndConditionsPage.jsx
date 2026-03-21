@@ -17,9 +17,11 @@ import {
   Briefcase,
   RefreshCw
 } from 'lucide-react';
+import { formatDate } from '../utils/formatDate';
 
 const TermsAndConditionsPage = () => {
-  const lastUpdated = new Date('2026-03-01T00:00:00Z');
+  const lastUpdated = new Date();
+  const formattedDate = lastUpdated.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
 
   const sections = [
     {
@@ -96,7 +98,7 @@ const TermsAndConditionsPage = () => {
               Terms & Conditions
             </h1>
             <p className="text-lg md:text-xl text-secondary mb-4">
-              Last updated: {lastUpdated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              Last updated: {formattedDate}
             </p>
             <p className="text-primary font-medium max-w-2xl mx-auto">
               Please read these terms carefully before using our services. By accessing our website or booking a consultation, you agree to be bound by these Terms & Conditions.

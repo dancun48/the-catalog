@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Cookie, Info, Settings, Check, X, Shield, Clock, Globe } from 'lucide-react';
+import { formatDate } from '../utils/formatDate';
 
 const CookiesPolicyPage = () => {
   const [showPreferences, setShowPreferences] = useState(false);
@@ -11,7 +12,8 @@ const CookiesPolicyPage = () => {
     functional: false,
   });
 
-  const lastUpdated = new Date('2026-03-07T00:00:00Z');
+  const lastUpdated = new Date();
+  const formattedDate = lastUpdated.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
 
   const cookieTypes = [
     {
@@ -66,7 +68,7 @@ const CookiesPolicyPage = () => {
               Cookie Policy
             </h1>
             <p className="text-lg md:text-xl text-secondary mb-4">
-              Last updated: {lastUpdated.toLocaleDateString()}
+              Last updated: {formattedDate}
             </p>
             <p className="text-primary font-medium max-w-2xl mx-auto">
               Learn about how we use cookies to improve your browsing experience.

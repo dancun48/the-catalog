@@ -14,11 +14,14 @@ import {
   Phone,
   Globe
 } from 'lucide-react';
+import { formatDate } from '../utils/formatDate';
 
 const PrivacyPolicyPage = () => {
   // Updated last updated date to match the PDF document date
   // Since the PDF doesn't have a specific date, we use a reasonable date based on content
-  const lastUpdated = new Date('2026-03-01T00:00:00Z');
+  const lastUpdated = new Date();
+  const formattedDate = lastUpdated.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+
 
   const sections = [
     {
@@ -98,7 +101,7 @@ const PrivacyPolicyPage = () => {
               Privacy Policy
             </h1>
             <p className="text-lg md:text-xl text-secondary mb-4">
-              Last updated: {lastUpdated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              Last updated: {formattedDate}
             </p>
             <p className="text-primary max-w-2xl font-medium mx-auto">
               Your privacy is important to us. This policy describes how The Catalog collects, uses, and protects your personal and health-related information.
