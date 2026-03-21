@@ -16,6 +16,10 @@ import AboutPage from './pages/AboutPage';
 import ScrollToHash from './components/ScrollToHash';
 import InsightsPage from './pages/InsightsPage';
 import PodcastPage from './pages/PodcastPage';
+// Import new pages
+import HowItWorksPage from './pages/HowItWorksPage';
+import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
+import RefundPolicyPage from './pages/RefundPolicyPage';
 
 function App() {
   return (
@@ -35,6 +39,10 @@ function App() {
             <Route path="/faqs" element={<FAQsPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/cookies" element={<CookiesPolicyPage />} />
+            {/* New Routes */}
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/terms" element={<TermsAndConditionsPage />} />
+            <Route path="/refund" element={<RefundPolicyPage />} />
           </Routes>
         </div>
         <Footer />
@@ -45,7 +53,6 @@ function App() {
         <CookieConsent />
       </div>
     </Router>
-    
   );
 }
 

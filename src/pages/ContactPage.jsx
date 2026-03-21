@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { 
   Phone, 
   Mail, 
@@ -21,7 +22,9 @@ import {
   Shield,
   Stethoscope,
   ExternalLink,
-  HelpCircle
+  HelpCircle,
+  FileText,
+  DollarSign
 } from 'lucide-react';
 
 const ContactPage = () => {
@@ -101,7 +104,7 @@ const ContactPage = () => {
 
   const corporateOptions = [
     {
-      id: 'executive-briefing | custom quotation',
+      id: 'executive-briefing',
       title: 'Executive Briefing | Custom Quotation',
       description: 'Understanding before commitment is the key. Discussion to tailor Wellness Hive based on your organizational needs and customization for impact.',
       platform: 'Google Meet (Add to calendar) | Direct Call',
@@ -144,21 +147,42 @@ const ContactPage = () => {
     '12:00 PM', '12:30 PM', '02:00 PM', '02:30 PM', '03:00 PM', '03:30 PM'
   ];
 
+  // Policy Links Component
+  const PolicyLinks = ({ className = '' }) => (
+    <div className={`flex flex-wrap gap-3 text-xs ${className}`}>
+      <Link to="/privacy" className="text-secondary font-medium text-xs hover:text-primary transition-colors">
+        Privacy Policy
+      </Link>
+      <span className="text-gray-300">|</span>
+      <Link to="/terms" className="text-secondary font-medium text-xs hover:text-primary transition-colors">
+        Terms & Conditions
+      </Link>
+      <span className="text-gray-300">|</span>
+      <Link to="/refund" className="text-secondary  font-medium text-xs hover:text-primary transition-colors">
+        Refund Policy
+      </Link>
+      <span className="text-gray-300">|</span>
+      <Link to="/cookies" className="text-secondary font-medium text-xs hover:text-primary transition-colors">
+        Cookies Policy
+      </Link>
+    </div>
+  );
+
   // FAQ link helper
   const FAQLink = ({ children }) => (
-    <a 
-      href="/faqs" 
+    <Link 
+      to="/faqs" 
       className="inline-flex items-center gap-1 text-primary hover:text-primary/80 transition-colors font-medium"
     >
       {children}
       <ExternalLink className="h-3 w-3" />
-    </a>
+    </Link>
   );
 
   return (
     <main className="pt-16">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-gray-50 to-white py-10 md:py-10">
+      <section className="relative bg-gradient-to-b from-gray-50 to-white py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -169,9 +193,14 @@ const ContactPage = () => {
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-display font-semibold tracking-tight text-gray-900 mb-4">
               Contact Us
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8">
+            <p className="text-lg md:text-xl text-primary mb-8">
               Ready to optimize your workforce health? Get in touch with our team.
             </p>
+            
+            {/* Policy Quick Links */}
+            <div className="mb-4">
+              <PolicyLinks className="justify-center" />
+            </div>
             
             {/* FAQ Quick Link */}
             <div className="inline-flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full">
@@ -183,7 +212,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-6 bg-white">
+      <section className="py-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {/* Email */}
@@ -258,10 +287,10 @@ const ContactPage = () => {
       <section id="book-now" className="py-8 bg-white border-y border-gray-100 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-display font-semibold text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">
               Book Appointment
             </h2>
-            <p className="text-gray-600 mt-2">Corporate Booking | Online Consultation | Clinic Consultation</p>
+            <p className="text-secondary mt-2">Corporate Booking | Online Consultation | Clinic Consultation</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -479,7 +508,9 @@ const ContactPage = () => {
                         className="mr-3"
                       />
                       <label htmlFor="consent" className="text-sm text-gray-600">
-                        I agree to The Catalog's <a href="/privacy" className="text-primary hover:underline">privacy policy</a> and consent to being contacted.
+                        I agree to The Catalog's <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>,{' '}
+                        <Link to="/terms" className="text-primary hover:underline">Terms & Conditions</Link>, and{' '}
+                        <Link to="/refund" className="text-primary hover:underline">Refund Policy</Link> and consent to being contacted.
                       </label>
                     </div>
 
@@ -628,7 +659,9 @@ const ContactPage = () => {
                         className="mr-3"
                       />
                       <label htmlFor="consent" className="text-sm text-gray-600">
-                        I agree to The Catalog's <a href="/privacy" className="text-primary hover:underline">privacy policy</a> and consent to being contacted.
+                        I agree to The Catalog's <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>,{' '}
+                        <Link to="/terms" className="text-primary hover:underline">Terms & Conditions</Link>, and{' '}
+                        <Link to="/refund" className="text-primary hover:underline">Refund Policy</Link> and consent to being contacted.
                       </label>
                     </div>
 
@@ -794,7 +827,9 @@ const ContactPage = () => {
                         className="mr-3"
                       />
                       <label htmlFor="consent" className="text-sm text-gray-600">
-                        I agree to The Catalog's <a href="/privacy" className="text-primary hover:underline">privacy policy</a> and consent to being contacted.
+                        I agree to The Catalog's <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>,{' '}
+                        <Link to="/terms" className="text-primary hover:underline">Terms & Conditions</Link>, and{' '}
+                        <Link to="/refund" className="text-primary hover:underline">Refund Policy</Link> and consent to being contacted.
                       </label>
                     </div>
 
@@ -818,62 +853,15 @@ const ContactPage = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4">
               Find Us Here
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-md text-secondary font-medium max-w-2xl mx-auto">
               Visit our office at Golden Jubilee Towers or find us at DSB Polyclinic for in-person consultations.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Main Office Map */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
-            >
-              <div className="p-4 bg-primary/5 border-b border-gray-100">
-                <div className="flex items-center gap-2">
-                  <Building2 className="h-5 w-5 text-primary" />
-                  <h3 className="font-display font-semibold text-gray-900">Head Office</h3>
-                </div>
-                <p className="text-sm text-gray-600 mt-1">Golden Jubilee Towers – Posta (Under renovation)</p>
-              </div>
-              <div className="h-80 bg-gray-100 relative">
-                {/* Replace this with actual Google Maps embed */}
-                <iframe
-                  title="Golden Jubilee Towers Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.987231527329!2d39.284515!3d-6.816519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDgnNTkuNSJTIDM5wrAxNycwNC4yIkU!5e0!3m2!1sen!2stz!4v1710000000000!5m2!1sen!2stz"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0"
-                />
-              </div>
-              <div className="p-4 bg-gray-50">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-xs text-gray-500">Golden Jubilee Towers</p>
-                    <p className="text-xs text-gray-500">Ohio Street, Dar es Salaam</p>
-                  </div>
-                  <a
-                    href="https://maps.google.com/?q=Golden+Jubilee+Towers+Dar+es+Salaam"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary text-sm hover:underline flex items-center gap-1"
-                  >
-                    Get Directions
-                    <ExternalLink className="h-3 w-3" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-
+          <div className="text-center w-4/5 mx-auto">
             {/* Clinic Map */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -886,13 +874,13 @@ const ContactPage = () => {
                   <Stethoscope className="h-5 w-5 text-primary" />
                   <h3 className="font-display font-semibold text-gray-900">DSB Polyclinic</h3>
                 </div>
-                <p className="text-sm text-gray-600 mt-1">Upanga, Dar es Salaam (opposite Tambaza Mosque)</p>
+                <p className="text-sm text-gray-600 mt-1 text-left">Upanga, Dar es Salaam (opposite Tambaza Mosque)</p>
               </div>
               <div className="h-80 bg-gray-100 relative">
                 {/* Replace this with actual Google Maps embed */}
                 <iframe
                   title="DSB Polyclinic Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.969806252029!2d39.276215!3d-6.818819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDknMDcuNyJTIDM5wrAxNiczOS4yIkU!5e0!3m2!1sen!2stz!4v1710000000000!5m2!1sen!2stz"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.969806252029!2d39.276215!3d-6.818819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDknMDcuNyIgMzknMTYnMzkuMg!5e0!3m2!1sen!2stz!4v1710000000000!5m2!1sen!2stz"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -957,6 +945,7 @@ const ContactPage = () => {
                   <p className="text-xs text-gray-500 mb-2">Direct Clinic Bookings:</p>
                   <div className="flex gap-4">
                     <a href="tel:+255759854854" className="text-sm text-primary hover:underline">+255 759 854 854</a>
+                    <span className="text-gray-300">|</span>
                     <a href="tel:+255752854854" className="text-sm text-primary hover:underline">+255 752 854 854</a>
                   </div>
                 </div>
@@ -966,48 +955,89 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* FAQ CTA Section */}
-      <section className="py-12 bg-primary/5">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <HelpCircle className="h-12 w-12 text-primary mx-auto mb-4" />
-          <h2 className="text-2xl md:text-3xl font-display font-semibold text-gray-900 mb-3">
-            Still Have Questions?
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Visit our comprehensive FAQ page for answers to common questions about our services, bookings, and more.
-          </p>
-          <a
-            href="/faqs"
-            className="inline-flex items-center gap-2 btn-primary px-8 py-4 text-base"
-          >
-            View Frequently Asked Questions
-            <ArrowRight className="h-4 w-4" />
-          </a>
+      {/* Policy Summary Section */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link to="/terms" className="bg-white rounded-xl p-6 text-center hover:shadow-md transition-shadow">
+              <FileText className="h-10 w-10 text-primary mx-auto mb-3" />
+              <h3 className="font-semibold text-gray-900 mb-2">Terms & Conditions</h3>
+              <p className="text-sm text-gray-600">View our service terms and conditions</p>
+            </Link>
+            
+            <Link to="/privacy" className="bg-white rounded-xl p-6 text-center hover:shadow-md transition-shadow">
+              <Shield className="h-10 w-10 text-primary mx-auto mb-3" />
+              <h3 className="font-semibold text-gray-900 mb-2">Privacy Policy</h3>
+              <p className="text-sm text-gray-600">How we protect your information</p>
+            </Link>
+            
+            <Link to="/refund" className="bg-white rounded-xl p-6 text-center hover:shadow-md transition-shadow">
+              <DollarSign className="h-10 w-10 text-primary mx-auto mb-3" />
+              <h3 className="font-semibold text-gray-900 mb-2">Refund Policy</h3>
+              <p className="text-sm text-gray-600">Our refund and cancellation terms</p>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* WhatsApp CTA */}
-      <section className="py-12 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <MessageCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-display font-semibold text-gray-900 mb-2">
-            Prefer instant messaging?
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Chat with us on WhatsApp for quick responses to your inquiries.
-          </p>
-          <a
-            href="https://wa.me/255746820288"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-green-500 text-white px-8 py-4 rounded-full font-medium hover:bg-green-600 transition-colors"
-          >
-            <MessageCircle className="h-5 w-5" />
-            WhatsApp Us
-          </a>
+{/* Support & Help Section */}
+<section className="py-12 bg-primary/5">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-10">
+      <h2 className="text-2xl md:text-3xl font-display font-semibold text-gray-900 mb-3">
+        Need Assistance?
+      </h2>
+      <p className="text-gray-600">
+        We're here to help. Choose the option that works best for you.
+      </p>
+    </div>
+    
+    <div className="grid md:grid-cols-2 gap-6">
+      {/* FAQ Option */}
+      <div className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <HelpCircle className="h-8 w-8 text-primary" />
         </div>
-      </section>
-    </main>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+          Frequently Asked Questions
+        </h3>
+        <p className="text-gray-600 mb-6 text-sm">
+          Find quick answers to common questions about our services, bookings, and policies.
+        </p>
+        <Link
+          to="/faqs"
+          className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-colors"
+        >
+          View FAQs
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+
+      {/* WhatsApp Option */}
+      <div className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+        <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+          <MessageCircle className="h-8 w-8 text-green-500" />
+        </div>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+          Instant Messaging
+        </h3>
+        <p className="text-gray-600 mb-6 text-sm">
+          Chat with us on WhatsApp for quick responses to your inquiries.
+        </p>
+        <a
+          href="https://wa.me/255746820288"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-green-600 font-medium hover:text-green-700 transition-colors"
+        >
+          WhatsApp Us
+          <MessageCircle className="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
   );
 };
 

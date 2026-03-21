@@ -50,9 +50,9 @@ const CookiesPolicyPage = () => {
   };
 
   return (
-    <main className="pt-16 md:pt-20">
+    <main className="pt-16">
       {/* Hero */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-24">
+      <section className="bg-gradient-to-b from-gray-50 to-white py-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,10 +65,10 @@ const CookiesPolicyPage = () => {
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-display font-semibold tracking-tight text-gray-900 mb-4">
               Cookie Policy
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-4">
+            <p className="text-lg md:text-xl text-secondary mb-4">
               Last updated: {lastUpdated.toLocaleDateString()}
             </p>
-            <p className="text-gray-500 max-w-2xl mx-auto">
+            <p className="text-primary font-medium max-w-2xl mx-auto">
               Learn about how we use cookies to improve your browsing experience.
             </p>
           </motion.div>
@@ -76,7 +76,7 @@ const CookiesPolicyPage = () => {
       </section>
 
       {/* Content */}
-      <section className="py-16 bg-white">
+      <section className="py-8 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Introduction */}
           <motion.div
