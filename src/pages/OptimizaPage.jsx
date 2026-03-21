@@ -14,6 +14,8 @@ import {
   Star,
   Phone,
   MessageCircle,
+  TrendingUp,
+  Stethoscope,
   FileText,
   Download,
   CreditCard,
@@ -24,8 +26,11 @@ import { Helmet } from 'react-helmet-async';
 import partner1 from '../assets/images/partner1.jpg';
 import doctorerick from '../assets/images/doc1.jpeg';
 import optimizahero from '../assets/images/optimiza-hero.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const OptimizaPage = () => {
+
+  const navigate = useNavigate();
 
   // partners data
   const partners = [
@@ -215,41 +220,82 @@ const OptimizaPage = () => {
       </section>
 
       {/* Positioning Strip */}
-      <section className="py-16 bg-white border-y border-gray-100">
+      <section className="py-20 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold tracking-tight text-gray-900">
-              We don't run a hospital.
-            </h2>
-            <p className="text-2xl text-primary font-medium mt-2">
-              We run your health intelligence.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              "Doctor-led assessments",
-              "Partner diagnostic network",
-              "Personalized prevention plans",
-              "Lifestyle medicine focus"
-            ].map((item, index) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-gray-50 rounded-xl p-4 text-center"
-              >
-                <span className="text-sm font-medium text-gray-900">{item}</span>
-              </motion.div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Title Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+                <span className="text-primary text-sm font-medium">Our Philosophy</span>
+              </div>
+              <h2 className="text-4xl font-display font-bold tracking-tight text-gray-900 leading-tight mb-4">
+                We don't run a <span className="text-secondary">hospital</span>.
+              </h2>
+              <p className="text-2xl font-medium text-primary mt-2">
+                We run your health intelligence.
+              </p>
+              <p className="text-gray-600 mt-6 leading-relaxed">
+                We believe in proactive health management over reactive treatment. 
+                Our approach combines medical expertise with data-driven insights to 
+                help you stay ahead of health challenges.
+              </p>
+              
+              {/* Stat or Highlight */}
+              <div className="mt-8 flex items-center gap-6">
+                <div>
+                  <p className="text-3xl font-bold text-primary">95%</p>
+                  <p className="text-xs text-gray-500">Client satisfaction</p>
+                </div>
+                <div className="w-px h-10 bg-gray-200"></div>
+                <div>
+                  <p className="text-3xl font-bold text-primary">24/7</p>
+                  <p className="text-xs text-gray-500">Medical support</p>
+                </div>
+                <div className="w-px h-10 bg-gray-200"></div>
+                <div>
+                  <p className="text-3xl font-bold text-primary">50+</p>
+                  <p className="text-xs text-gray-500">Clients served</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Side - Feature Grid with Icons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { icon: Stethoscope, title: "Doctor-led assessments", description: "Licensed medical professionals" },
+                { icon: Activity, title: "Partner diagnostic network", description: "Certified lab partners" },
+                { icon: Heart, title: "Personalized prevention plans", description: "Tailored to your needs" },
+                { icon: TrendingUp, title: "Lifestyle medicine focus", description: "Sustainable health habits" }
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group bg-gray-50 rounded-2xl p-5 hover:bg-white hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100"
+                  >
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Icon className="h-6 w-6 text-secondary" />
+                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-sm text-gray-500">{item.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
-
       {/* Services Section */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -257,8 +303,8 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title text-4xl">Our Services</h2>
-            <p className="section-subtitle mt-4">
+            <h2 className="section-title text-4xl text-primary">Our Services</h2>
+            <p className="section-subtitle mt-4 text-secondary">
               Comprehensive preventive health solutions tailored to your needs
             </p>
           </motion.div>
@@ -297,23 +343,23 @@ const OptimizaPage = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-10 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <h2 className="section-title text-4xl">How It Works</h2>
-            <p className="section-subtitle mt-4">
+            <h2 className="section-title text-4xl text-primary">How It Works</h2>
+            <p className="section-subtitle mt-4 text-secondary">
               Your journey to optimal health in five simple steps
             </p>
           </motion.div>
 
           <div className="relative">
             {/* Connection Line */}
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-1/2 hidden lg:block" />
+            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-14 hidden lg:block" />
             
             <div className="grid lg:grid-cols-5 gap-8 relative">
               {steps.map((step, index) => (
@@ -336,7 +382,9 @@ const OptimizaPage = () => {
           </div>
 
           <div className="text-center mt-12">
-            <button className="btn-primary px-8 py-4 text-base">
+            <button 
+              onClick={()=> {navigate('/contact'); scrollTo(0,0)}}
+              className="btn-primary px-8 py-4 text-base">
               Begin My Health Journey
             </button>
           </div>
@@ -352,8 +400,8 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h3 className="text-2xl font-display font-semibold text-gray-900 mb-3">Diagnostic Partner Ecosystem</h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h3 className="text-3xl font-display font-semibold text-primary mb-3">Diagnostic Partner Ecosystem</h3>
+            <p className="text-secondary max-w-2xl mx-auto">
               We coordinate your testing through Tanzania's most reputable diagnostic providers — ensuring accuracy and trusted results.
             </p>
           </motion.div>
@@ -377,8 +425,8 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title text-4xl">Signature Programs</h2>
-            <p className="section-subtitle mt-4">
+            <h2 className="section-title text-4xl text-primary">Signature Programs</h2>
+            <p className="section-subtitle mt-4 text-secondary text-lg font-medium">
               Specialized health optimization pathways designed for specific needs
             </p>
           </motion.div>

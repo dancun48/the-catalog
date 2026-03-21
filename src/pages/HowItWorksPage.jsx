@@ -125,9 +125,9 @@ const HowItWorksPage = () => {
   ];
 
   return (
-    <main className="pt-16 md:pt-20">
+    <main className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 via-white to-gray-50 py-16 md:py-24">
+      <section className="bg-gradient-to-br from-primary/5 via-white to-gray-50 py-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -138,10 +138,10 @@ const HowItWorksPage = () => {
             <div className="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
               <TrendingUp className="h-10 w-10 text-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold tracking-tight text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-display font-semibold tracking-tight text-gray-900 mb-4">
               How It Works
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-secondary font-medium max-w-2xl mx-auto mb-8">
               A simple, structured process designed to guide you from inquiry to consultation
             </p>
             
@@ -175,7 +175,7 @@ const HowItWorksPage = () => {
       </section>
 
       {/* Steps Section with Animation */}
-      <section className="py-16 bg-white">
+      <section className="py-8 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatePresence mode="wait">
             <motion.div
@@ -250,7 +250,7 @@ const HowItWorksPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-display font-semibold text-gray-900 mb-4">
+            <h2 className="text-3xl font-display font-semibold text-primary mb-4">
               Why Choose The Catalog Healthcare?
             </h2>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
@@ -389,7 +389,7 @@ const HowItWorksPage = () => {
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Ready to get started?</h3>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/book"
+                href="/contact#book-now"
                 className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-xl hover:bg-primary-dark transition-colors"
               >
                 Book a Consultation
