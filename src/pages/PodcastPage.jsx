@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Play,
@@ -18,7 +18,10 @@ import {
   Brain,
   TrendingUp,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Pause,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 
 // Import images
@@ -32,7 +35,11 @@ import host1 from '../assets/images/hosts/doc1.jpeg';
 import host2 from '../assets/images/hosts/doc1.jpeg';
 
 const PodcastPage = () => {
+
   const [activeTab, setActiveTab] = useState('latest');
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const videoRef = useRef(null);
 
   // YouTube embed base URL
   const YOUTUBE_BASE_URL = 'https://www.youtube.com/embed/';
@@ -47,6 +54,22 @@ const PodcastPage = () => {
     past3: 'past3_id',
   };
 
+   // Handle video play/pause
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        // Pause logic for embedded video would need iframe API
+        // For now, we'll just toggle state
+        setIsPlaying(false);
+      } else {
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+  };
   // Podcast episodes data
   const episodes = {
     latest: [
@@ -263,19 +286,53 @@ const PodcastPage = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
               <div className="relative z-10">
-                <div className="bg-gradient-to-br from-primary to-secondary rounded-3xl p-1">
-                  <div className="bg-white rounded-2xl overflow-hidden">
-                    <img 
-                      src={podcastCover1} 
-                      alt="Podcast Cover" 
-                      className="w-full h-[400px] object-cover"
-                    />
+                <div className="bg-gradient-to-br from-primary to-secondary rounded-3xl p-2 shadow-2xl">
+                  <div className="bg-white rounded-2xl overflow-hidden relative group">
+                    
+                    {/* YouTube Video Embed */}
+                    <div className="relative aspect-video">
+                      <iframe
+                        ref={videoRef}
+                        className="w-full h-full"
+                        src={`https://www.youtube.com/embed/${episodeVideos.latest}?autoplay=0&rel=0&modestbranding=1&controls=0&showinfo=0`}
+                        title="Podcast Episode Preview"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                      
+                      {/* Custom Overlay Controls */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                          <button
+                            onClick={togglePlayPause}
+                            className="bg-white/20 backdrop-blur-md rounded-full p-2 hover:bg-white/30 transition-colors"
+                          >
+                            {isPlaying ? (
+                              <Pause className="h-5 w-5 text-white" />
+                            ) : (
+                              <Play className="h-5 w-5 text-white" />
+                            )}
+                          </button>
+                          <button
+                            onClick={toggleMute}
+                            className="bg-white/20 backdrop-blur-md rounded-full p-2 hover:bg-white/30 transition-colors"
+                          >
+                            {isMuted ? (
+                              <VolumeX className="h-5 w-5 text-white" />
+                            ) : (
+                              <Volume2 className="h-5 w-5 text-white" />
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

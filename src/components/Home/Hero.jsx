@@ -71,7 +71,7 @@ const ImageComponent5 = () => (
   <div className="w-full h-full relative overflow-hidden group">
     <img 
       src={hero_4} 
-      alt="Health Optimization" 
+      alt="Health Optimiza" 
       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -226,11 +226,11 @@ const Hero = () => {
                   className="w-[280px] md:w-[300px] h-[450px] md:h-[500px] lg:h-[550px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg cursor-pointer"
                   whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   onClick={() => {
-                    if (image.id === 1) navigate('/services#consultation');
-                    else if (image.id === 2) navigate('/corporate');
+                    if (image.id === 1) navigate('/contact#book-now');
+                    else if (image.id === 2) navigate('/wellness-hive');
                     else if (image.id === 3) navigate('/podcast');
                     else if (image.id === 4) navigate('/wellness-hive');
-                    else if (image.id === 5) navigate('/services#optimization');
+                    else if (image.id === 5) navigate('/health-optimiza');
                   }}
                 >
                   <image.component />

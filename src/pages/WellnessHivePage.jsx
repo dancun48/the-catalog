@@ -23,11 +23,11 @@ import {
 } from 'lucide-react';
 import wellnesshive from '../assets/images/hero/wh1.png';
 import { Helmet } from 'react-helmet-async';
-
 import { useNavigate } from 'react-router-dom';
 
 const WellnessHivePage = () => {
   const navigate = useNavigate();
+  
   // Performance drivers for WHPM
   const performanceDrivers = [
     { icon: Brain, name: "Mental Wellbeing", color: "primary" },
@@ -91,401 +91,459 @@ const WellnessHivePage = () => {
     { duration: "12-Month", title: "Performance Partnership", description: "Comprehensive organizational wellbeing and performance optimization." }
   ];
 
+  // Helper function to get color classes
+  const getColorClass = (color, type = 'text') => {
+    const colorMap = {
+      primary: { text: 'text-primary', bg: 'bg-primary/10', border: 'border-primary/20' },
+      secondary: { text: 'text-secondary', bg: 'bg-secondary/10', border: 'border-secondary/20' }
+    };
+    return colorMap[color]?.[type] || colorMap.primary[type];
+  };
+
   return (
     <>
       <Helmet>
         <title>The Catalog - Wellness Hive</title>
         <meta name="description" content="Workplace wellbeing and performance optimization systems powered by the Wellness Hive Performance Model™." />
       </Helmet>
-    <main className="py-2">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-flex items-center text-sm font-medium text-primary mb-4">
-                <span className="w-8 h-[2px] bg-secondary mr-2"></span>
-                Powered by Wellness Hive™ Performance Model
-              </span>
-              <h1 className="text-4xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
-                Workplace Wellbeing & Performance Optimization Systems
-              </h1>
-              <p className="text-xl text-gray-600 mb-4 max-w-lg">
-                Helping organizations build healthier, resilient, and high-performing teams through science-driven wellbeing and performance optimization strategies.
-              </p>
-              <p className="text-primary font-medium italic mb-8">
-                Sustainable organizational performance begins with human wellbeing.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button onClick={() => {navigate('/contact#book-now'); scrollTo(0,0)}} className="btn-primary px-8 py-4 text-base group text-sm">
-                  Book<span className="mx-1 text-md">|</span>Corporate Consultation
-                  <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button onClick={() => {navigate('/contact'); scrollTo(0,0)}} className="btn-outline px-8 py-4 text-base text-sm">
-                  Request Program Overview
-                </button>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div className=" flex items-center justify-center">
-                  <span className="text-gray-400"><img src={wellnesshive} alt="Wellness Hive" className="w-full h-full object-cover rounded-2xl" /></span>
+      <main className="py-2">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="inline-flex items-center text-sm font-medium text-primary mb-4">
+                  <span className="w-8 h-[2px] bg-secondary mr-2"></span>
+                  Powered by Wellness Hive™ Performance Model
+                </span>
+                <h1 className="text-4xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
+                  Workplace Wellbeing & Performance Optimization Systems
+                </h1>
+                <p className="text-xl text-gray-600 mb-4 max-w-lg">
+                  Helping organizations build healthier, resilient, and high-performing teams through science-driven wellbeing and performance optimization strategies.
+                </p>
+                <p className="text-primary font-medium italic mb-8">
+                  Sustainable organizational performance begins with human wellbeing.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <button 
+                    onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }} 
+                    className="btn-primary px-8 py-4 text-base group text-sm"
+                  >
+                    Book<span className="mx-1 text-md">|</span>Corporate Consultation
+                    <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <button 
+                    onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }} 
+                    className="btn-outline px-8 py-4 text-base text-sm"
+                  >
+                    Request Program Overview
+                  </button>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative"
+              >
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                  <div className="flex items-center justify-center">
+                    <img src={wellnesshive} alt="Wellness Hive" className="w-full h-full object-cover rounded-2xl" />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Part 1: Introducing Wellness Hive Performance Model™ */}
-      <section className="py-10 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <motion.span
+        {/* Part 1: Introducing Wellness Hive Performance Model™ */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-sm font-medium text-gray-500 mb-2 block"
+              >
+                Introducing
+              </motion.span>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4"
+              >
+                Wellness Hive™ Performance Model
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-lg font-medium text-secondary max-w-3xl mx-auto mb-8"
+              >
+                A structured framework designed to translate science and wellbeing principles into measurable organizational performance metrics.
+              </motion.p>
+            </div>
+
+            <div className="grid md:grid-cols-5 gap-4 mb-12">
+              {performanceDrivers.map((driver, index) => {
+                const Icon = driver.icon;
+                const textColor = getColorClass(driver.color, 'text');
+                return (
+                  <motion.div
+                    key={driver.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-gray-50 rounded-xl p-6 text-center card-hover"
+                  >
+                    <Icon className={`h-8 w-8 mx-auto mb-3 ${textColor}`} />
+                    <span className="text-sm font-medium text-gray-900">{driver.name}</span>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-sm font-medium text-gray-900 mb-2 block"
+              className="text-center"
             >
-              Introducing
-            </motion.span>
+              <p className="text-xl text-primary font-display italic border-t border-gray-200 pt-8">
+                "Human performance is not accidental – it is designed."
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Part 2: Hidden Cost of Unhealthy Workforce */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4"
+              className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4 text-center"
             >
-              Wellness Hive™ Performance Model
+              Hidden Cost of Unhealthy Workforce
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg font-medium text-secondary max-w-3xl mx-auto mb-8"
+              className="text-lg text-secondary font-medium text-center mb-12"
             >
-              A structured framework designed to translate science and wellbeing principles into measurable organizational performance metrics.
+              Often silent but deeply affect performance
             </motion.p>
-          </div>
 
-          <div className="grid md:grid-cols-5 gap-4 mb-12">
-            {performanceDrivers.map((driver, index) => (
-              <motion.div
-                key={driver.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-gray-50 rounded-xl p-6 text-center card-hover"
-              >
-                <driver.icon className={`h-8 w-8 mx-auto mb-3 text-${driver.color}`} />
-                <span className="text-sm font-medium text-gray-900">{driver.name}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <p className="text-xl text-primary font-display italic border-t border-gray-200 pt-8">
-              "Human performance is not accidental – it is designed."
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Part 2: Hidden Cost of Unhealthy Workforce */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4 text-center"
-          >
-            Hidden Cost of Unhealthy Workforce
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-secondary font-medium text-center mb-12"
-          >
-            Often silent but deeply affect performance
-          </motion.p>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { metric: "34%", label: "Productivity Loss", desc: "due to burnout", color: "primary" },
-              { metric: "2.3x", label: "Healthcare Costs", desc: "higher for at-risk employees", color: "secondary" },
-              { metric: "45%", label: "Turnover Risk", desc: "increase with low wellbeing", color: "primary" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 text-center border border-gray-100"
-              >
-                <p className={`text-4xl font-display font-bold text-${stat.color} mb-2`}>{stat.metric}</p>
-                <p className="font-medium text-gray-900">{stat.label}</p>
-                <p className="text-sm text-gray-600">{stat.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Part 3: How We Deliver / Implementation Roadmap */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4">
-              How We Deliver
-            </h2>
-            <p className="text-secondary font-medium mt-2">A System, Not Just a Program</p>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Left side - 4 squares */}
-            <div className="grid grid-cols-2 gap-4">
-              {roadmapSteps.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`bg-${step.color}/5 rounded-xl p-6 border border-${step.color}/10 card-hover`}
-                >
-                  <step.icon className={`h-8 w-8 text-${step.color} mb-3`} />
-                  <h3 className="font-display font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-600">{step.description}</p>
-                </motion.div>
-              ))}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { metric: "34%", label: "Productivity Loss", desc: "due to burnout", color: "primary" },
+                { metric: "2.3x", label: "Healthcare Costs", desc: "higher for at-risk employees", color: "secondary" },
+                { metric: "45%", label: "Turnover Risk", desc: "increase with low wellbeing", color: "primary" }
+              ].map((stat, index) => {
+                const textColor = getColorClass(stat.color, 'text');
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white rounded-xl p-6 text-center border border-gray-100"
+                  >
+                    <p className={`text-4xl font-display font-bold ${textColor} mb-2`}>{stat.metric}</p>
+                    <p className="font-medium text-gray-900">{stat.label}</p>
+                    <p className="text-sm text-gray-600">{stat.desc}</p>
+                  </motion.div>
+                );
+              })}
             </div>
+          </div>
+        </section>
 
-            {/* Right side - portrait rectangle */}
+        {/* Part 3: How We Deliver / Implementation Roadmap */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 text-white"
+              className="text-center mb-12"
             >
-              <h3 className="text-2xl font-display font-semibold mb-6">Key Optimization Areas</h3>
-              <div className="space-y-4">
-                {optimizationAreas.map((area, index) => (
-                  <div key={index} className="flex items-start">
-                    <CheckCircle2 className="h-5 w-5 mr-3 flex-shrink-0 mt-0.5" />
-                    <span>{area}</span>
-                  </div>
-                ))}
-              </div>
+              <h2 className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4">
+                How We Deliver
+              </h2>
+              <p className="text-secondary font-medium mt-2">A System, Not Just a Program</p>
             </motion.div>
-          </div>
-        </div>
-      </section>
 
-      {/* Part 4: Executive | Leadership Track */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
-              Executive | Leadership Track
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Wellness Hive™ Executive Workshops
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-2xl p-8 mb-12 border border-gray-100"
-          >
-            <p className="text-lg text-gray-700 mb-6">
-              High-impact, evidence-based workshops designed to help organizations strengthen workforce wellbeing, leadership effectiveness, and team performance. Each workshop combines insight, practical strategies, and interactive discussion, enabling employees and leaders to apply the concepts directly within their work environments.
-            </p>
-
-            <h3 className="text-2xl font-display font-semibold text-gray-900 mb-6">Core Workshop Areas</h3>
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {workshopAreas.map((area, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="p-4 bg-gray-50 rounded-xl"
-                >
-                  <h4 className="font-semibold text-gray-900 mb-2">{area.title}</h4>
-                  <p className="text-sm text-gray-600">{area.description}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="border-t border-gray-200 pt-6">
-              <p className="font-medium text-gray-900 mb-2">Delivery Format – Customizable to organization requirements</p>
-              <p className="text-gray-600 mb-2">• Interactive corporate workshops • Leadership-focused sessions • Open discussions • Q&A and practical workplace applications</p>
-              <p className="text-gray-600 mb-4">Delivery Mode: On-site, Virtually or Hybrid</p>
-              <button className="btn-primary px-6 py-3">
-                Book | Workshop
-              </button>
-              <p className="text-sm text-gray-600 mt-4">
-                Many organizations begin with a workshop and later extend the engagement through our Wellness Hive Performance Partnership™, a structured program designed to strengthen workforce wellbeing and organizational performance over time.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Signs Your Workforce May Benefit */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-2xl p-8 mb-12 border border-gray-100"
-          >
-            <h2 className="text-3xl font-display font-semibold text-gray-900 mb-6">
-              Signs Your Workforce May Benefit from a Performance Partnership
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Modern organizations face increasing pressure to maintain performance while protecting employee wellbeing. Many of the early warning signs appear subtly before they begin to affect productivity, collaboration, and workplace culture.
-            </p>
-            <p className="font-medium text-gray-900 mb-4">Your organization may benefit from a Wellness Hive™ Performance Partnership™ if you are noticing:</p>
-            
-            <div className="grid md:grid-cols-2 gap-4 mb-6">
-              {warningSigns.map((sign, index) => (
-                <div key={index} className="flex items-start">
-                  <AlertTriangle className="h-5 w-5 text-secondary mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{sign}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-gray-700 mb-4">
-              Forward-thinking organizations recognize that these challenges are not simply HR issues. They are organizational performance challenges.
-            </p>
-            <p className="text-gray-700 mb-6">
-              A structured wellbeing strategy helps address these risks early while strengthening the human foundations of long-term performance.
-            </p>
-
-            <div className="flex gap-4">
-              <button className="btn-primary px-6 py-3">
-                Explore the Wellness Hive™ Performance Partnership™
-              </button>
-              <button className="btn-outline px-6 py-3">
-                Book | Corporate Consultation
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Wellness Hive Performance Partnership™ */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8"
-          >
-            <h2 className="text-3xl font-display font-semibold text-gray-900 mb-4">
-              Wellness Hive™ Performance Partnership
-            </h2>
-            <p className="text-lg text-gray-700 mb-4">
-              A structured 3–12 month workforce wellbeing and performance optimization engagement.
-            </p>
-            <p className="text-gray-700 mb-6">
-              The Wellness Hive Performance Partnership™ helps organizations strengthen workforce resilience, leadership effectiveness, and employee wellbeing through a structured, evidence-based approach. Designed for modern organizations, the partnership focuses on the human drivers that influence productivity, collaboration, and long-term organizational performance.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-3">What the Partnership Focuses On</h3>
-                <ul className="space-y-2">
-                  {[
-                    "Workforce mental wellbeing and resilience",
-                    "Emotional intelligence for leadership and teams",
-                    "Burnout risk awareness and prevention",
-                    "Preventive health education",
-                    "Sustainable workforce performance"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle2 className="h-4 w-4 text-primary mr-2 mt-1" />
-                      <span className="text-sm text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Left side - 4 squares */}
+              <div className="grid grid-cols-2 gap-4">
+                {roadmapSteps.map((step, index) => {
+                  const Icon = step.icon;
+                  const bgColor = getColorClass(step.color, 'bg');
+                  const borderColor = getColorClass(step.color, 'border');
+                  const textColor = getColorClass(step.color, 'text');
+                  return (
+                    <motion.div
+                      key={step.title}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className={`${bgColor} rounded-xl p-6 border ${borderColor} card-hover`}
+                    >
+                      <Icon className={`h-8 w-8 ${textColor} mb-3`} />
+                      <h3 className="font-display font-semibold text-gray-900 mb-2">{step.title}</h3>
+                      <p className="text-sm text-gray-600">{step.description}</p>
+                    </motion.div>
+                  );
+                })}
               </div>
 
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Engagement Formats</h3>
-                <div className="space-y-3">
-                  {partnershipFormats.map((format, index) => (
-                    <div key={index} className="bg-white rounded-lg p-3">
-                      <p className="font-medium text-gray-900">{format.duration} {format.title}</p>
-                      <p className="text-sm text-gray-600">{format.description}</p>
+              {/* Right side - portrait rectangle */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 text-white"
+              >
+                <h3 className="text-2xl font-display font-semibold mb-6">Key Optimization Areas</h3>
+                <div className="space-y-4">
+                  {optimizationAreas.map((area, index) => (
+                    <div key={index} className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 mr-3 flex-shrink-0 mt-0.5" />
+                      <span>{area}</span>
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
+          </div>
+        </section>
 
-            <p className="text-gray-700 mb-6">
-              <span className="font-semibold">Why Organizations Choose the Performance Partnership™:</span> Because sustainable performance is built on healthy, resilient, and emotionally intelligent teams. The partnership helps organizations move beyond one-off workshops toward long-term workforce wellbeing systems.
-            </p>
+        {/* Part 4: Executive | Leadership Track */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl text-primary font-semibold max-w-2xl mx-auto">
+                Wellness Hive™ Executive Workshops
+              </h2>
+              <p className="text-secondary mt-4">
+                High impact, evidence-based workshops designed to help organizations strengthen workforce wellbeing, leadership effectiveness and team performance.
+              </p>
+            </motion.div>
 
-            <button className="btn-primary px-6 py-3">
-              Start a Performance Partnership Conversation
-            </button>
-          </motion.div>
-        </div>
-      </section>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-8 mb-12 border border-gray-100"
+            >
+              <div className="grid md:grid-cols-2 gap-10">
+                <div className="flex flex-col gap-6">
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <h3 className='font-bold text-primary mb-2'>Integrated With:</h3>
+                    <p className="text-gray-600"><span className='text-secondary'>Wellness Hive™ </span>to deliver tailored, measurable, and impactful performance optimization to organizations of any size.</p>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <h3 className='font-bold text-primary mb-2'>Structure:</h3>
+                    <ul className="list-disc list-inside text-gray-600 space-y-1">
+                      <li>Interactive | Expert-led sessions</li>
+                      <li>Practical skills lab & drills</li>
+                      <li>Q&A sessions | Open discussions</li>
+                      <li>Leadership-focused discussions</li>
+                    </ul>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <h3 className='font-bold text-primary mb-2'>Delivery Mode:</h3>
+                    <p className="text-gray-600">On-site | Virtual | Hybrid</p>
+                  </div>
+                                    <div className="border-t border-gray-200 pt-6">
+                    <button 
+                      onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+                      className="btn-primary px-6 py-3"
+                    >
+                      Book | Workshop
+                    </button>
+                  </div>
 
-      {/* Final Call To Action */}
-      <section className="py-14 bg-gradient-to-br from-primary to-primary/90">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-4xl font-display font-semibold text-white mb-6">
-              Build a Healthier, Higher-Performing Workforce
-            </h2>
-            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-              Investing in workforce wellbeing is no longer optional. It is a strategic advantage.
-            </p>
-            <button className="bg-white text-primary px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors text-base group">
-              Book | Corporate Consultation
-              <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </motion.div>
-        </div>
-      </section>
-    </main>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-display font-semibold text-gray-900 mb-6">Core Workshop Areas</h3>
+                  <div className="flex flex-col gap-6 mb-4">
+                    {workshopAreas.map((area, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className="p-4 bg-gray-50 rounded-xl"
+                      >
+                        <h4 className="font-semibold text-primary/90 mb-2">{area.title}</h4>
+                        <p className="text-sm text-gray-600">{area.description}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-center text-gray-600 mt-6 pt-4 border-t border-gray-100">
+                Many organizations begin with workshop and later extend to <span className="text-secondary font-semibold">Wellness Hive™ Performance Partnership.</span>
+              </p>
+            </motion.div>
+
+            {/* Signs Your Workforce May Benefit */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <h2 className="text-3xl font-display font-semibold text-primary mb-6 text-center">
+                Signs Your Workforce May Benefit from a Performance Partnership
+              </h2>
+              <p className="text-secondary mb-6 text-center max-w-3xl mx-auto">
+                Many early warning signs appear subtly before they begin to affect productivity, collaboration and workplace culture.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-12 items-start mb-6">
+                <div className='bg-secondary/20 p-4 rounded-2xl'>
+                  <p className="font-bold text-primary mb-4 text-center">Your organization may benefit from a Wellness Hive™ Performance Partnership™ if you are noticing:</p>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {warningSigns.map((sign, index) => (
+                      <div key={index} className="flex items-start">
+                        <AlertTriangle className="h-5 w-5 text-secondary mr-3 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-600 text-sm">{sign}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-6">
+                  <h3 className="font-semibold text-gray-900 mb-3">Ready to take action?</h3>
+                  <p className="text-gray-600 mb-4">Let's discuss how Wellness Hive can transform your organization's wellbeing culture.</p>
+                  <div className="flex flex-wrap gap-4">
+                    <button 
+                      onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+                      className="btn-primary px-6 py-2 text-sm"
+                    >
+                      Explore the Wellness Hive™ Performance Partnership™
+                    </button>
+                    <button 
+                      onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+                      className="btn-outline px-6 py-2 text-sm"
+                    >
+                      Book | Corporate Consultation
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p className="text-secondary mb-8 text-center text-sm mx-auto mt-4 border-t pt-6">
+                A structured wellbeing strategy helps address these risks early while strengthening the human foundations of long-term performance.
+              </p>
+            </motion.div>
+
+            {/* Wellness Hive Performance Partnership™ */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8"
+            >
+              <h2 className="text-center text-3xl font-display font-semibold text-primary mb-4">
+                Wellness Hive™ Performance Partnership
+              </h2>
+              <p className="text-center text-secondary mb-4">
+                A structured in-depth workforce wellbeing and performance optimization engagement. Focusing on the human drivers that influence productivity, collaboration and long-term organizational performance.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className='flex flex-col'>
+                  <h3 className="font-semibold text-gray-900 mb-3">What the Partnership Focuses On</h3>
+                  <ul className="space-y-2">
+                    {[
+                      "Workforce mental wellbeing and resilience",
+                      "Emotional intelligence for leadership and teams",
+                      "Burnout risk awareness and prevention",
+                      "Preventive health education",
+                      "Sustainable workforce performance"
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <CheckCircle2 className="h-4 w-4 text-primary mr-2 mt-1 flex-shrink-0" />
+                        <span className="text-sm text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button 
+                    onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+                    className="btn-primary px-6 py-3 mt-10 text-sm self-start"
+                  >
+                    Start a Performance Partnership Conversation
+                  </button>
+
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-3">Engagement Formats</h3>
+                  <div className="space-y-3">
+                    {partnershipFormats.map((format, index) => (
+                      <div key={index} className="bg-white rounded-lg p-3">
+                        <p className="font-medium text-gray-900">{format.duration} {format.title}</p>
+                        <p className="text-sm text-gray-600">{format.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-center mt-6 text-sm border-t pt-6">
+                <span className="text-secondary">The partnership helps organizations move beyond one-off workshops toward long-term workforce wellbeing systems.</span>
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Final Call To Action */}
+        <section className="py-20 bg-gradient-to-br from-primary to-primary/90">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-4xl font-display font-semibold text-white mb-6">
+                Build a Healthier, Higher-Performing Workforce
+              </h2>
+              <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                Investing in workforce wellbeing is no longer optional. It is a strategic advantage.
+              </p>
+              <button 
+                onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+                className="bg-white text-primary px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors text-base group"
+              >
+                Book | Corporate Consultation
+                <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </motion.div>
+          </div>
+        </section>
+      </main>
     </>
   );
 };
