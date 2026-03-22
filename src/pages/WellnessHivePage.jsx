@@ -21,7 +21,7 @@ import {
   LineChart,
   RefreshCw
 } from 'lucide-react';
-import wellnesshive from '../assets/images/wellnesshive.jpg';
+import wellnesshive from '../assets/images/hero/wh1.png';
 import { Helmet } from 'react-helmet-async';
 
 import { useNavigate } from 'react-router-dom';
@@ -98,7 +98,7 @@ const WellnessHivePage = () => {
         <meta name="description" content="Workplace wellbeing and performance optimization systems powered by the Wellness Hive Performance Model™." />
       </Helmet>
     <main className="py-2">
-      {/* Hero Section - unchanged */}
+      {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -122,7 +122,7 @@ const WellnessHivePage = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <button onClick={() => {navigate('/contact#book-now'); scrollTo(0,0)}} className="btn-primary px-8 py-4 text-base group text-sm">
-                  Book a Corporate Consultation
+                  Book<span className="mx-1 text-md">|</span>Corporate Consultation
                   <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button onClick={() => {navigate('/contact'); scrollTo(0,0)}} className="btn-outline px-8 py-4 text-base text-sm">
@@ -148,14 +148,14 @@ const WellnessHivePage = () => {
       </section>
 
       {/* Part 1: Introducing Wellness Hive Performance Model™ */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-sm font-medium text-primary mb-2 block"
+              className="text-sm font-medium text-gray-900 mb-2 block"
             >
               Introducing
             </motion.span>
@@ -163,7 +163,7 @@ const WellnessHivePage = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4"
+              className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4"
             >
               Wellness Hive™ Performance Model
             </motion.h2>
@@ -172,7 +172,7 @@ const WellnessHivePage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto mb-8"
+              className="text-lg font-medium text-secondary max-w-3xl mx-auto mb-8"
             >
               A structured framework designed to translate science and wellbeing principles into measurable organizational performance metrics.
             </motion.p>
@@ -208,13 +208,13 @@ const WellnessHivePage = () => {
       </section>
 
       {/* Part 2: Hidden Cost of Unhealthy Workforce */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4 text-center"
+            className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4 text-center"
           >
             Hidden Cost of Unhealthy Workforce
           </motion.h2>
@@ -223,7 +223,7 @@ const WellnessHivePage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 text-center mb-12"
+            className="text-lg text-secondary font-medium text-center mb-12"
           >
             Often silent but deeply affect performance
           </motion.p>
@@ -260,11 +260,10 @@ const WellnessHivePage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4">
               How We Deliver
             </h2>
-            <p className="text-xl text-gray-600">Implementation Roadmap</p>
-            <p className="text-primary font-medium mt-2">A System, Not Just a Program</p>
+            <p className="text-secondary font-medium mt-2">A System, Not Just a Program</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -356,7 +355,7 @@ const WellnessHivePage = () => {
               <p className="text-gray-600 mb-2">• Interactive corporate workshops • Leadership-focused sessions • Open discussions • Q&A and practical workplace applications</p>
               <p className="text-gray-600 mb-4">Delivery Mode: On-site, Virtually or Hybrid</p>
               <button className="btn-primary px-6 py-3">
-                Book a Workshop
+                Book | Workshop
               </button>
               <p className="text-sm text-gray-600 mt-4">
                 Many organizations begin with a workshop and later extend the engagement through our Wellness Hive Performance Partnership™, a structured program designed to strengthen workforce wellbeing and organizational performance over time.
@@ -400,7 +399,7 @@ const WellnessHivePage = () => {
                 Explore the Wellness Hive™ Performance Partnership™
               </button>
               <button className="btn-outline px-6 py-3">
-                Book a Corporate Consultation
+                Book | Corporate Consultation
               </button>
             </div>
           </motion.div>
@@ -480,7 +479,7 @@ const WellnessHivePage = () => {
               Investing in workforce wellbeing is no longer optional. It is a strategic advantage.
             </p>
             <button className="bg-white text-primary px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors text-base group">
-              Book a Corporate Consultation
+              Book | Corporate Consultation
               <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>

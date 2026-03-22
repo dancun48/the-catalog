@@ -18,10 +18,12 @@ import {
   Globe
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 
 import doc1 from '../assets/images/doc1.jpeg';
 
 const AboutPage = () => {
+  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -178,7 +180,7 @@ const itemVariants = {
             <h1 className="text-5xl font-display font-semibold tracking-tight text-gray-900 mb-6">
               About The Catalog
             </h1>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-md font-medium text-secondary mb-8">
               We are a health intelligence platform committed to transforming how organizations approach workforce wellbeing and human performance.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -203,8 +205,8 @@ const itemVariants = {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8"
             >
-              <Eye className="h-10 w-10 text-primary mb-2" />
-              <h2 className="text-2xl font-display font-semibold text-gray-900 mb-4">Our Vision</h2>
+              <Eye className="h-10 w-10 text-secondary mb-2" />
+              <h2 className="text-2xl font-display font-semibold text-primary mb-4">Our Vision</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 To create a future where every organization in East Africa builds emotionally intelligent, high-performance workforces through data-driven wellness systems.
               </p>
@@ -221,14 +223,14 @@ const itemVariants = {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-2xl p-8"
             >
-              <Target className="h-10 w-10 text-secondary mb-2" />
-              <h2 className="text-2xl font-display font-semibold text-gray-900 mb-4">Our Mission</h2>
+              <Target className="h-10 w-10 text-primary mb-2" />
+              <h2 className="text-2xl font-display font-semibold text-secondary mb-4">Our Mission</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 To translate science and wellbeing principles into measurable organizational performance metrics, helping businesses build healthier, more resilient, and higher-performing teams.
               </p>
               <div className="mt-6 pt-6 border-t border-gray-200">
-                <p className="text-sm text-gray-600">
-                  We achieve this through medical-led, evidence-based systems that move beyond activities into structured wellbeing frameworks.
+                <p className="text-sm text-gray-600 italic">
+                  "We achieve this through medical-led, evidence-based systems that move beyond activities into structured wellbeing frameworks."
                 </p>
               </div>
             </motion.div>
@@ -245,10 +247,10 @@ const itemVariants = {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-display font-semibold tracking-tight text-primary mb-4">
               Our Story
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-md text-secondary max-w-2xl mx-auto font-medium leading-relaxed">
               From a simple insight to a movement transforming workplace health
             </p>
           </motion.div>
@@ -289,10 +291,10 @@ const itemVariants = {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-4xl font-display font-semibold tracking-tight text-gray-900 mb-4">
+            <h2 className="text-4xl font-display font-semibold tracking-tight text-primary mb-4">
               Our Core Values
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-md text-secondary max-w-2xl mx-auto font-medium leading-relaxed">
               The principles that guide everything we do
             </p>
           </motion.div>
@@ -432,58 +434,6 @@ const itemVariants = {
         />
       </div>
     </section>
-      {/* Why Partner With Us */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-5xl font-display font-semibold tracking-tight text-gray-900 mb-6">
-                Why Organizations Trust Us
-              </h2>
-              <div className="space-y-4 mb-8">
-                {[
-                  "Medical-led, evidence-based approach",
-                  "Proven track record with 100+ organizations",
-                  "Culturally relevant for East African context",
-                  "Measurable ROI on wellbeing investments",
-                  "Long-term partnership focus"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start">
-                    <CheckCircle2 className="h-5 w-5 text-secondary mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <button className="btn-primary px-6 py-3">
-                Partner With Us
-              </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-xl"
-            >
-              <Quote className="h-8 w-8 text-primary mb-4" />
-              <p className="text-lg text-gray-700 italic mb-6">
-                "The Catalog has transformed how we approach employee wellbeing. Their medical-led approach and measurable results make them an invaluable partner."
-              </p>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
-                <div>
-                  <p className="font-semibold text-gray-900">James Mwangi</p>
-                  <p className="text-sm text-gray-600">CEO, Mwangi Enterprises</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* Stats Section */}
       <section className="py-16 bg-white">
@@ -512,24 +462,28 @@ const itemVariants = {
       </section>
 
       {/* Join Us CTA */}
-      <section className="py-24 bg-gradient-to-br from-primary to-primary/90">
+      <section className="py-10 bg-gradient-to-br from-primary to-primary/90">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-semibold text-white mb-6">
+            <h2 className="text-4xl font-display font-semibold text-white mb-6">
               Join Us in Building Healthier Workplaces
             </h2>
-            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-secondary mb-10 max-w-2xl mx-auto font-medium">
               Partner with us to transform your organization's approach to workforce wellbeing.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-white text-primary px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors">
-                Book a Consultation
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <button 
+                onClick={()=>{navigate('/contact#book-now'); scrollTo(0,0)}}
+                className="bg-white text-primary px-8 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">
+                Book | Consultation
               </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-colors">
+              <button 
+                onClick={()=>{navigate('/insights#resources'); scrollTo(0,0)}}
+                className="border-2 border-white text-white px-8 py-2 rounded-full font-medium hover:bg-white/10 transition-colors">
                 Download Company Profile
               </button>
             </div>

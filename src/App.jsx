@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
@@ -16,13 +16,19 @@ import AboutPage from './pages/AboutPage';
 import ScrollToHash from './components/ScrollToHash';
 import InsightsPage from './pages/InsightsPage';
 import PodcastPage from './pages/PodcastPage';
-// Import new pages
 import HowItWorksPage from './pages/HowItWorksPage';
 import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
 
+const InsightsPageLazy = lazy(() => import('./pages/InsightsPage'));
+const PodcastPageLazy = lazy(() => import('./pages/PodcastPage'));
+const HowItWorksPageLazy = lazy(() => import('./pages/HowItWorksPage'));
+const TermsAndConditionsPageLazy = lazy(() => import('./pages/TermsAndConditionsPage'));
+const RefundPolicyPageLazy = lazy(() => import('./pages/RefundPolicyPage'));
+
 function App() {
   return (
+    <Suspense fallback="Loading...">
     <Router>
       <ScrollToHash />
       <div className="min-h-screen bg-white flex flex-col">
@@ -33,16 +39,15 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/wellness-hive" element={<WellnessHivePage />} />
             <Route path="/health-optimiza" element={<OptimizaPage />} />
-            <Route path="/podcast" element={<PodcastPage />} />
-            <Route path="/insights" element={<InsightsPage />} />
+            <Route path="/podcast" element={<PodcastPageLazy />} />
+            <Route path="/insights" element={<InsightsPageLazy />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/faqs" element={<FAQsPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/cookies" element={<CookiesPolicyPage />} />
-            {/* New Routes */}
-            <Route path="/how-it-works" element={<HowItWorksPage />} />
-            <Route path="/terms" element={<TermsAndConditionsPage />} />
-            <Route path="/refund" element={<RefundPolicyPage />} />
+            <Route path="/how-it-works" element={<HowItWorksPageLazy />} />
+            <Route path="/terms" element={<TermsAndConditionsPageLazy />} />
+            <Route path="/refund" element={<RefundPolicyPageLazy />} />
           </Routes>
         </div>
         <Footer />
@@ -53,6 +58,7 @@ function App() {
         <CookieConsent />
       </div>
     </Router>
+    </Suspense>
   );
 }
 

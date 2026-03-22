@@ -422,7 +422,7 @@ const InsightsPage = () => {
                         {section.id === 'articles' && (
                           <>
                             {item.featured && (
-                              <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium mb-3">
+                              <div id="featured" className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium mb-3">
                                 Featured
                               </div>
                             )}

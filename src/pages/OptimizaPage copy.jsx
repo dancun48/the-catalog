@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   Calendar, 
   Heart, 
@@ -13,8 +13,6 @@ import {
   Clock,
   Star,
   Phone,
-  ChevronLeft,
-  ChevronRight,
   MessageCircle,
   TrendingUp,
   Stethoscope,
@@ -26,7 +24,6 @@ import {
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
-// images
 import optimizahero from '../assets/images/optimiza/optimiza-hero.jpg';
 import hero_1 from '../assets/images/hero/wh1.png';
 import hero_2 from '../assets/images/hero/wh2.png';
@@ -34,65 +31,6 @@ import hero_2 from '../assets/images/hero/wh2.png';
 const OptimizaPage = () => {
 
   const navigate = useNavigate();
-
-  const heroImages = [
-    {src: hero_1, alt: "Optimiza Hero 1"},
-    {src: optimizahero, alt: "Medical consultation"},
-    {src: hero_2, alt: "Wellness assessment"}
-  ]
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
-  // auto-slide functionality
-  useEffect(() => {
-    let interval;
-    if (isAutoPlaying){
-      interval = setInterval (() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-      }, 2000); // for a 2 second delay
-    };
-    return () =>  clearInterval(interval);
-       }, [isAutoPlaying, heroImages.length]);
-
-    // manual navigation handlers
-    const nextImage = () => {
-      setIsAutoPlaying(false);
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-      setTimeout(() => setIsAutoPlaying(true), 4000); // resume auto-play after 4 seconds
-    }
-    const prevImage = () => {
-    setIsAutoPlaying(false);
-    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
-    setTimeout(() => setIsAutoPlaying(true), 5000);
-  };
-
-    // variants for slide animation
-    const slideVariants = {
-      enter: (direction) => ({
-        x: direction > 0 ? 300 : -300,
-        opacity: 0,
-        scale: 0.95
-      }),
-      center : {
-        x: 0,
-        opacity: 1,
-        scale: 1,
-        transition: {
-          duration: 0.5,
-          ease: 'easeOut'
-        }
-      },
-      exit: (direction) => ({
-        x: direction > 0 ? -300 : 300,
-        opacity: 0,
-        scale: 0.95,
-        transition: {
-          duration: 0.5,
-          ease: 'easeOut'
-        }
-      })
-    };
 
   // Services data
   const services = [
@@ -139,69 +77,69 @@ const OptimizaPage = () => {
     { traditional: "One-time visits", optimiza: "Continuous optimization" }
   ];
 
-  // // Signature programs
-  // const programs = [
-  //   {
-  //     title: "Optimiza Prime",
-  //     description: "Full preventive health intelligence assessment with comprehensive diagnostics and personalized optimization plan.",
-  //     icon: Shield
-  //   },
-  //   {
-  //     title: "Metabolic Reset",
-  //     description: "Weight & diabetes optimization pathway with lifestyle medicine approach and continuous monitoring.",
-  //     icon: Activity
-  //   },
-  //   {
-  //     title: "Executive Vitality",
-  //     description: "Preventive care for high-performing leaders with priority access and personalized health strategy.",
-  //     icon: Award
-  //   }
-  // ];
+  // Signature programs
+  const programs = [
+    {
+      title: "Optimiza Prime",
+      description: "Full preventive health intelligence assessment with comprehensive diagnostics and personalized optimization plan.",
+      icon: Shield
+    },
+    {
+      title: "Metabolic Reset",
+      description: "Weight & diabetes optimization pathway with lifestyle medicine approach and continuous monitoring.",
+      icon: Activity
+    },
+    {
+      title: "Executive Vitality",
+      description: "Preventive care for high-performing leaders with priority access and personalized health strategy.",
+      icon: Award
+    }
+  ];
 
-  // // Membership plans
-  // const plans = [
-  //   {
-  //     name: "Annual Health Advisory",
-  //     price: "Annual",
-  //     features: ["Quarterly health reviews", "Preventive screenings", "Lifestyle optimization", "Digital health tracking"],
-  //     cta: "Join Annual Plan"
-  //   },
-  //   {
-  //     name: "Executive Retainer",
-  //     price: "Premium",
-  //     features: ["Priority consultations", "Executive health assessments", "24/7 health advisory", "Family coverage options"],
-  //     cta: "Enquire Retainer",
-  //     popular: true
-  //   },
-  //   {
-  //     name: "Preventive Monitoring",
-  //     price: "Monthly",
-  //     features: ["Continuous health tracking", "Monthly check-ins", "Lifestyle coaching", "Early risk detection"],
-  //     cta: "Start Monitoring"
-  //   }
-  // ];
+  // Membership plans
+  const plans = [
+    {
+      name: "Annual Health Advisory",
+      price: "Annual",
+      features: ["Quarterly health reviews", "Preventive screenings", "Lifestyle optimization", "Digital health tracking"],
+      cta: "Join Annual Plan"
+    },
+    {
+      name: "Executive Retainer",
+      price: "Premium",
+      features: ["Priority consultations", "Executive health assessments", "24/7 health advisory", "Family coverage options"],
+      cta: "Enquire Retainer",
+      popular: true
+    },
+    {
+      name: "Preventive Monitoring",
+      price: "Monthly",
+      features: ["Continuous health tracking", "Monthly check-ins", "Lifestyle coaching", "Early risk detection"],
+      cta: "Start Monitoring"
+    }
+  ];
 
-  // // Testimonials
-  // const testimonials = [
-  //   {
-  //     quote: "Health Optimiza transformed how I approach my wellbeing. The preventive focus caught issues I didn't know existed.",
-  //     name: "James Mwangi",
-  //     role: "CEO, Mwangi Enterprises",
-  //     rating: 5
-  //   },
-  //   {
-  //     quote: "Our executive team has never been healthier. The coordinated approach saves us time and delivers real results.",
-  //     name: "Sarah Johnson",
-  //     role: "HR Director, Tanzania Banking Corp",
-  //     rating: 5
-  //   },
-  //   {
-  //     quote: "Dr. Erick's approach to lifestyle medicine is revolutionary. Finally, healthcare that makes sense.",
-  //     name: "Dr. Amina Hassan",
-  //     role: "Medical Director",
-  //     rating: 5
-  //   }
-  // ];
+  // Testimonials
+  const testimonials = [
+    {
+      quote: "Health Optimiza transformed how I approach my wellbeing. The preventive focus caught issues I didn't know existed.",
+      name: "James Mwangi",
+      role: "CEO, Mwangi Enterprises",
+      rating: 5
+    },
+    {
+      quote: "Our executive team has never been healthier. The coordinated approach saves us time and delivers real results.",
+      name: "Sarah Johnson",
+      role: "HR Director, Tanzania Banking Corp",
+      rating: 5
+    },
+    {
+      quote: "Dr. Erick's approach to lifestyle medicine is revolutionary. Finally, healthcare that makes sense.",
+      name: "Dr. Amina Hassan",
+      role: "Medical Director",
+      rating: 5
+    }
+  ];
 
   return (
     <>
@@ -231,11 +169,11 @@ const OptimizaPage = () => {
                 Doctor-led health check-ups, preventive consultations, and lifestyle counselling — coordinated through Tanzania's leading diagnostic partners.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="btn-primary px-8 py-2 text-sm group">
+                <button className="btn-primary px-8 py-4 text-base group">
                   Book Consultation
                   <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="btn-outline px-8 py-2 text-sm">
+                <button className="btn-outline px-8 py-4 text-base">
                   Start Health Check-Up
                 </button>
               </div>
@@ -257,76 +195,22 @@ const OptimizaPage = () => {
               </div>
             </motion.div>
             
-            <div className="relative">
-              <motion.div
-                initial={{opacity: 0, scale: 0.95}}
-                animate={{opacity: 1, scale: 1}}
-                transition={{duration: 0.6, delay: 0.2}}
-                className="relative bg-white rounded-2xl shadow-xl overflow-hidden">
-                  <div className="aspect-[4/3] relative overflow-hidden">
-                    <AnimatePresence initial={false} custom={1}>
-                      <motion.div
-                        key={currentImageIndex}
-                        custom={1}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        className="absolute inset-0"
-                      >
-                        <img 
-                          src={heroImages[currentImageIndex].src} 
-                          alt={heroImages[currentImageIndex].alt}
-                          className="w-full h-full object-cover"
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Navigation Arrows */}
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 z-10 backdrop-blur-sm"
-                      aria-label="Previous image"
-                    >
-                      <ChevronLeft className="h-5 w-5 text-gray-700" />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 z-10 backdrop-blur-sm"
-                      aria-label="Next image"
-                    >
-                      <ChevronRight className="h-5 w-5 text-gray-700" />
-                    </button>
-                    
-                    {/* Dots Indicator */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                      {heroImages.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => {
-                            setIsAutoPlaying(false);
-                            setCurrentImageIndex(index);
-                            setTimeout(() => setIsAutoPlaying(true), 5000);
-                          }}
-                          className={`transition-all duration-300 rounded-full ${
-                            currentImageIndex === index
-                              ? 'w-8 h-2 bg-primary'
-                              : 'w-2 h-2 bg-white/60 hover:bg-white/80'
-                          }`}
-                          aria-label={`Go to image ${index + 1}`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                
-                {/* Image Counter Badge */}
-                <div className="absolute -bottom-1 right-4 bg-white shadow-md rounded-full px-3 py-1 text-xs font-medium text-gray-600">
-                  {currentImageIndex + 1} / {heroImages.length}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div className="aspect-[4/3] flex items-center justify-center">
+                  <img src={hero_1} alt="Optimiza Hero" className="w-full h-full object-cover" />
+                  <img src={optimizahero} alt="Optimiza Hero" className="w-full h-full object-cover" />
+                  <img src={hero_2} alt="Optimiza Hero" className="w-full h-full object-cover" />
                 </div>
-              </motion.div>
-            </div>
-            </div>
-            </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Positioning Strip */}
@@ -573,8 +457,8 @@ const OptimizaPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title text-4xl text-primary">Why Health Optimiza</h2>
-            <p className="section-subtitle mt-4 text-secondary text-lg font-medium">
+            <h2 className="section-title text-4xl">Why Health Optimiza</h2>
+            <p className="section-subtitle mt-4">
               A fundamentally different approach to your health
             </p>
           </motion.div>
@@ -615,8 +499,8 @@ const OptimizaPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-display font-semibold text-white mb-6">
-              Your Health Should NOT Wait for Illness.
+            <h2 className="text-4xl font-display font-semibold text-white mb-6">
+              Your health should not wait for illness.
             </h2>
             <p className="text-xl text-secondary font-medium mb-10">
               Start your preventive journey today.
@@ -624,7 +508,7 @@ const OptimizaPage = () => {
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <button 
                 onClick={()=> {navigate('/contact#book-now'); scrollTo(0,0)}}
-                className="bg-white text-primary px-8 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">
+                className="bg-white text-primary px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors">
                 Book | Consultation
               </button>
               <button 

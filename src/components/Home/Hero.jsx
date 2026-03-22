@@ -3,18 +3,18 @@ import { motion, useAnimation, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-import workforce from '../../assets/images/workforce.jpg';
-// import doctorConsultation from '../../assets/images/doctor-consultation.jpg';
-// import corporateWellness from '../../assets/images/corporate-wellness.jpg';
-// import catalogPodcast from '../../assets/images/catalog-podcast.jpg';
-// import wellnessHive from '../../assets/images/wellness-hive.jpg';
-// import healthOptimization from '../../assets/images/health-optimization.jpg';
+import hero_1 from '../../assets/images/hero/wh1.png';
+import hero_2 from '../../assets/images/hero/wh2.png';
+import hero_3 from '../../assets/images/hero/wh3.png';
+import doc1 from '../../assets/images/hero/doc1.jpeg';
+import hero_4 from '../../assets/images/hero/wh4.png';
 
-// Image components with your actual images
+
+// Image components with actual images
 const ImageComponent1 = () => (
   <div className="w-full h-full relative overflow-hidden group">
     <img 
-      src={workforce} 
+      src={hero_1} 
       alt="Doctor Consultation" 
       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
@@ -28,7 +28,7 @@ const ImageComponent1 = () => (
 const ImageComponent2 = () => (
   <div className="w-full h-full relative overflow-hidden group">
     <img 
-      src={workforce} 
+      src={hero_2} 
       alt="Corporate Wellness" 
       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
@@ -42,7 +42,7 @@ const ImageComponent2 = () => (
 const ImageComponent3 = () => (
   <div className="w-full h-full relative overflow-hidden group">
     <img 
-      src={workforce} 
+      src={doc1} 
       alt="The Catalog Podcast" 
       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
@@ -56,7 +56,7 @@ const ImageComponent3 = () => (
 const ImageComponent4 = () => (
   <div className="w-full h-full relative overflow-hidden group">
     <img 
-      src={workforce} 
+      src={hero_3} 
       alt="Wellness Hive" 
       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
@@ -70,7 +70,7 @@ const ImageComponent4 = () => (
 const ImageComponent5 = () => (
   <div className="w-full h-full relative overflow-hidden group">
     <img 
-      src={workforce} 
+      src={hero_4} 
       alt="Health Optimization" 
       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
@@ -101,10 +101,11 @@ const Hero = () => {
 
   // trust indicators images
   const images = [
-    { id: 1, aspect: 'aspect-[4/3]', src: workforce },
-    { id: 2, aspect: 'aspect-[4/3]', src: workforce },
-    { id: 3, aspect: 'aspect-[4/3]', src: workforce },
-    { id: 4, aspect: 'aspect-[4/3]', src: workforce },
+    { id: 1, aspect: 'aspect-[4/3]', src: hero_1 },
+    { id: 2, aspect: 'aspect-[4/3]', src: hero_2 },
+    { id: 3, aspect: 'aspect-[4/3]', src: hero_3 },
+    { id: 3, aspect: 'aspect-[4/3]', src: doc1 },
+    { id: 4, aspect: 'aspect-[4/3]', src: hero_4 },
   ];
   
   // Duplicate images for seamless infinite scroll
