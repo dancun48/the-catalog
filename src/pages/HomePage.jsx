@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>The Catalog Healthcare - Home</title>
+        <title>The Catalog - Home</title>
         <meta name="description" content="Data-driven health and wellness strategies that go beyond activities — improving energy, resilience and measurable workplace performance. Doctor-led preventive health and workplace performance optimization in East Africa." />
       </Helmet>
       <main>

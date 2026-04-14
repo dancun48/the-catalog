@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Brain, 
   Heart, 
@@ -19,14 +19,79 @@ import {
   FileText,
   PenTool,
   LineChart,
-  RefreshCw
+  RefreshCw,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+  Quote
 } from 'lucide-react';
+
 import wellnesshive from '../assets/images/hero/wh1.png';
+import wellnesshive2 from '../assets/images/hero/wh3.png';
+import wellnesshive3 from '../assets/images/hero/wh4.png';
+import doc1 from '../assets/images/hero/doc1.jpeg';
+
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
 const WellnessHivePage = () => {
+
   const navigate = useNavigate();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const carouselRef = useRef(null);
+
+   // Carousel images
+  const carouselImages = [
+    {
+      src: wellnesshive,
+      alt: "Workplace Wellness Session",
+      title: "Wellness Hive™",
+      description: "Transforming workplace cultures through science-driven wellness programs"
+    },
+    {
+      src: wellnesshive2,
+      alt: "Health Assessment",
+      title: "Health Optimization",
+      description: "Data-driven insights for peak performance"
+    },
+    {
+      src: wellnesshive3,
+      alt: "Leadership Training",
+      title: "Leadership Excellence",
+      description: "Developing resilient leaders for sustainable success"
+    },
+    {
+      src: doc1,
+      alt: "Expert Consultation",
+      title: "Expert Guidance",
+      description: "Doctor-led consultations for workforce wellbeing"
+    }
+  ];
+
+  // Auto-slide functionality
+  useEffect(() => {
+    let interval;
+    if (isAutoPlaying) {
+      interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+      }, 3000);
+    }
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, carouselImages.length]);
+
+  const nextSlide = () => {
+    setIsAutoPlaying(false);
+    setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    setTimeout(() => setIsAutoPlaying(true), 2000);
+  };
+
+  const prevSlide = () => {
+    setIsAutoPlaying(false);
+    setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+    setTimeout(() => setIsAutoPlaying(true), 2000);
+  };
   
   // Performance drivers for WHPM
   const performanceDrivers = [
@@ -107,56 +172,147 @@ const WellnessHivePage = () => {
         <meta name="description" content="Workplace wellbeing and performance optimization systems powered by the Wellness Hive Performance Model™." />
       </Helmet>
       <main className="py-2">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Hero Section with Image Carousel */}
+        <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse delay-1000" />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left Content */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
               >
-                <span className="inline-flex items-center text-sm font-medium text-primary mb-4">
+                  <span className="inline-flex items-center text-sm font-medium text-primary mb-4">
                   <span className="w-8 h-[2px] bg-secondary mr-2"></span>
-                  Powered by Wellness Hive™ Performance Model
-                </span>
-                <h1 className="text-4xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
-                  Workplace Wellbeing & Performance Optimization Systems
+                  Powered by <span className="text-secondary">Wellness Hive</span>™ Performance Model
+                </span>                
+                <h1 className="text-4xl font-display font-bold tracking-tight leading-tight mb-6">
+                  Workplace <span className="text-primary">Wellbeing</span> & 
+                  <span className="text-secondary"> Performance</span> 
+                  <br />
+                  <span className="text-primary">Optimization</span> Systems
                 </h1>
-                <p className="text-xl text-gray-600 mb-4 max-w-lg">
+                
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   Helping organizations build healthier, resilient, and high-performing teams through science-driven wellbeing and performance optimization strategies.
                 </p>
-                <p className="text-primary font-medium italic mb-8">
-                  Sustainable organizational performance begins with human wellbeing.
+                
+                <p className="text-primary font-medium italic mb-8 border-l-4 border-primary pl-4">
+                  <span className='text-secondary'>Sustainable organizational performance</span> begins with human wellbeing.
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  <button 
+                
+                <div className="flex flex-wrap gap-4 text-xs">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }} 
-                    className="btn-primary px-8 py-4 text-base group text-sm"
+                    className="bg-primary text-white px-6 py-4 rounded-xl font-medium group shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Book<span className="mx-1 text-md">|</span>Corporate Consultation
+                    Book | Corporate Consultation
                     <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  <button 
+                  </motion.button>
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }} 
-                    className="btn-outline px-8 py-4 text-base text-sm"
+                    className="bg-secondary text-white px-6 py-4 rounded-xl font-medium group shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Request Program Overview
-                  </button>
+                    Request | Program Overview
+                    <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
                 </div>
               </motion.div>
-              
+
+              {/* Right Content - Elegant Carousel */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 className="relative"
+                ref={carouselRef}
               >
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                  <div className="flex items-center justify-center">
-                    <img src={wellnesshive} alt="Wellness Hive" className="w-full h-full object-cover rounded-2xl" />
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentSlide}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.5 }}
+                      className="relative aspect-[4/3]"
+                    >
+                      <img 
+                        src={carouselImages[currentSlide].src} 
+                        alt={carouselImages[currentSlide].alt}
+                        className="w-full h-full object-cover"
+                      />
+                      
+                      {/* Overlay Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      
+                      {/* Slide Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <h3 className="text-2xl font-bold mb-2">{carouselImages[currentSlide].title}</h3>
+                        <p className="text-white/90 text-sm">{carouselImages[currentSlide].description}</p>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Navigation Arrows */}
+                  <button
+                    onClick={prevSlide}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-md hover:bg-white/40 rounded-full p-2 transition-all duration-300"
+                  >
+                    <ChevronLeft className="h-6 w-6 text-white" />
+                  </button>
+                  <button
+                    onClick={nextSlide}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-md hover:bg-white/40 rounded-full p-2 transition-all duration-300"
+                  >
+                    <ChevronRight className="h-6 w-6 text-white" />
+                  </button>
+
+                  {/* Auto-play Indicator */}
+                  <button
+                    onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                    className="absolute bottom-4 right-4 bg-white/20 backdrop-blur-md rounded-full p-2 transition-all duration-300"
+                  >
+                    {isAutoPlaying ? (
+                      <Pause className="h-4 w-4 text-white" />
+                    ) : (
+                      <Play className="h-4 w-4 text-white" />
+                    )}
+                  </button>
+
+                  {/* Dots Indicator */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                    {carouselImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setIsAutoPlaying(false);
+                          setCurrentSlide(index);
+                          setTimeout(() => setIsAutoPlaying(true), 10000);
+                        }}
+                        className={`transition-all duration-300 rounded-full ${
+                          currentSlide === index
+                            ? 'w-6 h-1.5 bg-white'
+                            : 'w-1.5 h-1.5 bg-white/50 hover:bg-white/70'
+                        }`}
+                      />
+                    ))}
                   </div>
                 </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl" />
               </motion.div>
             </div>
           </div>
@@ -187,7 +343,7 @@ const WellnessHivePage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-lg font-medium text-secondary max-w-3xl mx-auto mb-8"
+                className="text-lg text-secondary max-w-3xl mx-auto mb-8"
               >
                 A structured framework designed to translate science and wellbeing principles into measurable organizational performance metrics.
               </motion.p>
@@ -242,7 +398,7 @@ const WellnessHivePage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-secondary font-medium text-center mb-12"
+              className="text-lg text-secondary text-center mb-12"
             >
               Often silent but deeply affect performance
             </motion.p>
@@ -285,7 +441,7 @@ const WellnessHivePage = () => {
               <h2 className="text-4xl md:text-4xl font-display font-semibold tracking-tight text-primary mb-4">
                 How We Deliver
               </h2>
-              <p className="text-secondary font-medium mt-2">A System, Not Just a Program</p>
+              <p className="text-secondary mt-2 max-w-3xl mx-auto">A System, Not Just a Program</p>
             </motion.div>
 
             <div className="grid lg:grid-cols-2 gap-8">
@@ -346,7 +502,7 @@ const WellnessHivePage = () => {
               <h2 className="text-3xl text-primary font-semibold max-w-2xl mx-auto">
                 Wellness Hive™ Executive Workshops
               </h2>
-              <p className="text-secondary mt-4">
+              <p className="text-secondary mt-4 max-w-3xl mx-auto">
                 High impact, evidence-based workshops designed to help organizations strengthen workforce wellbeing, leadership effectiveness and team performance.
               </p>
             </motion.div>
@@ -426,7 +582,7 @@ const WellnessHivePage = () => {
               
               <div className="grid md:grid-cols-2 gap-12 items-start mb-6">
                 <div className='bg-secondary/20 p-4 rounded-2xl'>
-                  <p className="font-bold text-primary mb-4 text-center">Your organization may benefit from a Wellness Hive™ Performance Partnership™ if you are noticing:</p>
+                  <p className="font-bold text-primary mb-4 text-center">Your organization may benefit from a Wellness Hive™ Performance Partnership if you are noticing:</p>
                   <div className="grid md:grid-cols-2 gap-4">
                     {warningSigns.map((sign, index) => (
                       <div key={index} className="flex items-start">
@@ -444,7 +600,7 @@ const WellnessHivePage = () => {
                       onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
                       className="btn-primary px-6 py-2 text-sm"
                     >
-                      Explore the Wellness Hive™ Performance Partnership™
+                      Explore | Wellness Hive™ Performance Partnership
                     </button>
                     <button 
                       onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
@@ -470,7 +626,7 @@ const WellnessHivePage = () => {
               <h2 className="text-center text-3xl font-display font-semibold text-primary mb-4">
                 Wellness Hive™ Performance Partnership
               </h2>
-              <p className="text-center text-secondary mb-4">
+              <p className="text-center text-secondary mb-4 max-w-3xl mx-auto">
                 A structured in-depth workforce wellbeing and performance optimization engagement. Focusing on the human drivers that influence productivity, collaboration and long-term organizational performance.
               </p>
 
@@ -495,7 +651,7 @@ const WellnessHivePage = () => {
                     onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
                     className="btn-primary px-6 py-3 mt-10 text-sm self-start"
                   >
-                    Start a Performance Partnership Conversation
+                    Start | Performance Partnership Conversation
                   </button>
 
                 </div>

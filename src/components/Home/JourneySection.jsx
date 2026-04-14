@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const JourneySection = () => {
+
+  const navigate = useNavigate();
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,8 +18,8 @@ const JourneySection = () => {
         >
           <h2 className="text-4xl font-display text-primary font-semibold mb-4">Start Your Health & Performance Journey</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            <span className="font-normal text-gray-600">Whether you are seeking personal health optimization or workforce wellbeing programs.</span><br/>
-            <span className="font-medium text-secondary"> We provide practical, science-based strategies designed to improve health, resilience and long-term performance.</span>
+            <span className="font-normal text-gray-500 text-sm">Whether you are seeking personal health optimization or workforce wellbeing programs.</span><br/>
+            <span className="text-secondary"> We provide practical, science-based strategies designed to improve health, resilience and long-term performance.</span>
           </p>
         </motion.div>
 
@@ -40,8 +44,10 @@ const JourneySection = () => {
               <li className="text-gray-700">• Organizations investing in workforce wellbeing</li>
             </ul>
             
-            <button className="btn-primary px-6 py-3 text-sm group inline-flex items-center">
-              Book a Health Consultation
+            <button 
+              onClick={()=>{navigate('contact#book-now'); scrollTo(0,0)}}
+              className="btn-primary px-6 py-3 text-sm group inline-flex items-center">
+              Book | Corporate Consultation
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>
@@ -67,8 +73,10 @@ const JourneySection = () => {
               <li className="text-gray-700">• Those optimizing energy and performance wellbeing</li>
             </ul>
             
-            <button className="btn-primary px-6 py-3 text-sm group inline-flex items-center">
-              Book a Health Consultation
+            <button 
+              onClick={()=>{navigate('contact#book-now'); scrollTo(0,0)}}
+              className="btn-primary px-6 py-3 text-sm group inline-flex items-center">
+              Book | Health Consultation
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>

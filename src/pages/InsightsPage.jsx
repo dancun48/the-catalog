@@ -12,22 +12,24 @@ import {
   Play,
   Building2
 } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 // Import images (adjust paths as needed)
-import news1 from '../assets/images/events/doc1.jpeg';
-import news2 from '../assets/images/events/doc1.jpeg';
-import news3 from '../assets/images/events/doc1.jpeg';
-import event1 from '../assets/images/events/doc1.jpeg';
-import event2 from '../assets/images/events/doc1.jpeg';
-import event3 from '../assets/images/events/doc1.jpeg';
-import article1 from '../assets/images/articles/doc1.jpeg';
-import article2 from '../assets/images/articles/doc1.jpeg';
-import article3 from '../assets/images/articles/doc1.jpeg';
-import article4 from '../assets/images/articles/doc1.jpeg';
-import resource1 from '../assets/images/resources/doc1.jpeg';
-import resource2 from '../assets/images/resources/doc1.jpeg';
-import resource3 from '../assets/images/resources/doc1.jpeg';
-import resource4 from '../assets/images/resources/doc1.jpeg';
+import news1 from '../assets/images/events/thecatalog.png';
+import news2 from '../assets/images/events/thecatalog.png';
+import news3 from '../assets/images/events/thecatalog.png';
+import event1 from '../assets/images/events/thecatalog.png';
+import event2 from '../assets/images/events/thecatalog.png';
+import event3 from '../assets/images/events/thecatalog.png';
+import article1 from '../assets/images/articles/thecatalog.png';
+import article2 from '../assets/images/articles/thecatalog.png';
+import article3 from '../assets/images/articles/thecatalog.png';
+import article4 from '../assets/images/articles/thecatalog.png';
+import resource1 from '../assets/images/resources/thecatalog.png';
+import resource2 from '../assets/images/resources/thecatalog.png';
+import resource3 from '../assets/images/resources/thecatalog.png';
+import resource4 from '../assets/images/resources/thecatalog.png';
+
 
 const InsightsPage = () => {
   // Temporary random links for demo purposes
@@ -269,6 +271,11 @@ const InsightsPage = () => {
   ];
 
   return (
+      <>
+    <Helmet>
+      <title>The Catalog - Insights</title>
+      <meta name="description" content="Stay updated with the latest news, events, articles, and resources on workforce wellness and performance optimization." />
+    </Helmet>
     <main className="pt-12 md:pt-16">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-gray-50 to-white py-10 md:py-10 overflow-hidden">
@@ -574,6 +581,7 @@ const InsightsPage = () => {
         </div>
       </section>
     </main>
+    </>
   );
 };
 

@@ -21,15 +21,17 @@ import {
   FileText,
   Download,
   CreditCard,
-  Upload
+  Upload,
+  RefreshCw
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
 // images
-import optimizahero from '../assets/images/optimiza/optimiza-hero.jpg';
-import hero_1 from '../assets/images/hero/wh1.png';
-import hero_2 from '../assets/images/hero/wh2.png';
+import hero_1 from '../assets/images/optimiza/optimiza1.png';
+import hero_2 from '../assets/images/optimiza/optimiza2.png';
+import whoisthisfor from '../assets/images/optimiza/witf1.png'
+import whoisthisfor2 from '../assets/images/optimiza/witf2.png'
 
 const OptimizaPage = () => {
 
@@ -37,7 +39,6 @@ const OptimizaPage = () => {
 
   const heroImages = [
     {src: hero_1, alt: "Optimiza Hero 1"},
-    {src: optimizahero, alt: "Medical consultation"},
     {src: hero_2, alt: "Wellness assessment"}
   ]
 
@@ -221,24 +222,30 @@ const OptimizaPage = () => {
             >
               <span className="inline-flex items-center text-sm font-medium text-primary mb-4">
                 <span className="w-8 h-[2px] bg-secondary mr-2"></span>
-                Health Optimiza™
+                <span className='text-secondary mr-1'>Powered by</span>Health Optimiza™
               </span>
               <h1 className="text-4xl max-w-lg font-display font-semibold tracking-tight text-gray-900 leading-[1.1] mb-6">
-                Detect Risk Early.
-                <span className="text-primary"> Optimize Your Health</span> Fully.
+                Not Sure About Your Health? <br/>
+                Get<span className="text-primary"> Clear, Practical</span> Guidance Today.
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-lg">
-                Doctor-led health check-ups, preventive consultations, and lifestyle counselling — coordinated through Tanzania's leading diagnostic partners.
+                Online consultations and lifestyle counselling to help you understand your health, manage concerns early and take the right next steps.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="btn-primary px-8 py-2 text-sm group">
-                  Book Consultation
+                <button 
+                  onClick={()=> {navigate('/contact#book-now'); scrollTo(0,0)}}
+                  className="bg-secondary px-6 py-2 rounded-xl text-sm group text-white hover:bg-secondary/80 duration-300 transition-easeOut">
+                  Book | Consultation
                   <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="btn-outline px-8 py-2 text-sm">
-                  Start Health Check-Up
+                <button 
+                  onClick={()=> {navigate('/contact'); scrollTo(0,0)}}
+                  className="border-2 border-primary rounded-xl px-6 py-2 text-sm group hover:bg-primary/30 duration-300 transition-easeOut">
+                  Start | Counselling
+                  <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
+              
               
               {/* Quick stats */}
               <div className="flex items-center space-x-6 mt-12">
@@ -331,281 +338,471 @@ const OptimizaPage = () => {
 
       {/* Positioning Strip */}
       <section className="py-20 bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Title Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
-                <span className="text-primary text-sm font-medium">Our Philosophy</span>
-              </div>
-              <h2 className="text-4xl font-display font-bold tracking-tight text-gray-900 leading-tight mb-4">
-                We don't run a <span className="text-secondary">hospital</span>.
-              </h2>
-              <p className="text-2xl font-medium text-primary mt-2">
-                We run your health intelligence.
-              </p>
-              <p className="text-gray-600 mt-6 leading-relaxed">
-                We believe in proactive health management over reactive treatment. 
-                Our approach combines medical expertise with data-driven insights to 
-                help you stay ahead of health challenges.
-              </p>
-              
-              {/* Stat or Highlight */}
-              <div className="mt-8 flex items-center gap-6">
-                <div>
-                  <p className="text-xl font-bold text-primary">95%</p>
-                  <p className="text-xs text-gray-500">Client satisfaction</p>
-                </div>
-                <div className="w-px h-10 bg-gray-200"></div>
-                <div>
-                  <p className="text-xl font-semibold text-primary">Premium</p>
-                  <p className="text-xs text-gray-500">Medical support</p>
-                </div>
-                <div className="w-px h-10 bg-gray-200"></div>
-                <div>
-                  <p className="text-xl font-bold text-primary">50+</p>
-                  <p className="text-xs text-gray-500">Clients served</p>
-                </div>
-              </div>
-            </motion.div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-4">
+        <span className="text-sm font-medium text-primary">Personalized Care</span>
+      </div>
+      <h2 className="text-4xl font-display font-bold text-primary">
+        Simple, Personal Health Support
+      </h2>
+      <p className="text-lg text-secondary mt-4 max-w-2xl mx-auto">
+        Expert care tailored to your needs — from the comfort of your home
+      </p>
+    </motion.div>
 
-            {/* Right Side - Feature Grid with Icons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { icon: Stethoscope, title: "Doctor-led assessments", description: "Licensed medical professionals" },
-                { icon: Activity, title: "Partner diagnostic network", description: "Certified lab partners" },
-                { icon: Heart, title: "Personalized prevention plans", description: "Tailored to your needs" },
-                { icon: TrendingUp, title: "Lifestyle medicine focus", description: "Sustainable health habits" }
-              ].map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group bg-gray-50 rounded-2xl p-5 hover:bg-white hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100"
-                  >
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <Icon className="h-6 w-6 text-secondary" />
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-sm text-gray-500">{item.description}</p>
-                  </motion.div>
-                );
-              })}
+    {/* Service Cards */}
+    <div className="space-y-8">
+      {/* Online Medical Consultations */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="bg-gradient-to-r from-primary/5 to-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          {/* Left Column - Main Service */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                <Activity className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-primary">Online Medical Consultations</h3>
             </div>
-          </div>
-        </div>
-      </section>
-      {/* Services Section */}
-      <section className="py-10 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="section-title text-4xl text-primary">Our Services</h2>
-            <p className="section-subtitle mt-4 text-secondary">
-              Comprehensive preventive health solutions tailored to your needs
+            <p className="text-gray-600 leading-relaxed">
+              Speak directly with a doctor about your symptoms, concerns, or ongoing conditions — without visiting a hospital.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 border border-gray-100 card-hover"
-              >
-                <div className={`w-14 h-14 bg-${service.color}/10 rounded-xl flex items-center justify-center mb-6`}>
-                  <service.icon className={`h-7 w-7 text-${service.color}`} />
+          {/* Middle Column - What We Help With */}
+          <div className="lg:col-span-1">
+            <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="w-8 h-[2px] bg-primary"></span>
+              We can help you with:
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                "Understanding symptoms",
+                "Second medical opinions",
+                "Managing ongoing conditions (e.g. BP, diabetes)",
+                "Interpreting lab results",
+                "General health concerns"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-700">{item}</span>
                 </div>
-                <h3 className="text-xl font-display font-semibold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
-                <ul className="space-y-2 mb-6">
-                  {service.includes.map((item) => (
-                    <li key={item} className="flex items-center text-sm text-gray-600">
-                      <CheckCircle2 className={`h-4 w-4 text-${service.color} mr-2 flex-shrink-0`} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <button className="inline-flex items-center text-primary font-medium group text-sm">
-                  {service.cta}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works
-      <section className="py-10 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <h2 className="section-title text-4xl text-primary">How It Works</h2>
-            <p className="section-subtitle mt-4 text-secondary">
-              Your journey to optimal health in five simple steps
-            </p>
-          </motion.div>
-
-          <div className="relative">
-            {/* Connection Line */}
-            {/* <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-14 hidden lg:block" />
-            
-            <div className="grid lg:grid-cols-5 gap-8 relative">
-              {steps.map((step, index) => (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-center relative bg-gray-50 lg:bg-transparent p-6 lg:p-0 rounded-xl"
-                >
-                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-lg font-semibold mx-auto mb-4 relative z-10">
-                    {step.number}
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-600">{step.description}</p>
-                </motion.div>
               ))}
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <button 
-              onClick={()=> {navigate('/contact'); scrollTo(0,0)}}
-              className="btn-primary px-8 py-4 text-base">
-              Begin My Health Journey
+          {/* Right Column - CTA */}
+          <div className="lg:col-span-1 flex justify-start lg:justify-end items-start">
+            <button
+              onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+              className="bg-primary text-white px-6 py-3 rounded-xl font-medium hover:bg-primary/90 transition-all duration-300 flex items-center gap-2 group shadow-md"
+            >
+              Book | Consultation
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>
-      </section> */}
+      </motion.div>
 
-      {/* Diagnostic Partners
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <h3 className="text-3xl font-display font-semibold text-primary mb-3">Diagnostic Partner Ecosystem</h3>
-            <p className="text-secondary max-w-2xl mx-auto">
-              We coordinate your testing through Tanzania's most reputable diagnostic providers — ensuring accuracy and trusted results.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            {partners.map((partner) => (
-              <div key={partner.id} className="h-16 w-32 rounded-2xl flex items-center justify-center">
-                <img src={partner.image} alt={partner.name} className="w-full h-full object-contain" />
+      {/* Lifestyle & Health Counselling */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="bg-gradient-to-r from-secondary/5 to-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          {/* Left Column - Main Service */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
+                <Brain className="h-6 w-6 text-secondary" />
               </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Signature Programs
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="section-title text-4xl text-primary">Signature Programs</h2>
-            <p className="section-subtitle mt-4 text-secondary text-lg font-medium">
-              Specialized health optimization pathways designed for specific needs
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {programs.map((program, index) => (
-              <motion.div
-                key={program.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 border border-gray-100 card-hover"
-              >
-                <program.icon className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-xl font-display font-semibold text-gray-900 mb-2">{program.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{program.description}</p>
-                <button className="text-primary font-medium text-sm group inline-flex items-center">
-                  Explore Program
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Comparison Table */}
-      <section className="py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="section-title text-4xl text-primary">Why Health Optimiza</h2>
-            <p className="section-subtitle mt-4 text-secondary text-lg font-medium">
-              A fundamentally different approach to your health
-            </p>
-          </motion.div>
-
-          <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
-            <div className="grid grid-cols-2 gap-4 p-6 bg-gray-50 border-b border-gray-200">
-              <div className="text-lg font-display font-semibold text-gray-900">Traditional Healthcare</div>
-              <div className="text-lg font-display font-semibold text-primary">Health Optimiza</div>
+              <h3 className="text-2xl font-bold text-secondary">Lifestyle & Health Counselling</h3>
             </div>
-            {comparison.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="grid grid-cols-2 gap-4 p-6 border-b border-gray-100 last:border-0"
-              >
-                <div className="text-gray-600 flex items-center">
-                  <span className="text-gray-400 mr-2">✕</span>
-                  {item.traditional}
-                </div>
-                <div className="text-gray-900 font-medium flex items-center">
-                  <CheckCircle2 className="h-5 w-5 text-secondary mr-2" />
-                  {item.optimiza}
-                </div>
-              </motion.div>
-            ))}
+            <p className="text-gray-600 leading-relaxed">
+              Guided sessions to help you improve your habits, manage stress, eat healthy and build a healthier daily routine.
+            </p>
           </div>
+
+          {/* Middle Column - What We Support */}
+          <div className="lg:col-span-1">
+            <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="w-8 h-[2px] bg-secondary"></span>
+              We support you with:
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                "Diabetes lifestyle Management",
+                "Stress & Burnout Management",
+                "Weight & Eating Habits",
+                "Low Energy and Fatigue",
+                "Lifestyle-related Conditions",
+                "Building Sustainable Routines"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-secondary flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column - CTA */}
+          <div className="lg:col-span-1 flex justify-start lg:justify-end items-start">
+            <button
+              onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+              className="bg-secondary text-white px-6 py-3 rounded-xl font-medium hover:bg-secondary/90 transition-all duration-300 flex items-center gap-2 group shadow-md"
+            >
+              Start | Counselling
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+
+    {/* Trust Badge */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.4 }}
+      className="mt-12 text-center"
+    >
+      <div className="inline-flex items-center gap-2 bg-gray-50 px-6 py-3 rounded-full">
+        <Shield className="h-4 w-4 text-primary" />
+        <span className="text-sm text-gray-600">Secure, confidential, and doctor-led consultations</span>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
+      {/* Services Section */}
+
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* First Row - Who Is This For */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-4">
+                <span className="text-sm font-medium text-primary">Who We Serve</span>
+              </div>
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">
+                Who Is This For?
+              </h3>
+              <p className="text-secondary font-semibold mb-4 text-lg">This is FOR YOU if:</p>
+              <ul className="space-y-3">
+                {[
+                  "You want quick medical advice without hospital visits",
+                  "You need clarity about your health",
+                  "You are managing a long-term condition",
+                  "You want a second opinion",
+                  "You want to improve your lifestyle and daily habits"
+                ].map((item, index) => (
+                  <motion.li 
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start gap-3"
+                  >
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="rounded-2xl w-[350px] overflow-hidden shadow-xs">
+                <img 
+                  src={whoisthisfor} 
+                  alt="Health consultation" 
+                  className="w-auto h-[300px] object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
+            </motion.div>
+          </div>
+
+          {/* Second Row - Why Health Optimiza */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="order-2 lg:order-1"
+            >
+              <div className="relative">
+                <div className="rounded-2xl w-[350px] overflow-hidden shadow-xs">
+                  <img 
+                    src={whoisthisfor2} 
+                    alt="Health optimization" 
+                    className="w-auto h-[300px] object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="order-1 lg:order-2"
+            >
+              <div className="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-full mb-4">
+                <span className="text-sm font-medium text-secondary">Why Choose Us</span>
+              </div>
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-secondary mb-6">
+                Why Health Optimiza
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  "Doctor-led consultations with licensed professionals",
+                  "Personalized health optimization plans",
+                  "Evidence-based preventive care",
+                  "Coordinated diagnostic network",
+                  "Lifestyle medicine approach for sustainable results"
+                ].map((item, index) => (
+                  <motion.li 
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start gap-3"
+                  >
+                    <CheckCircle2 className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center"
+          >
+            <button
+              onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+              className="bg-secondary text-white px-8 py-4 rounded-xl inline-flex items-center gap-2 font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+            >
+              Meet Your Doctor
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
         </div>
       </section>
+      {/* pricing section */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl text-primary font-display font-bold text-gray-900 mb-4">
+            Simple & Transparent Pricing
+          </h2>
+          <p className="text-xl text-secondary max-w-2xl mx-auto">
+            Quality healthcare at fair prices. No hidden fees, no surprises.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left Column - Benefits */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-primary/5 via-white to-secondary/5 rounded-3xl p-8 shadow-xl border border-gray-100"
+          >
+            <div className="mb-8">
+              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-4">
+                <Shield className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Why Choose Us?</h3>
+              <p className="text-gray-600">Experience healthcare reimagined with convenience and expertise.</p>
+            </div>
+
+            <div className="space-y-4 mb-8">
+              {[
+                { icon: Shield, title: "Private & Confidential", desc: "Your health information stays secure" },
+                { icon: Clock, title: "No hospital queues", desc: "Skip the wait, get seen on time" },
+                { icon: Brain, title: "Get clarity in one session", desc: "Clear diagnosis and actionable next steps" },
+                { icon: Heart, title: "Follow-up available", desc: "Continuous care when you need it" }
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div key={index} className="flex items-start gap-3 group p-3 rounded-xl hover:bg-white transition-all">
+                    <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">{item.title}</p>
+                      <p className="text-sm text-gray-500">{item.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <button
+              onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+              className="w-full bg-primary text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group"
+            >
+              Book | Session
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
+
+          {/* Right Column - Pricing Plans */}
+          <div className="space-y-6">
+            {/* General Health */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all">
+              <div className="flex flex-wrap justify-between gap-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                      <Activity className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">Online General Health</h3>
+                  </div>
+                  <p className="text-secondary font-medium mb-4">Duration: 30 minutes</p>
+                  <ul className="space-y-2">
+                    {["General medical consultation", "Symptom discussion", "Lab result(s) overview", "Clear next steps"].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-bold text-primary">Tsh 35,000</p>
+                  <p className="text-xs text-gray-400">VAT Not Inclusive</p>
+                  <button 
+                    onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+                    className="mt-3 text-primary text-sm font-medium hover:gap-2 inline-flex items-center gap-1 transition-all"
+                  >
+                    Book Now
+                    <ArrowRight className="h-3 w-3" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Counselling Session */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-secondary/5 rounded-full blur-2xl" />
+              <div className="flex flex-wrap justify-between gap-4 relative">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center">
+                      <Brain className="h-5 w-5 text-secondary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">Online Counselling Session</h3>
+                  </div>
+                  <p className="text-secondary font-medium mb-4">Duration: 45 minutes</p>
+                  <ul className="space-y-2">
+                    {["Lifestyle and habit support", "Stress & mental wellbeing", "Nutrition and routine guidance", "Diabetic lifestyle support"].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <CheckCircle2 className="h-4 w-4 text-secondary flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-bold text-secondary">Tsh 20,000</p>
+                  <p className="text-xs text-gray-400">VAT Not Inclusive</p>
+                  <button 
+                    onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+                    className="mt-3 text-secondary text-sm font-medium hover:gap-2 inline-flex items-center gap-1 transition-all"
+                  >
+                    Book Now
+                    <ArrowRight className="h-3 w-3" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Follow-up Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { title: "Follow-up Counselling", price: "Tsh 30,000", icon: Heart },
+                { title: "Follow-up Consultation", price: "Tsh 20,000", icon: RefreshCw }
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div key={index} className="bg-gradient-to-br from-primary/5 to-white rounded-2xl p-5 text-center border border-gray-100 hover:shadow-lg transition-all">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h4 className="font-semibold text-primary mb-2">{item.title}</h4>
+                    <p className="text-xl font-bold text-gray-900 mb-1">{item.price}</p>
+                    <p className="text-xs text-gray-400 mb-3">VAT Not Inclusive</p>
+                    <button 
+                      onClick={() => { navigate('/contact#book-now'); window.scrollTo(0, 0); }}
+                      className="text-primary text-sm font-medium hover:gap-2 inline-flex items-center gap-1 transition-all"
+                    >
+                      Book Now
+                      <ArrowRight className="h-3 w-3" />
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Additional Info */}
+            <div className="text-center pt-2">
+              <p className="text-xs text-gray-400">
+                * All prices are in Tanzanian Shillings (Tsh) and exclusive of VAT (18%)
+              </p>
+              <p className="text-xs text-gray-400 mt-1">
+                * Payments are processed securely via AzamPay
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* Final CTA */}
       <section className="py-10 bg-gradient-to-br from-primary to-primary/90">

@@ -60,7 +60,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-4">
           {/* Brand Column */}
           <div className="col-span-1">
-            <img src="/logofooter.png" alt="The Catalog Logo" className="size-28 bg-white rounded-xl" />
+            <img src="/logofooter.png" alt="The Catalog Logo" className="size-28" />
           </div>
 
           <div className="col-span-1 md:col-span-1">
@@ -78,7 +78,7 @@ const Footer = () => {
           {/* Footer Sections */}
           {footerSections.map((section) => (
             <div key={section.title} className="col-span-1">
-              <h3 className="font-display font-semibold text-secondary mb-4 text-sm uppercase tracking-wider">
+              <h3 className="font-display font-bold text-secondary mb-4 text-sm uppercase tracking-wider">
                 {section.title}
               </h3>
               <ul className="space-y-3">

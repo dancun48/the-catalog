@@ -21,7 +21,7 @@ const CoreServices = () => {
           <span className="text-4xl font-bold text-primary tracking-tight mb-2 block">
             How We Support Health & Performance
           </span>
-          <p className="text-lg text-secondary font-medium">
+          <p className="text-lg text-secondary max-w-3xl mx-auto">
             3 Core Service Areas Designed for impact at all levels of the community pyramid
           </p>
         </motion.div>

@@ -31,7 +31,7 @@ const PositioningStrip = () => {
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-primary mb-3">
             A Smarter Approach to Health & Performance
           </h2>
-          <p className="text-lg text-secondary font-medium max-w-3xl mx-auto">
+          <p className="text-lg text-secondary max-w-3xl mx-auto">
             East Africa performance & health intelligence platform translating science and knowledge into actionable frameworks and systems.
           </p>
         </motion.div>

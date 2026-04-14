@@ -16,7 +16,7 @@ const BusinessCase = () => {
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-primary mb-4">
             The Business Case for Workforce Health
           </h2>
-          <p className="text-lg font-medium text-secondary max-w-5xl mx-auto">
+          <p className="text-lg text-secondary max-w-3xl mx-auto">
             Forward-thinking organizations recognize that employee health, energy and emotional resilience directly influence productivity, engagement and long-term performance.
           </p>
         </motion.div>

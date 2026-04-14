@@ -24,11 +24,14 @@ import {
   ExternalLink,
   HelpCircle,
   FileText,
-  DollarSign
+  DollarSign,
+  Loader2
 } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 const ContactPage = () => {
   const [activeBookingType, setActiveBookingType] = useState('corporate');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     // Common fields
     firstName: '',
@@ -55,6 +58,9 @@ const ContactPage = () => {
     message: ''
   });
 
+  // Web3Forms configuration
+ const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
@@ -63,20 +69,138 @@ const ContactPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  // Get the appropriate subject based on booking type
+  const getFormSubject = () => {
+    switch(activeBookingType) {
+      case 'corporate':
+        const selectedOption = corporateOptions.find(o => o.id === formData.bookingType);
+        return `Corporate Booking: ${selectedOption?.title || 'Corporate Inquiry'}`;
+      case 'online':
+        const selectedConsultation = onlineOptions.find(o => o.id === formData.consultationType);
+        return `Online Consultation: ${selectedConsultation?.title || 'Health Consultation'}`;
+      case 'clinic':
+        return 'Clinic Consultation Booking';
+      default:
+        return 'General Inquiry';
+    }
+  };
+
+  // Prepare form data for Web3Forms
+  const prepareFormData = () => {
+    const formPayload = new FormData();
+    
+    // Required Web3Forms fields
+    formPayload.append('access_key', WEB3FORMS_ACCESS_KEY);
+    formPayload.append('subject', getFormSubject());
+        
+    // Add all form data
+    formPayload.append('first_name', formData.firstName);
+    formPayload.append('last_name', formData.lastName);
+    formPayload.append('name', `${formData.firstName} ${formData.lastName}`);
+    formPayload.append('email', formData.email);
+    formPayload.append('phone', formData.phone);
+    formPayload.append('company', formData.company || 'N/A');
+    formPayload.append('preferred_date', formData.date);
+    formPayload.append('preferred_time', formData.time);
+    formPayload.append('message', formData.message);
+    formPayload.append('booking_type', activeBookingType);
+    
+    // Add booking-specific fields
+    if (activeBookingType === 'corporate') {
+      formPayload.append('service_type', formData.bookingType);
+      const selectedOption = corporateOptions.find(o => o.id === formData.bookingType);
+      formPayload.append('service_title', selectedOption?.title || 'N/A');
+    } else if (activeBookingType === 'online') {
+      formPayload.append('consultation_type', formData.consultationType);
+    } else if (activeBookingType === 'clinic') {
+      formPayload.append('insurance_provider', formData.insurance || 'None');
+    }
+    
+    // Add consent
+    formPayload.append('consent', formData.consent ? 'Yes' : 'No');
+    
+    // Add timestamp
+    formPayload.append('submitted_at', new Date().toISOString());
+    
+    return formPayload;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    setFormStatus({ 
-      submitted: true, 
-      success: true, 
-      message: 'Booking request sent successfully! We\'ll contact you within 24 hours.' 
-    });
+    
+    // Validate consent
+    if (!formData.consent) {
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: 'Please agree to the Privacy Policy, Terms & Conditions, and Refund Policy to proceed.'
+      });
+      setTimeout(() => {
+        setFormStatus({ submitted: false, success: false, message: '' });
+      }, 5000);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const formPayload = prepareFormData();
+      
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formPayload
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setFormStatus({
+          submitted: true,
+          success: true,
+          message: 'Booking request sent successfully! We\'ll contact you within 24 hours.'
+        });
+        
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          date: '',
+          time: '',
+          message: '',
+          consent: false,
+          bookingType: 'executive-briefing',
+          consultationType: 'general',
+          partnershipDuration: '3',
+          requestQuotation: false,
+          insurance: ''
+        });
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: 'Something went wrong. Please try again or contact us directly via phone/WhatsApp.'
+      });
+    } finally {
+      setIsSubmitting(false);
+      // Clear status message after 5 seconds
+      setTimeout(() => {
+        setFormStatus({ submitted: false, success: false, message: '' });
+      }, 5000);
+    }
+  };
+
     
     // Reset form after 5 seconds
     setTimeout(() => {
       setFormStatus({ submitted: false, success: false, message: '' });
     }, 5000);
-  };
 
   const bookingTypes = [
     { 
@@ -131,14 +255,14 @@ const ContactPage = () => {
     {
       id: 'general-health',
       title: 'General Health Consultation',
-      description: 'Comprehensive health consultation with our medical team',
-      platform: 'Google Meet | WhatsApp Call'
+      description: 'Comprehensive health consultation for general wellness and preventive care',
+      platform: 'Tsh 35,000'
     },
     {
       id: 'counselling',
       title: 'Counselling Session',
       description: 'Professional counselling for mental wellness and emotional resilience',
-      platform: 'Google Meet | WhatsApp Call'
+      platform: 'Tsh 20,000'
     }
   ];
 
@@ -165,6 +289,10 @@ const ContactPage = () => {
       <Link to="/cookies" className="text-secondary font-medium text-xs hover:text-primary transition-colors">
         Cookies Policy
       </Link>
+      <span className="text-gray-300">|</span>
+      <Link to="/how-it-works#disclaimer" className="text-secondary font-medium text-xs hover:text-primary transition-colors">
+        Medical Disclaimer
+      </Link>
     </div>
   );
 
@@ -180,6 +308,11 @@ const ContactPage = () => {
   );
 
   return (
+    <>
+    <Helmet>
+      <title>The Catalog - Contact Us</title>
+      <meta name="description" content="Get in touch with our team to optimize your workforce health." />
+    </Helmet>
     <main className="pt-16">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-gray-50 to-white py-10">
@@ -331,14 +464,24 @@ const ContactPage = () => {
             className="bg-white rounded-3xl shadow-xl overflow-hidden"
           >
             <div className="p-6 md:p-8">
-              {formStatus.submitted && formStatus.success && (
+              {formStatus.submitted && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3"
+                  className={`mb-6 p-4 rounded-xl flex items-center gap-3 ${
+                    formStatus.success 
+                      ? 'bg-green-50 border border-green-200' 
+                      : 'bg-red-50 border border-red-200'
+                  }`}
                 >
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <p className="text-sm text-green-700">{formStatus.message}</p>
+                  <CheckCircle className={`h-5 w-5 flex-shrink-0 ${
+                    formStatus.success ? 'text-green-500' : 'text-red-500'
+                  }`} />
+                  <p className={`text-sm ${
+                    formStatus.success ? 'text-green-700' : 'text-red-700'
+                  }`}>
+                    {formStatus.message}
+                  </p>
                 </motion.div>
               )}
 
@@ -514,8 +657,19 @@ const ContactPage = () => {
                       </label>
                     </div>
 
-                    <button type="submit" className="w-full btn-primary py-4 text-base">
-                      {corporateOptions.find(o => o.id === formData.bookingType)?.cta || 'Submit Booking'}
+                    <button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full btn-primary py-4 text-base disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="h-5 w-5 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        corporateOptions.find(o => o.id === formData.bookingType)?.cta || 'Submit Booking'
+                      )}
                     </button>
                   </>
                 )}
@@ -555,8 +709,8 @@ const ContactPage = () => {
                               />
                               <div className="flex-1">
                                 <p className="font-medium text-gray-900">{option.title}</p>
-                                <p className="text-sm text-gray-600 mt-1">{option.description}</p>
-                                <p className="text-xs text-gray-500 mt-2">Platform: {option.platform}</p>
+                                <p className="text-sm text-primary mt-1">{option.description}</p>
+                                <p className="text-xs text-secondary mt-2">Price: {option.platform}</p>
                               </div>
                             </div>
                           </label>
@@ -665,9 +819,20 @@ const ContactPage = () => {
                       </label>
                     </div>
 
-                    <button type="submit" className="w-full btn-primary py-4 text-base">
-                      Book Online Consultation
-                    </button>
+                    <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full btn-primary py-4 text-base disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    onlineOptions.find(o => o.id === formData.bookingType)?.cta || 'Submit Booking'
+                  )}
+                </button>
                   </>
                 )}
 
@@ -878,17 +1043,17 @@ const ContactPage = () => {
               </div>
               <div className="h-80 bg-gray-100 relative">
                 {/* Replace this with actual Google Maps embed */}
-                <iframe
-                  title="DSB Polyclinic Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.969806252029!2d39.276215!3d-6.818819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDknMDcuNyIgMzknMTYnMzkuMg!5e0!3m2!1sen!2stz!4v1710000000000!5m2!1sen!2stz"
+                <iframe 
+                  title='DSB Polyclinic Location'
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.7032334306405!2d39.27735119999999!3d-6.8059091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b9e6536c03d%3A0xffe584e8bd769d4a!2sDSB%20Polyclinic!5e0!3m2!1sen!2ske!4v1775096742324!5m2!1sen!2ske"
                   width="100%"
                   height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
+                  style={{ border:0}}
+                  allowfullscreen=""
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0"
-                />
+                  referrerpolicy="no-referrer-when-downgrade"
+                  className='absolute inset-0'
+                  />
               </div>
               <div className="p-4 bg-gray-50">
                 <div className="flex items-center justify-between">
@@ -897,7 +1062,7 @@ const ContactPage = () => {
                     <p className="text-xs text-gray-500">Opposite Tambaza Mosque</p>
                   </div>
                   <a
-                    href="https://maps.google.com/?q=DSB+Polyclinic+Dar+es+Salaam"
+                    href="https://maps.app.goo.gl/1wdCqHqvun3if8wd9"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary text-sm hover:underline flex items-center gap-1"
@@ -1038,7 +1203,7 @@ const ContactPage = () => {
   </div>
 </section>
 </main>
+</>
   );
 };
-
 export default ContactPage;

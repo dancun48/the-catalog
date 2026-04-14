@@ -20,7 +20,12 @@ import {
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
-import doc1 from '../assets/images/doc1.jpeg';
+import erick from '../assets/images/team/erick.png';
+import mebu from '../assets/images/team/mebu.png';
+import aseri from '../assets/images/team/aseri.png';
+import irene from '../assets/images/team/irene.png';
+import dancun from '../assets/images/team/dancun.jpeg';
+import doc1 from '../assets/images/team/doc1.jpeg'
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -44,7 +49,7 @@ const teamMembers = [
     name: "Dr. Erick George Otieno",
     role: "Founder & Chief Medical Officer",
     bio: "General Physician with over 6+ years of clinical expertise, dedicated to leading The Catalog with a focus on workplace wellness, healthier nutrition and lifestyle medicine. He is passionate about inspiring healthier communities through practical, innovative health solutions.",
-    photo: doc1,
+    photo: erick,
     linkedin: "https://linkedin.com/in/erick-otieno",
     email: "erick.otieno@thecatalog.health"
   },
@@ -52,7 +57,7 @@ const teamMembers = [
     name: "Dr. Hussein Mebu",
     role: "Director of Clinical Programs",
     bio: "General Physician adding 8 years of clinical and administrative experience to the team, he strongly focuses on mental health advocacy and wellness. Dedicated to promoting well-being, resilience, and healthier lifestyles through leadership and everyday inspiration.",
-    photo: doc1,
+    photo: mebu,
     linkedin: "https://linkedin.com/in/hussein-mebu",
     email: "hussein.mebu@thecatalog.health"
   },
@@ -60,7 +65,7 @@ const teamMembers = [
     name: "Dr. Aseri Msagati",
     role: "Director of Corporate Wellness Programs",
     bio: "General Physician with over 7 years of clinical experience with focus in mental health and counseling. Committed to supporting workplace wellness and guiding individuals and teams toward balance and emotional well-being.",
-    photo: doc1,
+    photo: aseri,
     linkedin: "https://linkedin.com/in/aseri-msagati",
     email: "aseri.msagati@thecatalog.health"
   },
@@ -68,7 +73,7 @@ const teamMembers = [
     name: "Dancun Otieno",
     role: "Founder & CEO — Ozyntria Tech",
     bio: "With more than 6+ years of IT experience, he brings technical expertise and creativity to The Catalog. Passionate about leveraging technology to make wellness solutions more accessible and impactful.",
-    photo: doc1,
+    photo: dancun,
     linkedin: "https://linkedin.com/in/dancun-otieno",
     email: "ozyntriatec@gmail.com"
   },
@@ -76,7 +81,7 @@ const teamMembers = [
     name: "Irene Sangandele",
     role: "Public Relations Specialist",
     bio: "With 5+ years of experience in communications and public relations, she is passionate about using her expertise to create a positive impact, strengthen community engagement, and help The Catalog connect with people in ways that inspire healthier lives.",
-    photo: doc1,
+    photo: irene,
     linkedin: "https://linkedin.com/in/irene-sangandele",
     email: "irene@thecatalog.health"
   },

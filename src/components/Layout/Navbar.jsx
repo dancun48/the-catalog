@@ -95,7 +95,7 @@ const Navbar = () => {
         scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200/50' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
+          <div className="flex justify-between items-center h-12 md:h-16">
             {/* Logo */}
             <a 
               href="/" 
@@ -109,7 +109,7 @@ const Navbar = () => {
               <img 
                 src="/thecatalog.png"
                 alt="The Catalog Logo" 
-                className="h-12 w-auto md:h-16 object-contain" 
+                className="h-14 w-auto md:h-28 object-contain" 
               />
             </a>
 
