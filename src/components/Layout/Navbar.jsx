@@ -76,16 +76,16 @@ const Navbar = () => {
     { name: 'Wellness Hive', path: '/wellness-hive' },
     { name: 'Health Optimiza', path: '/health-optimiza' },
     { name: 'Podcast', path: '/podcast' },
-    { 
-      name: 'Insights', 
-      dropdown: true,
-      items: [
-        { name: 'News', path: '/insights?category=news' },
-        { name: 'Events', path: '/insights?category=events' },
-        { name: 'Articles', path: '/insights?category=articles' },
-        { name: 'Resources', path: '/insights?category=resources' },
-      ]
-    },
+    // { 
+    //   name: 'Insights', 
+    //   dropdown: true,
+    //   items: [
+    //     { name: 'News', path: '/insights?category=news' },
+    //     { name: 'Events', path: '/insights?category=events' },
+    //     { name: 'Articles', path: '/insights?category=articles' },
+    //     { name: 'Resources', path: '/insights?category=resources' },
+    //   ]
+    // },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -174,6 +174,15 @@ const Navbar = () => {
               
               
             </div>
+            <button
+                className="btn-secondary ml-2 lg:ml-4 text-sm whitespace-nowrap px-6 py-2.5"
+                onClick={() => { 
+                  navigate('/fci'); 
+                  scrollTo(0, 0); 
+                }}
+              >
+                Buy F.C.I.
+              </button>
             <button 
                 className="btn-primary ml-2 lg:ml-4 text-sm whitespace-nowrap px-6 py-2.5"
                 onClick={() => { 

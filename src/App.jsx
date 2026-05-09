@@ -19,12 +19,15 @@ import PodcastPage from './pages/PodcastPage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
+import FCIPage from './pages/FCIPage';
+import FCIPaymentSuccess from './pages/FCIPaymentSuccess';
 
 const InsightsPageLazy = lazy(() => import('./pages/InsightsPage'));
 const PodcastPageLazy = lazy(() => import('./pages/PodcastPage'));
 const HowItWorksPageLazy = lazy(() => import('./pages/HowItWorksPage'));
 const TermsAndConditionsPageLazy = lazy(() => import('./pages/TermsAndConditionsPage'));
 const RefundPolicyPageLazy = lazy(() => import('./pages/RefundPolicyPage'));
+const FCIPaymentFailed = lazy(() => import('./pages/FCIPaymentFailed'));
 
 function App() {
   return (
@@ -42,6 +45,9 @@ function App() {
             <Route path="/podcast" element={<PodcastPageLazy />} />
             <Route path="/insights" element={<InsightsPageLazy />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/fci" element={<FCIPage />} />
+            <Route path="/fci/payment-success" element={<FCIPaymentSuccess />} />
+            <Route path="/fci/payment-failed" element={<FCIPaymentFailed />} />
             <Route path="/faqs" element={<FAQsPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/cookies" element={<CookiesPolicyPage />} />
