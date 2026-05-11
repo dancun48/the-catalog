@@ -22,7 +22,7 @@ import {
   Sparkles,
   AlertCircle
 } from 'lucide-react';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // Placeholder images - replace with actual images
 import bookCover from '../assets/images/fci/fci-cover.png';
@@ -48,9 +48,13 @@ const FCIPage = () => {
     currency: 'TZS'
   };
 
+  // Calculate total - MOVED BEFORE functions that use it
+  const totalAmount = product.price * quantity;
+  const totalOriginal = product.originalPrice * quantity;
+  const totalSavings = totalOriginal - totalAmount;
+
   // AzamPay configuration - REPLACE WITH YOUR ACTUAL CREDENTIALS
   const AZAMPAY_CONFIG = {
-    // Sandbox/Test credentials (use these for testing)
     sandbox: {
       merchantAccountNumber: 'YOUR_SANDBOX_MERCHANT_ACCOUNT',
       merchantId: 'YOUR_SANDBOX_MERCHANT_ID',
@@ -60,7 +64,6 @@ const FCIPage = () => {
       returnUrl: `${window.location.origin}/fci/payment-success`,
       failUrl: `${window.location.origin}/fci/payment-failed`
     },
-    // Production credentials - REPLACE WITH YOUR ACTUAL PRODUCTION CREDENTIALS
     production: {
       merchantAccountNumber: 'YOUR_PRODUCTION_MERCHANT_ACCOUNT',
       merchantId: 'YOUR_PRODUCTION_MERCHANT_ID',
@@ -101,87 +104,86 @@ const FCIPage = () => {
   ];
 
   // Handle AzamPay payment
- const initiatePayment = async () => {
-  // Validation
-  if (!name || !email || !phone) {
-    setPaymentError('Please fill in your name, email, and phone number');
-    return;
-  }
-
-  if (!agreed) {
-    setPaymentError('Please agree to the terms and conditions');
-    return;
-  }
-
-  // Validate email format
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    setPaymentError('Please enter a valid email address');
-    return;
-  }
-
-  // Validate phone (basic)
-  if (phone.length < 10) {
-    setPaymentError('Please enter a valid phone number');
-    return;
-  }
-
-  setPaymentError('');
-  setIsProcessing(true);
-
-  try {
-    console.log('Sending payment request to backend...');
-    
-    const response = await fetch('http://localhost:5000/api/payments/create-order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        amount: totalAmount,
-        currency: 'TZS',
-        customerName: name,
-        customerEmail: email,
-        customerPhone: phone,
-        productName: product.name,
-        quantity: quantity,
-        paymentMethod: selectedProvider,
-        provider: selectedProvider === 'mobile' ? 'M-Pesa' : undefined,
-        returnUrl: `${window.location.origin}/fci/payment-success`,
-        failUrl: `${window.location.origin}/fci/payment-failed`
-      })
-    });
-
-    console.log('Response status:', response.status);
-    
-    // Check if response is ok
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Error response:', errorText);
-      throw new Error(`Server responded with status ${response.status}`);
+  const initiatePayment = async () => {
+    // Validation
+    if (!name || !email || !phone) {
+      setPaymentError('Please fill in your name, email, and phone number');
+      return;
     }
-    
-    const result = await response.json();
-    console.log('Payment response:', result);
 
-    if (result.success && result.paymentUrl) {
-      // Redirect to AzamPay payment page
-      window.location.href = result.paymentUrl;
-    } else {
-      throw new Error(result.message || 'Payment initialization failed');
+    if (!agreed) {
+      setPaymentError('Please agree to the terms and conditions');
+      return;
     }
-  } catch (error) {
-    console.error('Payment error details:', error);
-    setPaymentError(error.message || 'Payment failed. Please try again or contact support.');
-    setIsProcessing(false);
-  }
-};
 
-  // Calculate total
-  const totalAmount = product.price * quantity;
-  const totalOriginal = product.originalPrice * quantity;
-  const totalSavings = totalOriginal - totalAmount;
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setPaymentError('Please enter a valid email address');
+      return;
+    }
+
+    // Validate phone (basic)
+    if (phone.length < 10) {
+      setPaymentError('Please enter a valid phone number');
+      return;
+    }
+
+    setPaymentError('');
+    setIsProcessing(true);
+
+    try {
+      console.log('Sending payment request to backend...');
+      console.log('Total amount:', totalAmount);
+      
+      const response = await fetch('http://localhost:5000/api/payments/create-order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: totalAmount,
+          currency: 'TZS',
+          customerName: name,
+          customerEmail: email,
+          customerPhone: phone,
+          productName: product.name,
+          quantity: quantity,
+          paymentMethod: selectedProvider,
+          provider: selectedProvider === 'mobile' ? 'M-Pesa' : undefined,
+          returnUrl: `${window.location.origin}/fci/payment-success`,
+          failUrl: `${window.location.origin}/fci/payment-failed`
+        })
+      });
+
+      console.log('Response status:', response.status);
+      
+      // Check if response is ok
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`Server responded with status ${response.status}`);
+      }
+      
+      const result = await response.json();
+      console.log('Payment response:', result);
+
+      if (result.success && result.paymentUrl) {
+        // Store orderId in sessionStorage for later verification
+        sessionStorage.setItem('fci_order_id', result.orderId);
+        sessionStorage.setItem('fci_customer_email', email);
+        // Redirect to AzamPay payment page
+        window.location.href = result.paymentUrl;
+      } else {
+        throw new Error(result.message || 'Payment initialization failed');
+      }
+    } catch (error) {
+      console.error('Payment error details:', error);
+      setPaymentError(error.message || 'Payment failed. Please try again or contact support.');
+      setIsProcessing(false);
+    }
+  };
 
   return (
     <>

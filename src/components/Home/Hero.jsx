@@ -120,14 +120,14 @@ const Hero = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/3 rounded-full blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-10 relative w-full z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative w-full z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Enhanced Content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1"
+              className="order-2 lg:order-1 items-center"
             >
               <div className='flex flex-row items-center text-[0.7rem] font-medium mb-6'>
                 <span className="w-8 h-[2px] bg-secondary mr-2"/>
@@ -139,10 +139,10 @@ const Hero = () => {
                 </span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight leading-tight mb-6">
+              <h1 className="text-4xl font-display font-bold tracking-tight leading-tight mb-6">
                 Build{" "}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Healthier, Emotionally Intelligent
+                  Healthier, <br/>Emotionally Intelligent
                 </span>
                 <br />
                 <span className="text-gray-900"> & High-Performing Workforce</span>
@@ -208,10 +208,10 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative order-1 lg:order-2"
+              className="relative order-1 lg:order-2 h-[500px] md:h-[550px] lg:h-[600px]"
               ref={ref}
             >
-              <div className="relative h-[500px] md:h-[550px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative h-[400px] md:h-[450px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 {/* Navigation Arrows */}
                 <button
                   onClick={prevSlide}
