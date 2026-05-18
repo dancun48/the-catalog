@@ -127,7 +127,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1 items-center"
+              className="order-2 lg:order-1"
             >
               <div className='flex flex-row items-center text-[0.7rem] font-medium mb-6'>
                 <span className="w-8 h-[2px] bg-secondary mr-2"/>

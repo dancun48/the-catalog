@@ -200,7 +200,7 @@ const FCIPage = () => {
             <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl" />
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-10 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Column - Product Info */}
               <motion.div
@@ -214,8 +214,8 @@ const FCIPage = () => {
                   <span className="text-xs text-primary">Ends 15 June, 2026</span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-gray-900 leading-tight mb-4">
-                  The Female Cycle Intelligence Framework™
+                <h1 className="text-4xl font-display font-bold tracking-tight text-gray-900 leading-tight mb-4">
+                  The <span className="text-secondary">Female Cycle Intelligence <span className="text-primary">Framework™</span></span>
                 </h1>
                 
                 <p className="text-lg text-gray-600 mb-4">
@@ -252,14 +252,14 @@ const FCIPage = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative"
+                className="relative h-autoflex items-center justify-center"
               >
                 <div className="relative z-10">
                   <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-4 shadow-2xl">
                     <img 
                       src={bookCover} 
                       alt="The Female Cycle Intelligence Framework Book Cover"
-                      className="w-full max-w-md mx-auto rounded-2xl shadow-lg"
+                      className="w-full max-w-md mx-auto rounded-2xl shadow-lg h-[400px] object-contain"
                     />
                   </div>
                 </div>
@@ -282,10 +282,10 @@ const FCIPage = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
                 Inside the Framework
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-secondary max-w-2xl mx-auto">
                 Learn how cycle phases influence your daily performance and practical tools to optimize your work and life
               </p>
             </div>
@@ -318,10 +318,10 @@ const FCIPage = () => {
         <section className="py-16 bg-gray-50" id="purchase">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-2">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">
                 Get Your Copy Today
               </h2>
-              <p className="text-gray-600">Instant PDF download after payment</p>
+              <p className="text-secondary">Instant PDF download after payment</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -515,7 +515,7 @@ const FCIPage = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
                   For Organizations & Teams
                 </h2>
                 <p className="text-gray-600 mb-6">
@@ -576,10 +576,10 @@ const FCIPage = () => {
         <section className="py-16 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-2">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">
                 Frequently Asked Questions
               </h2>
-              <p className="text-gray-600">Everything you need to know about the framework</p>
+              <p className="text-secondary">Everything you need to know about the framework</p>
             </div>
 
             <div className="space-y-4">
